@@ -1,0 +1,31 @@
+# --- 비밀/환경 (절대 커밋 금지) ---
+.env
+*/.env
+**/.env
+!.env.example
+!**/.env.example
+
+# --- Python ---
+.venv/
+*/.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# --- Node / 프론트엔드 ---
+node_modules/
+*/node_modules/
+dist/
+.vite/
+
+# --- OS / 에디터 ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# --- 렌더/대용량 산출물 (필요시 조정) ---
+*.task
+catalog.json
+thumbs/

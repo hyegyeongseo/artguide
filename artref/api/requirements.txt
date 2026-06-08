@@ -1,0 +1,17 @@
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+pymysql
+sqlalchemy
+boto3
+qdrant-client
+open_clip_torch
+torch
+pillow
+pillow-heif
+pyarrow
+mediapipe
+pyyaml
+numpy
+requests

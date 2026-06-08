@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>포즈 레퍼런스 · 둘러보기</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4f1ea; --paper-2:#ece7db; --ink:#211d18; --ink-soft:#6b6357;
+    --line:#d8d0c0; --accent:#d9622b; --accent-soft:#f0d9cb; --card:#fbf9f4;
+    --shadow:0 1px 2px rgba(33,29,24,.06),0 8px 24px rgba(33,29,24,.07);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Spectral",Georgia,serif;line-height:1.5;
+    background-image:radial-gradient(circle at 1px 1px,rgba(33,29,24,.035) 1px,transparent 0);
+    background-size:22px 22px;}
+  header{padding:34px 28px 22px;border-bottom:1px solid var(--line);position:relative}
+  header h1{font-family:"Fraunces",serif;font-weight:900;font-size:clamp(28px,4vw,44px);
+    margin:0;letter-spacing:-.02em}
+  header p{margin:6px 0 0;color:var(--ink-soft);font-size:15px;max-width:60ch}
+  .count{font-family:"Fraunces",serif;font-weight:600;color:var(--accent)}
+  .wrap{padding:22px 28px 60px;max-width:1180px;margin:0 auto}
+  .filters{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;margin:8px 0 26px}
+  .filters .grp{display:flex;flex-direction:column;gap:4px}
+  .filters label{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+  select,input[type=search]{font-family:inherit;font-size:15px;padding:8px 12px;
+    border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;min-width:140px}
+  input[type=search]{min-width:220px}
+  select:focus,input:focus{outline:2px solid var(--accent-soft);border-color:var(--accent)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(176px,1fr));gap:18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;
+    cursor:pointer;box-shadow:var(--shadow);transition:transform .15s ease,box-shadow .15s ease}
+  .card:hover{transform:translateY(-3px);box-shadow:0 4px 8px rgba(33,29,24,.08),0 16px 36px rgba(33,29,24,.12)}
+  .card .thumb{aspect-ratio:1;background:var(--paper-2);display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .card .thumb img{width:100%;height:100%;object-fit:cover}
+  .card .meta{padding:9px 11px}
+  .card .clip{font-family:"Fraunces",serif;font-weight:600;font-size:15px;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .card .sub{font-size:12px;color:var(--ink-soft);margin-top:2px}
+  .pill{display:inline-block;font-size:11px;padding:1px 8px;border-radius:999px;
+    background:var(--accent-soft);color:var(--accent);margin-right:4px}
+  .empty{color:var(--ink-soft);padding:40px 0;text-align:center;font-style:italic}
+  /* modal */
+  .modal{position:fixed;inset:0;background:rgba(33,29,24,.55);backdrop-filter:blur(3px);
+    display:none;align-items:center;justify-content:center;padding:24px;z-index:50}
+  .modal.on{display:flex}
+  .sheet{background:var(--paper);border-radius:16px;max-width:960px;width:100%;max-height:90vh;
+    overflow:auto;box-shadow:0 24px 64px rgba(0,0,0,.3);border:1px solid var(--line)}
+  .sheet .top{display:flex;justify-content:space-between;align-items:flex-start;
+    padding:22px 26px 12px;position:sticky;top:0;background:var(--paper);border-bottom:1px solid var(--line)}
+  .sheet h2{font-family:"Fraunces",serif;font-weight:900;margin:0;font-size:24px}
+  .sheet .top .x{border:none;background:none;font-size:26px;cursor:pointer;color:var(--ink-soft);line-height:1}
+  .hero{padding:18px 26px}
+  .hero img{width:100%;max-height:52vh;object-fit:contain;background:var(--paper-2);border-radius:10px}
+  .ang{padding:6px 26px 26px}
+  .ang h3{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);
+    margin:18px 0 8px;border-bottom:1px solid var(--line);padding-bottom:4px}
+  .strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px}
+  .strip button{border:1px solid var(--line);background:var(--card);border-radius:8px;
+    padding:0;overflow:hidden;cursor:pointer;aspect-ratio:1}
+  .strip button.sel{border-color:var(--accent);outline:2px solid var(--accent-soft)}
+  .strip button img{width:100%;height:100%;object-fit:cover;display:block}
+  .strip .lbl{font-size:10px;color:var(--ink-soft);text-align:center;padding:2px 0}
+  .err{color:#a33;padding:30px;font-family:"Fraunces",serif}
+  code{background:var(--paper-2);padding:1px 6px;border-radius:5px;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+  <h1>포즈 레퍼런스</h1>
+  <p><span class="count" id="count">…</span> · 한 포즈를 여러 각도로 둘러보세요. 합성 인체(CC0 베이스) · 실제 인물 아님.</p>
+</header>
+<div class="wrap">
+  <div class="filters" id="filters"></div>
+  <div class="grid" id="grid"><div class="empty">불러오는 중…</div></div>
+</div>
+
+<div class="modal" id="modal">
+  <div class="sheet" id="sheet"></div>
+</div>
+
+<script>
+// ===== 설정: catalog.json 위치와 이미지 CDN 접두사 =====
+const CONFIG = {
+  CATALOG_URL: "catalog.json",   // catalog.json 경로(같은 폴더면 그대로)
+  CDN_BASE: "",                  // 이미지 경로 접두사. CDN이면 "https://cdn.example.com/poses/"
+};
+const url = (p) => (CONFIG.CDN_BASE ? CONFIG.CDN_BASE.replace(/\/$/, "") + "/" : "") + p;
+
+let DATA = null;
+const state = { category: "", body_type: "", gender: "", region: "", q: "" };
+
+const REGION_LABEL = { full: "전신", hand: "손", foot: "발", head: "머리" };
+
+async function load() {
+  try {
+    const res = await fetch(CONFIG.CATALOG_URL, { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    DATA = await res.json();
+  } catch (e) {
+    document.getElementById("grid").innerHTML =
+      `<div class="err">catalog.json을 불러오지 못했습니다 (${e.message}).<br>
+       이 파일과 같은 위치에 <code>catalog.json</code>이 있는지, CDN이면 위 <code>CONFIG.CDN_BASE</code>를
+       설정했는지 확인하세요. (build_catalog.py로 생성)</div>`;
+    return;
+  }
+  document.getElementById("count").textContent = (DATA.count ?? DATA.poses.length) + " poses";
+  buildFilters();
+  render();
+}
+
+function buildFilters() {
+  const f = DATA.facets || {};
+  const sel = (key, label, opts) => {
+    const o = ['<option value="">전체</option>']
+      .concat((opts || []).map(v => `<option value="${v}">${v}</option>`)).join("");
+    return `<div class="grp"><label>${label}</label>
+      <select data-k="${key}">${o}</select></div>`;
+  };
+  document.getElementById("filters").innerHTML =
+    sel("category", "카테고리", f.category) +
+    sel("body_type", "체형", f.body_type) +
+    sel("gender", "성별", f.gender) +
+    sel("region", "부위", f.region) +
+    `<div class="grp"><label>태그 검색</label>
+       <input type="search" id="q" placeholder="run, sit, hand…"></div>`;
+  document.querySelectorAll("#filters select").forEach(s =>
+    s.addEventListener("change", e => { state[e.target.dataset.k] = e.target.value; render(); }));
+  document.getElementById("q").addEventListener("input", e => {
+    state.q = e.target.value.trim().toLowerCase(); render();
+  });
+}
+
+function matches(p) {
+  if (state.category && p.category !== state.category) return false;
+  if (state.body_type && p.body_type !== state.body_type) return false;
+  if (state.gender && p.gender !== state.gender) return false;
+  if (state.region && !(p.views || []).some(v => v.region === state.region)) return false;
+  if (state.q) {
+    const hay = [(p.tags || []).join(" "), p.clip, p.category, p.body_type, p.gender]
+      .join(" ").toLowerCase();
+    if (!hay.includes(state.q)) return false;
+  }
+  return true;
+}
+
+function repThumb(p) {
+  const views = p.views || [];
+  const full = views.find(v => v.region === "full") || views[0];
+  return full ? url(full.thumb || full.image) : "";
+}
+
+function render() {
+  const poses = (DATA.poses || []).filter(matches);
+  const grid = document.getElementById("grid");
+  if (!poses.length) { grid.innerHTML = `<div class="empty">조건에 맞는 포즈가 없어요.</div>`; return; }
+  grid.innerHTML = poses.map((p, i) => `
+    <div class="card" data-i="${i}">
+      <div class="thumb"><img loading="lazy" src="${repThumb(p)}" alt="${p.clip || p.pose_id}"></div>
+      <div class="meta">
+        <div class="clip">${p.clip || p.pose_id}</div>
+        <div class="sub">
+          ${p.category ? `<span class="pill">${p.category}</span>` : ""}
+          ${p.body_type || ""}${p.gender && p.gender !== "unspecified" ? " · " + p.gender : ""}
+        </div>
+      </div>
+    </div>`).join("");
+  grid.querySelectorAll(".card").forEach(c =>
+    c.addEventListener("click", () => openPose(poses[+c.dataset.i])));
+}
+
+function openPose(p) {
+  const sheet = document.getElementById("sheet");
+  const groups = {};
+  (p.views || []).forEach(v => (groups[v.region] = groups[v.region] || []).push(v));
+  const order = ["full", "hand", "foot", "head"].filter(r => groups[r]);
+  const first = (groups.full || p.views || [])[0];
+
+  const stripFor = (region) => groups[region].map((v, i) => {
+    const lbl = region === "full"
+      ? `${v.azimuth ?? "?"}°`
+      : `${REGION_LABEL[region] || region}`;
+    return `<div><button data-img="${url(v.image)}" class="${region}-${i}">
+      <img loading="lazy" src="${url(v.thumb || v.image)}"></button>
+      <div class="lbl">${lbl}</div></div>`;
+  }).join("");
+
+  sheet.innerHTML = `
+    <div class="top">
+      <div><h2>${p.clip || p.pose_id}</h2>
+        <div class="sub" style="color:var(--ink-soft);font-size:13px;margin-top:4px">
+          ${[p.category, p.body_type, (p.gender && p.gender!=="unspecified") ? p.gender : null]
+            .filter(Boolean).join(" · ")}
+          ${(p.tags||[]).length ? " · " + (p.tags||[]).join(", ") : ""}</div></div>
+      <button class="x" id="closeX" aria-label="닫기">×</button>
+    </div>
+    <div class="hero"><img id="hero" src="${first ? url(first.image) : ""}"></div>
+    <div class="ang">
+      ${order.map(r => `<h3>${REGION_LABEL[r] || r} (${groups[r].length})</h3>
+        <div class="strip">${stripFor(r)}</div>`).join("")}
+    </div>`;
+
+  const hero = sheet.querySelector("#hero");
+  sheet.querySelectorAll(".strip button").forEach(b =>
+    b.addEventListener("click", () => {
+      hero.src = b.dataset.img;
+      sheet.querySelectorAll(".strip button").forEach(x => x.classList.remove("sel"));
+      b.classList.add("sel");
+    }));
+  sheet.querySelector("#closeX").addEventListener("click", close);
+  document.getElementById("modal").classList.add("on");
+}
+
+function close() { document.getElementById("modal").classList.remove("on"); }
+document.getElementById("modal").addEventListener("click", e => {
+  if (e.target.id === "modal") close();
+});
+document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+
+load();
+</script>
+</body>
+</html>

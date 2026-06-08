@@ -1,0 +1,129 @@
+[
+  {
+    "_note": "WoZ 정답(사람 라벨). scene/pose를 실제 추출값으로 교체 후 메트릭 유효.",
+    "scenario": "F-2",
+    "scene": {
+      "analyzable": true,
+      "subject": {
+        "person": {
+          "present": true,
+          "prominence": 0.8
+        }
+      },
+      "framing": {},
+      "render": {}
+    },
+    "pose": {
+      "status": "FILL: ok|low_confidence|skipped",
+      "keypoints": "FILL: 실제 MediaPipe 추출(33 keypoints) 또는 생략"
+    },
+    "personas": [
+      "hand",
+      "anatomy"
+    ],
+    "user_terms": [
+      "hand_structure"
+    ],
+    "primary_focus": "hand_structure"
+  },
+  {
+    "_note": "WoZ 정답(사람 라벨). scene/pose를 실제 추출값으로 교체 후 메트릭 유효.",
+    "scenario": "A-1",
+    "scene": {
+      "analyzable": true,
+      "subject": {
+        "person": {
+          "present": true,
+          "prominence": 0.8
+        }
+      },
+      "framing": {},
+      "render": {}
+    },
+    "pose": {
+      "status": "FILL: ok|low_confidence|skipped",
+      "keypoints": "FILL: 실제 MediaPipe 추출(33 keypoints) 또는 생략"
+    },
+    "personas": [
+      "pose"
+    ],
+    "user_terms": [],
+    "primary_focus": "action_line"
+  },
+  {
+    "_note": "WoZ 정답(사람 라벨). scene/pose를 실제 추출값으로 교체 후 메트릭 유효.",
+    "scenario": "C-1",
+    "scene": {
+      "analyzable": true,
+      "subject": {
+        "person": {
+          "present": true,
+          "prominence": 0.8
+        }
+      },
+      "framing": {},
+      "render": {}
+    },
+    "pose": {
+      "status": "FILL: ok|low_confidence|skipped",
+      "keypoints": "FILL: 실제 MediaPipe 추출(33 keypoints) 또는 생략"
+    },
+    "personas": [
+      "pose",
+      "anatomy",
+      "perspective"
+    ],
+    "user_terms": [],
+    "primary_focus": "foreshortening"
+  },
+  {
+    "_note": "WoZ 정답(사람 라벨). scene/pose를 실제 추출값으로 교체 후 메트릭 유효.",
+    "scenario": "G-3",
+    "scene": {
+      "analyzable": true,
+      "subject": {
+        "person": {
+          "present": false,
+          "prominence": 0.1
+        }
+      },
+      "framing": {},
+      "render": {}
+    },
+    "pose": {
+      "status": "FILL: ok|low_confidence|skipped",
+      "keypoints": "FILL: 실제 MediaPipe 추출(33 keypoints) 또는 생략"
+    },
+    "personas": [
+      "color"
+    ],
+    "user_terms": [
+      "color_harmony"
+    ],
+    "primary_focus": "color_harmony"
+  },
+  {
+    "_note": "WoZ 정답(사람 라벨). scene/pose를 실제 추출값으로 교체 후 메트릭 유효.",
+    "scenario": "H-4",
+    "scene": {
+      "analyzable": true,
+      "subject": {
+        "person": {
+          "present": true,
+          "prominence": 0.8
+        }
+      },
+      "framing": {},
+      "render": {}
+    },
+    "pose": {
+      "status": "FILL: ok|low_confidence|skipped",
+      "keypoints": "FILL: 실제 MediaPipe 추출(33 keypoints) 또는 생략"
+    },
+    "personas": [
+      "pose"
+    ],
+    "user_terms": [],
+    "primary_focus": "action_line"
+  }
+]

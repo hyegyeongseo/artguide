@@ -1,0 +1,93 @@
+# 상황 판단(intake / triage) 설정
+# ------------------------------------------------------------------
+# 사용자 입력을 "코칭 파이프라인에 넣기 전에" 먼저 가르는 키워드/규칙.
+# pipeline/router.py 가 이 파일을 로드한다. 결정적·싸게(키워드 포함 검사, LLM 없음).
+# 이 파일이 없거나 깨져도 router.py 의 내장 기본값으로 동작한다(앱이 안 깨지게).
+#
+# 판단 카테고리 → 반환 mode (자세한 동작은 router.py 주석 참조):
+#   generate    "그려줘" 류 생성 요청        → redirect (대신 그려주지 않음)
+#   not_drawing  scene.analyzable=False       → clarify  (분석할 그림인지 확인)
+#   offtopic     코칭 요청이 아닌 잡담·범위밖  → 그림 있으면 coach(관찰-제안 L1), 없으면 clarify
+#   score        점수·등급·평가 요청          → coach    (평가하지 않고 관찰로; SYSTEM 프롬프트가 평가어 차단)
+#   coach        그 외(부위 명시/모호/빈 입력) → coach
+# ------------------------------------------------------------------
+
+# 1) 그려달라는 요청 → redirect. "직접 그려주진 않지만 같이 봐줄게요."
+generate:
+  - "그려줘"
+  - "그려주"
+  - "그려 줘"
+  - "그려달"
+  - "그려 달"
+  - "만들어줘"
+  - "generate"
+  - "draw it"
+  - "make it"
+
+# 2) 점수·등급·평가 요청 → 평가하지 않고 관찰 코칭으로.
+#    별도 거절 화면 없이 4카드로 자연스럽게 대체 = "그림을 채점하지 않는다"는 철학의 구현.
+score:
+  - "몇 점"
+  - "몇점"
+  - "점수"
+  - "등급"
+  - "잘 그렸"
+  - "잘그렸"
+  - "못 그렸"
+  - "못그렸"
+  - "평가해"
+  - "평가 좀"
+  - "잘했"
+  - "합격"
+  - "수준이"
+
+# 3) 코칭 요청이 아닌 잡담/범위 밖 → 그림이 있으면 관찰-제안(L1), 없으면 clarify.
+offtopic:
+  - "팔릴까"
+  - "팔려"
+  - "돈이 되"
+  - "ai가 그린"
+  - "ai로 그린"
+  - "인공지능이 그"
+  - "안녕"
+  - "고마워"
+  - "누구야"
+  - "넌 누구"
+
+# 4) 부위·축 키워드 → sub_problem id (관심사 surfacing). taxonomy.yaml 의 10개 항목과 매칭.
+#    키워드가 있으면 그 sub_problem 을 최우선 관찰로, 없으면 자동 신호로 관찰을 제안(L1).
+lexicon:
+  손: hand_structure
+  손가락: hand_structure
+  손목: hand_structure
+  구도: composition_balance
+  배치: composition_balance
+  여백: composition_balance
+  색: color_harmony
+  색감: color_harmony
+  팔레트: color_harmony
+  채도: color_harmony
+  조명: light_direction
+  광원: light_direction
+  빛: light_direction
+  그림자: light_direction
+  명암: value_structure
+  명도: value_structure
+  대비: value_structure
+  입체: value_structure
+  톤: value_structure
+  자세: weight_balance
+  포즈: weight_balance
+  균형: weight_balance
+  무게: weight_balance
+  중심: weight_balance
+  비율: proportion
+  비례: proportion
+  단축: foreshortening
+  원근: foreshortening
+  관절: joint_articulation
+  팔꿈치: joint_articulation
+  무릎: joint_articulation
+  동세: action_line
+  동작: action_line
+  액션: action_line

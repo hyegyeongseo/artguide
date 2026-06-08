@@ -1,0 +1,237 @@
+/* ===== Guide message — 4-card stack ===== */
+
+.guideStack {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  width: 100%;
+}
+
+.contextStrip {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 16px;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #888780;
+}
+
+/* ===== Card ===== */
+
+.card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 14px;
+  padding: 16px 18px;
+}
+
+.cardEmphasized {
+  border: 2px solid #ff8534;
+  background: #fffdfb;
+}
+
+.stepBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f5f4f1;
+  color: #666;
+  padding: 4px 11px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  letter-spacing: -0.005em;
+}
+
+.stepBadgeAccent {
+  background: #ffeeda;
+  color: #b35a1a;
+}
+
+.cardBody {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #1a1a1a;
+}
+
+.arrow {
+  text-align: center;
+  color: #ccc;
+  padding: 8px 0;
+  user-select: none;
+  line-height: 0;
+}
+
+/* ===== Practice card buttons ===== */
+
+.practiceActions {
+  margin-top: 14px;
+  display: flex;
+  gap: 8px;
+}
+
+.practiceBtn,
+.practiceBtnPrimary {
+  padding: 8px 16px;
+  font-size: 13px;
+  font-family: inherit;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  color: #444;
+}
+
+.practiceBtn:hover {
+  background: #f5f4f1;
+}
+
+.practiceBtnPrimary {
+  background: #ff8534;
+  color: #ffffff;
+  border-color: #ff8534;
+}
+
+.practiceBtnPrimary:hover {
+  background: #e66f1e;
+}
+
+.practiceBtnDone {
+  background: #16a34a;
+  border-color: #16a34a;
+  cursor: default;
+}
+
+.practiceBtnDone:hover {
+  background: #16a34a;
+}
+
+.practiceBtnDeferred {
+  background: #e5e5e5;
+}
+
+/* ===== Why box ===== */
+
+.whyBox {
+  background: #f5f4f1;
+  border-radius: 8px;
+  padding: 10px 13px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.whyBox strong {
+  color: #1a1a1a;
+  font-weight: 600;
+  display: inline;
+}
+
+/* ===== Reference grid ===== */
+
+.refGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.refItem {
+  aspect-ratio: 1;
+  background: #f5f4f1;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.refImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.refPlaceholder {
+  color: #ccc;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pinBtn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  color: #666;
+  transition: all 0.15s ease;
+}
+
+.pinBtn:hover {
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+.pinBtnActive {
+  background: #ff8534;
+  color: #ffffff;
+}
+
+.pinBtnActive:hover {
+  background: #e66f1e;
+  color: #ffffff;
+}
+
+/* ===== Reference feedback ===== */
+
+.refFeedback {
+  margin-top: 12px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.refFeedback button {
+  padding: 6px 11px;
+  font-size: 12px;
+  font-family: inherit;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  color: #555;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.15s ease;
+}
+
+.refFeedback button:hover {
+  background: #f5f4f1;
+}
+
+.feedbackClicked {
+  background: #1a1a1a !important;
+  color: #ffffff !important;
+  border-color: #1a1a1a !important;
+}

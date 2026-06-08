@@ -1,0 +1,192 @@
+[
+  {
+    "query": "standing figure weight on one leg balance contrapposto",
+    "persona": "pose",
+    "sub_problem": "weight_balance",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "foreshortened arm reaching toward camera perspective",
+    "persona": "pose",
+    "sub_problem": "foreshortening",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "human body proportions head units figure chart",
+    "persona": "pose",
+    "sub_problem": "proportion",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "gesture drawing line of action dynamic pose",
+    "persona": "pose",
+    "sub_problem": "action_line",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "elbow knee joint bend range anatomy reference",
+    "persona": "pose",
+    "sub_problem": "joint_articulation",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "hand structure planes box gesture reference",
+    "persona": "hand",
+    "sub_problem": "hand_structure",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "value study strong light shadow high contrast",
+    "persona": "light",
+    "sub_problem": "value_structure",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "composition rule of thirds focal point placement",
+    "persona": "composition",
+    "sub_problem": "composition_balance",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "limited color palette harmony painting",
+    "persona": "color",
+    "sub_problem": "color_harmony",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "single light source form shadow direction study",
+    "persona": "light",
+    "sub_problem": "light_direction",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "gesture drawing line of action",
+    "persona": "pose",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "contrapposto standing figure",
+    "persona": "pose",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "running figure dynamic motion",
+    "persona": "pose",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "seated figure spine curve",
+    "persona": "pose",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "foreshortened arm toward viewer",
+    "persona": "anatomy",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "reclining figure foot perspective",
+    "persona": "anatomy",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "hand structure planes box",
+    "persona": "hand",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "hand thumb palm orientation",
+    "persona": "hand",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "body proportions head units chart",
+    "persona": "anatomy",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "elbow knee joint range anatomy",
+    "persona": "anatomy",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "value study high contrast light shadow",
+    "persona": "light",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "composition rule of thirds focal point",
+    "persona": "composition",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "warm palette golden hour interior",
+    "persona": "color",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "single light source form shadow",
+    "persona": "light",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "limited palette color harmony",
+    "persona": "color",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "dramatic chiaroscuro portrait",
+    "persona": "light",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "nocturne cool night mood",
+    "persona": "mood",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "crowd scene depth overlap",
+    "persona": "composition",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "twisted torso torsion pose",
+    "persona": "pose",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  },
+  {
+    "query": "draped fabric folds light",
+    "persona": "light",
+    "relevant": [],
+    "_todo": "시드 후 적합 ref_id를 본인이 라벨(상업-클린)"
+  }
+]

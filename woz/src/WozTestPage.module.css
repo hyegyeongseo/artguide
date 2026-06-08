@@ -1,0 +1,424 @@
+/* ===== Layout ===== */
+
+.layout {
+  min-height: 100vh;
+  width: 100%;
+  background: #fafafa;
+  color: #1a1a1a;
+  font-family: -apple-system, BlinkMacSystemFont, "Pretendard",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f0f0f;
+  letter-spacing: -0.01em;
+}
+
+.brandDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff8534;
+}
+
+.modeTabs {
+  display: flex;
+  gap: 4px;
+}
+
+.modeTab {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+
+.modeTab:hover {
+  background: #f5f4f1;
+  color: #1a1a1a;
+}
+
+.modeTabActive {
+  background: #1a1a1a;
+  color: #ffffff;
+  border-color: #1a1a1a;
+}
+
+.modeTabActive:hover {
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+.main {
+  padding: 24px 16px 80px;
+}
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.containerNarrow {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ===== Help tip ===== */
+
+.helpTip {
+  background: #fffaf0;
+  border: 1px solid #ffeeda;
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: #7a4d1c;
+  line-height: 1.65;
+}
+
+.helpTip strong {
+  color: #b35a1a;
+}
+
+/* ===== Edit sections ===== */
+
+.editSection {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+.editSectionTitle {
+  margin: 0 0 14px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: -0.01em;
+}
+
+.field {
+  margin-bottom: 14px;
+}
+
+.field:last-child {
+  margin-bottom: 0;
+}
+
+.fieldLabel {
+  display: block;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.editSection input[type="text"],
+.editSection textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #1a1a1a;
+  background: #fafafa;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  resize: vertical;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+.editSection input[type="text"]:focus,
+.editSection textarea:focus {
+  outline: none;
+  border-color: #ff8534;
+  background: #ffffff;
+}
+
+/* ===== Scenario picker ===== */
+
+.scenarioPicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.scenarioBtn {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-family: inherit;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  color: #444;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.scenarioBtn:hover {
+  background: #f5f4f1;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.scenarioBtnClear {
+  color: #999;
+}
+
+/* ===== Action buttons ===== */
+
+.actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.primaryBtn {
+  background: #ff8534;
+  color: #ffffff;
+  border: none;
+  padding: 11px 20px;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.primaryBtn:hover {
+  background: #e66f1e;
+}
+
+.secondaryBtn {
+  background: #ffffff;
+  color: #444;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 11px 16px;
+  font-size: 14px;
+  font-family: inherit;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.secondaryBtn:hover {
+  background: #f5f4f1;
+}
+
+/* ===== Log view ===== */
+
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.statCard {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.statLabel {
+  font-size: 11px;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.statValue {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.statSuffix {
+  font-size: 12px;
+  color: #888;
+  font-weight: 400;
+}
+
+.logActions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.logActionBtn {
+  padding: 9px 16px;
+  font-size: 13px;
+  font-family: inherit;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  color: #444;
+  cursor: pointer;
+}
+
+.logActionBtn:hover {
+  background: #f5f4f1;
+}
+
+.logActionDanger {
+  color: #c22;
+  border-color: #f5cccc;
+}
+
+.logActionDanger:hover {
+  background: #fef0f0;
+}
+
+.logDisplay {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-family: "SF Mono", "Monaco", "Consolas", monospace;
+  font-size: 12px;
+  line-height: 1.7;
+  max-height: 500px;
+  overflow-y: auto;
+  color: #444;
+}
+
+.logEntry {
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.logEntry:last-child {
+  border-bottom: none;
+}
+
+.logTime {
+  color: #999;
+  margin-right: 8px;
+}
+
+.logEvent {
+  color: #ff8534;
+  font-weight: 600;
+}
+
+.logData {
+  color: #666;
+  margin-left: 8px;
+}
+
+.logEmpty {
+  text-align: center;
+  color: #999;
+  padding: 24px 0;
+  font-style: italic;
+}
+
+/* ===== Self-report assessment (preview) ===== */
+
+.assess {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-top: 16px;
+}
+
+.assessTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+
+.assessRow {
+  margin-bottom: 14px;
+}
+
+.assessQ {
+  font-size: 13px;
+  color: #444;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.assessOpts {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.assessOpt {
+  padding: 7px 14px;
+  font-size: 13px;
+  font-family: inherit;
+  background: #fafafa;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  color: #444;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.assessOpt:hover {
+  background: #f5f4f1;
+  border-color: rgba(0, 0, 0, 0.18);
+}
+
+.assessScaleOpt {
+  min-width: 40px;
+  text-align: center;
+}
+
+.assessOptActive {
+  background: #ff8534;
+  color: #ffffff;
+  border-color: #ff8534;
+}
+
+.assessOptActive:hover {
+  background: #e66f1e;
+  border-color: #e66f1e;
+  color: #ffffff;
+}
+
+.assessHint {
+  font-size: 11px;
+  color: #999;
+  margin-top: 6px;
+}
+
+.assessDone {
+  background: #fffaf0;
+  border: 1px solid #ffeeda;
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-top: 16px;
+  font-size: 13px;
+  color: #7a4d1c;
+  text-align: center;
+}

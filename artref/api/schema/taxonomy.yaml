@@ -1,0 +1,89 @@
+- id: weight_balance
+  personas: [pose, anatomy]
+  auto: true
+  trigger: "무게중심선(어깨·골반 중점)이 지지면(발) 밖으로 벗어남"
+  what_to_observe: "무게가 어느 발에 실리는지 보고, 골반과 어깨가 그 무게에 맞게 기울었는지 살펴보세요. 무게중심이 지지하는 발 위에 오지 않으면 인물이 떠 보이거나 넘어질 듯 느껴집니다."
+  default_effect: "무게중심과 지지면이 맞으면 인물이 바닥을 딛고 선 안정감이 생기고, 어긋날수록 같은 자세도 불안정하거나 붕 뜬 인상으로 읽힙니다."
+  reference_query: "standing figure weight on one leg balance contrapposto"
+  practice_prompt: "선 인물에서 무게를 받는 발을 먼저 정하고, 그 발 위로 머리 중심이 오도록 골반·어깨 기울기를 잡아보기."
+
+- id: foreshortening
+  personas: [pose, anatomy, perspective]
+  auto: true
+  trigger: "한쪽 팔/다리의 투영 길이가 짝보다 크게 짧음"
+  what_to_observe: "카메라 쪽으로 뻗은 팔다리는 짧고 두껍게, 마디가 겹쳐 보입니다. 길이를 '아는 대로' 그리면 평평해지고, '보이는 대로' 줄이면 깊이가 생깁니다."
+  default_effect: "겹침과 길이 축소가 들어가면 팔다리가 화면 안쪽으로 들어가는 깊이로 읽히고, 빠지면 같은 팔도 옆으로 누운 평면처럼 보입니다."
+  reference_query: "foreshortened arm reaching toward camera perspective"
+  practice_prompt: "뻗은 팔을 원통 마디로 나눠, 가까운 마디는 크게 먼 마디는 작게 겹쳐 그려보기."
+
+- id: proportion
+  personas: [pose, anatomy]
+  auto: true
+  trigger: "다리/몸통 길이비가 통상 범위 밖"
+  what_to_observe: "머리 하나를 기준으로 몸이 몇 개분인지, 다리와 상체 길이비가 의도한 인상과 맞는지 보세요. 비율이 어긋나면 나이·키 인상이 달라집니다."
+  default_effect: "비율이 일관되면 인물의 나이·체격 인상이 또렷해지고, 부위마다 기준이 흔들리면 같은 인물이 더 어리거나 길쭉하게 다르게 읽힙니다."
+  reference_query: "human body proportions head units figure chart"
+  practice_prompt: "머리 높이를 자로 삼아 어깨·허리·무릎·발 위치를 머리 몇 개분인지 점만 찍어보기."
+
+- id: action_line
+  personas: [pose]
+  auto: true
+  trigger: "몸통이 거의 직립 — 동작을 관통하는 곡선(액션 라인)이 약함"
+  what_to_observe: "동작 전체를 관통하는 하나의 흐르는 선이 있는지 보세요. 각 부위를 따로 맞추면 자세가 뻣뻣하게 굳어 보입니다."
+  default_effect: "관통하는 한 선이 살아 있으면 동작에 힘과 방향이 흐르고, 부위가 따로 놀면 움직임이 멈춘 듯 정적으로 읽힙니다."
+  reference_query: "gesture drawing line of action dynamic pose"
+  practice_prompt: "디테일 전에 머리부터 지지발까지 한 번에 그은 곡선 하나로 동작을 먼저 잡기."
+
+- id: joint_articulation
+  personas: [pose, anatomy]
+  auto: true
+  trigger: "팔꿈치/무릎 각이 거의 180°(과신전)이거나 꺾임"
+  what_to_observe: "팔꿈치·무릎이 자연스럽게 굽는 방향과 한계 안에 있는지 보세요. 관절이 펴지거나 반대로 꺾이면 부자연스럽게 느껴집니다."
+  default_effect: "관절이 자연스러운 범위 안에서 굽으면 팔다리가 단단한 뼈로 연결돼 보이고, 한계를 넘으면 같은 선도 꺾이거나 흐물거리는 인상으로 읽힙니다."
+  reference_query: "elbow knee joint bend range anatomy reference"
+  practice_prompt: "굽은 관절 하나를 골라 위·아래 뼈를 직선 두 개로 단순화해 각도를 다시 확인하기."
+
+- id: hand_structure
+  personas: [hand, anatomy]
+  auto: false
+  trigger: "persona=hand 또는 사용자가 손 언급 (기하 자동 판정 약함)"
+  what_to_observe: "손을 손가락 다섯 개의 모음이 아니라 손바닥(상자)+손가락(원통)의 덩어리로 보세요. 손가락 길이·관절보다 손 전체의 평면 방향이 인상을 좌우합니다."
+  default_effect: "손을 덩어리의 방향으로 잡으면 손이 무언가를 향하거나 쥐는 의도가 읽히고, 손가락만 나열하면 방향 없이 흩어진 인상이 됩니다."
+  reference_query: "hand structure planes box gesture reference"
+  practice_prompt: "손을 먼저 벙어리장갑(손바닥 덩어리+엄지)으로 단순화해 방향만 잡고 손가락은 나중에."
+
+- id: value_structure
+  personas: [light, technique]
+  auto: true
+  trigger: "명도 분포가 좁음(중간톤에 몰림 → 대비 부족)"
+  what_to_observe: "가장 밝은 곳과 어두운 곳의 차이가 충분한지, 중간톤에만 몰려 있지 않은지 보세요. 명도 폭이 좁으면 형태가 평평하고 흐릿하게 읽힙니다."
+  default_effect: "밝음·중간·어둠의 폭이 벌어지면 형태가 빛을 받는 입체로 솟아오르고, 중간톤에 몰리면 같은 형태도 납작하게 가라앉아 읽힙니다."
+  reference_query: "value study strong light shadow high contrast"
+  practice_prompt: "그림을 흑백 3단계(밝음·중간·어둠)로만 다시 나눠 빠진 단계가 있는지 확인하기."
+
+- id: composition_balance
+  personas: [composition]
+  auto: true
+  trigger: "시선 무게(밝기 가중 중심)가 거의 정중앙에 몰림"
+  what_to_observe: "주된 형태가 화면 어디에 놓였는지, 주변 여백과의 무게 균형을 보세요. 늘 정중앙이면 정적이고, 의도 없는 치우침이면 한쪽이 비어 보입니다."
+  default_effect: "형태와 여백의 무게가 맞으면 화면이 안정돼 시선이 머무를 곳이 생기고, 의도 없이 치우치면 한쪽이 비거나 답답한 인상으로 읽힙니다."
+  reference_query: "composition rule of thirds focal point placement"
+  practice_prompt: "주제를 정중앙에서 한 칸 옮겨 배치해보고 인상이 어떻게 달라지는지 비교하기."
+
+- id: color_harmony
+  personas: [color]
+  auto: false
+  trigger: "persona=color 또는 사용자 색 언급 (자동 판정 약함)"
+  what_to_observe: "화면을 지배하는 색과 보조색의 관계를 보세요. 채도 높은 색이 흩어지면 시선이 분산되고, 한정된 팔레트는 통일감을 줍니다."
+  default_effect: "주조색이 화면을 잡아주면 색들이 한 장면으로 묶여 보이고, 강한 색이 흩어지면 시선이 여러 곳으로 분산돼 산만하게 읽힙니다."
+  reference_query: "limited color palette harmony painting"
+  practice_prompt: "주조색 1 + 보조색 1 + 강조색 1로 팔레트를 좁혀 같은 그림을 다시 칠해보기."
+
+- id: light_direction
+  personas: [light]
+  auto: false
+  trigger: "persona=light 또는 사용자 조명 언급 (기하 자동 판정 어려움)"
+  what_to_observe: "광원이 한 방향에서 오는지, 형태마다 밝은 면·어두운 면·그림자 방향이 일관되는지 보세요. 광원이 섞이면 형태가 입체로 모이지 않습니다."
+  default_effect: "광원 방향이 한쪽으로 일관되면 모든 형태의 밝은 면이 같은 곳을 향해 입체가 한 덩어리로 모이고, 섞이면 면들이 따로 놀아 평면적으로 읽힙니다."
+  reference_query: "single light source form shadow direction study"
+  practice_prompt: "광원 화살표를 화면 밖에 하나 정해두고, 모든 형태의 밝은 면이 그 방향을 향하는지 점검하기."
