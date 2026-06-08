@@ -17,7 +17,8 @@ from ml.guide import run_guide
 from prompts import build_coach_prompt
 from pipeline.router import resolve
 from pipeline.diagnose import diagnose, taxonomy
-from pipeline.search import search_text
+from pipeline.search import search_text, is_miss
+from pipeline.mapping import log_miss
 from safety.moderation import screen_upload
 
 app = FastAPI(title="창작 지원 AI 에이전트")
@@ -65,6 +66,13 @@ def _pipeline(file_bytes, message):
         hits = search_text(o["reference_query"], persona_hint, filters=f, sub_problem=sp)
         if not hits and f:
             hits = search_text(o["reference_query"], persona_hint, sub_problem=sp)
+        # miss(빈 결과/낮은 점수) → 라이브러리 보강 큐로. 측정된 관찰일수록 가치 큰 miss.
+        if is_miss(hits):
+            log_miss(o["reference_query"],
+                     context={"sub_problem": sp, "persona": persona_hint,
+                              "measured": o.get("measured", False),
+                              "region": "hand" if sp == "hand_structure" else None,
+                              "top_score": round(float(hits[0][1]), 4) if hits else None})
         refs_by_sp[sp] = [(rid, "") for rid, _ in hits]
         retrieved |= {rid for rid, _ in hits}
     return (dx, refs_by_sp, retrieved, tax), None
