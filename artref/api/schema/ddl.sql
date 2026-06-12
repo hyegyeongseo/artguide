@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS reference_images (
   ref_id          CHAR(36) PRIMARY KEY,
   image_key       VARCHAR(512) NOT NULL,
   thumb_key       VARCHAR(512),
-  source_type     ENUM('museum','self_render','stock') NOT NULL,
+  source_type     ENUM('museum','self_render','stock','ai_example') NOT NULL,
   license         VARCHAR(64) NOT NULL,
   attribution     VARCHAR(512),
   commercial_ok   TINYINT(1) NOT NULL DEFAULT 1,
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS adoption_log (
   persona      VARCHAR(32),
   source_type  VARCHAR(32),
   sub_problem  VARCHAR(48),
-  event        ENUM('shown','clicked','saved','liked') NOT NULL,
+  event        ENUM('shown','clicked','saved','liked','disliked') NOT NULL,
   created_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   INDEX (reference_id), INDEX (guide_id), INDEX (sub_problem), INDEX (event)
 );
