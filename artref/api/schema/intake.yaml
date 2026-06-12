@@ -91,3 +91,35 @@ lexicon:
   동세: action_line
   동작: action_line
   액션: action_line
+  # 풍경 전용(landscape track). '원근'은 인물 기본(단축)으로 두고, 풍경 어휘는 별도로 추가.
+  대기원근: atmospheric_perspective
+  선원근: linear_perspective
+  소실점: linear_perspective
+  깊이: depth_layering
+  깊이감: depth_layering
+  공간감: depth_layering
+  지평선: horizon_placement
+  수평선: horizon_placement
+
+# 5) 그림 '단계' 힌트 → 응답 자세 분기(완성작이면 '앞으로 할 것' 중심).
+#    명시 입력(폼/버튼)이 우선이고, 없으면 메시지 키워드로 추정한다.
+#    한국어 부분문자열 오탐('미완성' ⊂ '완성')은 router.py 의 앞 경계 규칙(?<![가-힣])이 막는다.
+intent:
+  finished:
+    - "완성작"
+    - "완성"
+    - "끝냈"
+    - "다 그렸"
+    - "다그렸"
+    - "마무리"
+    - "최종본"
+    - "finished"
+    - "done"
+  practice:
+    - "연습"
+    - "습작"
+    - "공부 중"
+    - "연습 중"
+    - "스케치 중"
+    - "study"
+    - "wip"

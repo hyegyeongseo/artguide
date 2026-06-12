@@ -1,0 +1,53 @@
+{
+  "_note": "부트스트랩(합성) 라벨 — 스코어러 임계 회귀/감각 확인용. 실제 튜닝은 scripts/extract_signals.py 로 그림에서 신호를 뽑아 사람이 expect 를 붙인 데이터로 교체/증강하세요. expect = '이 신호에서 발화해야 할 축'.",
+  "cases": [
+    {"name": "wb_clear_off",   "signals": {"com_offset": 1.3}, "expect": ["weight_balance"]},
+    {"name": "wb_mild_off",    "signals": {"com_offset": 0.95}, "expect": ["weight_balance"]},
+    {"name": "wb_border_off",  "signals": {"com_offset": 0.85}, "expect": ["weight_balance"]},
+    {"name": "wb_ok",          "signals": {"com_offset": 0.6}, "expect": []},
+    {"name": "wb_centered",    "signals": {"com_offset": 0.3}, "expect": []},
+
+    {"name": "fs_strong",      "signals": {"arm_proj_ratio": 0.35}, "expect": ["foreshortening"]},
+    {"name": "fs_mid",         "signals": {"arm_proj_ratio": 0.55}, "expect": ["foreshortening"]},
+    {"name": "fs_border",      "signals": {"arm_proj_ratio": 0.63}, "expect": ["foreshortening"]},
+    {"name": "fs_even",        "signals": {"arm_proj_ratio": 0.85}, "expect": []},
+    {"name": "fs_equal",       "signals": {"arm_proj_ratio": 0.98}, "expect": []},
+
+    {"name": "al_stiff",       "signals": {"torso_lean": 0.01}, "expect": ["action_line"]},
+    {"name": "al_upright",     "signals": {"torso_lean": 0.025}, "expect": ["action_line"]},
+    {"name": "al_border",      "signals": {"torso_lean": 0.034}, "expect": ["action_line"]},
+    {"name": "al_dynamic",     "signals": {"torso_lean": 0.08}, "expect": []},
+    {"name": "al_lean",        "signals": {"torso_lean": 0.14}, "expect": []},
+
+    {"name": "ja_hyper",       "signals": {"elbow_angle_min": 180, "knee_angle_min": 120}, "expect": ["joint_articulation"]},
+    {"name": "ja_straight",    "signals": {"elbow_angle_min": 178, "knee_angle_min": 130}, "expect": ["joint_articulation"]},
+    {"name": "ja_bent",        "signals": {"elbow_angle_min": 150, "knee_angle_min": 120}, "expect": []},
+    {"name": "ja_relaxed",     "signals": {"elbow_angle_min": 120, "knee_angle_min": 100}, "expect": []},
+
+    {"name": "vs_flat",        "signals": {"figure_value_range": 0.18}, "expect": ["value_structure"]},
+    {"name": "vs_low",         "signals": {"figure_value_range": 0.30}, "expect": ["value_structure"]},
+    {"name": "vs_border",      "signals": {"figure_value_range": 0.36}, "expect": ["value_structure"]},
+    {"name": "vs_good",        "signals": {"figure_value_range": 0.55}, "expect": []},
+    {"name": "vs_wide",        "signals": {"figure_value_range": 0.7}, "expect": []},
+    {"name": "vs_global_low",  "signals": {"value_std": 0.12}, "expect": ["value_structure"]},
+    {"name": "vs_global_ok",   "signals": {"value_std": 0.25}, "expect": []},
+
+    {"name": "cb_centered",    "signals": {"focus_centeredness": 0.97}, "expect": ["composition_balance"]},
+    {"name": "cb_mid",         "signals": {"focus_centeredness": 0.92}, "expect": ["composition_balance"]},
+    {"name": "cb_border",      "signals": {"focus_centeredness": 0.89}, "expect": []},
+    {"name": "cb_offcenter",   "signals": {"focus_centeredness": 0.7}, "expect": []},
+    {"name": "cb_thirds",      "signals": {"focus_centeredness": 0.5}, "expect": []},
+
+    {"name": "ch_loud",        "signals": {"sat_mean": 0.78, "hue_spread": 0.7}, "expect": ["color_harmony"]},
+    {"name": "ch_high",        "signals": {"sat_mean": 0.66, "hue_spread": 0.6}, "expect": ["color_harmony"]},
+    {"name": "ch_muted",       "signals": {"sat_mean": 0.3, "hue_spread": 0.2}, "expect": []},
+    {"name": "ch_limited",     "signals": {"sat_mean": 0.7, "hue_spread": 0.2}, "expect": []},
+    {"name": "ch_gray",        "signals": {"sat_mean": 0.1, "hue_spread": 0.9}, "expect": []},
+
+    {"name": "ld_flat",        "signals": {"light_ramp": 0.004}, "expect": ["light_direction"]},
+    {"name": "ld_low",         "signals": {"light_ramp": 0.012}, "expect": ["light_direction"]},
+    {"name": "ld_border",      "signals": {"light_ramp": 0.018}, "expect": []},
+    {"name": "ld_directional", "signals": {"light_ramp": 0.05}, "expect": []},
+    {"name": "ld_strong",      "signals": {"light_ramp": 0.08}, "expect": []}
+  ]
+}

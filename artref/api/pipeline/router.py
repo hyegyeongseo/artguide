@@ -48,6 +48,14 @@ _DEFAULTS = {
         "단축": "foreshortening", "원근": "foreshortening",
         "관절": "joint_articulation", "팔꿈치": "joint_articulation", "무릎": "joint_articulation",
         "동세": "action_line", "동작": "action_line", "액션": "action_line",
+        "대기원근": "atmospheric_perspective", "선원근": "linear_perspective",
+        "소실점": "linear_perspective", "깊이": "depth_layering", "깊이감": "depth_layering",
+        "공간감": "depth_layering", "지평선": "horizon_placement", "수평선": "horizon_placement",
+    },
+    "intent": {
+        "finished": ["완성작", "완성", "끝냈", "다 그렸", "다그렸", "마무리",
+                     "최종본", "finished", "done"],
+        "practice": ["연습", "습작", "공부 중", "연습 중", "스케치 중", "study", "wip"],
     },
 }
 
@@ -83,6 +91,23 @@ def detect_terms(message):
         if re.search(r"(?<![가-힣])" + re.escape(str(kw)), m):
             found.add(sid)
     return found
+
+
+def detect_intent(message, explicit=None):
+    """그림 '단계' → 응답 자세. 반환 ∈ {finished, practice, open}.
+
+    우선순위: (1) 명시 입력(폼/버튼: explicit) → (2) 메시지 키워드 → (3) open.
+    키워드 매칭은 detect_terms와 같은 앞 경계 규칙으로 '미완성' ⊂ '완성' 오탐을 막는다.
+    """
+    if explicit in ("finished", "practice", "open"):
+        return explicit
+    cfg = intake_config().get("intent") or _DEFAULTS["intent"]
+    m = message or ""
+    for stage in ("finished", "practice"):       # finished 우선(둘 다 걸리면 완성작로)
+        for kw in cfg.get(stage, []):
+            if re.search(r"(?<![가-힣])" + re.escape(str(kw)), m):
+                return stage
+    return "open"
 
 
 def triage(message, scene):

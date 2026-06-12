@@ -67,7 +67,7 @@
   trigger: "시선 무게(밝기 가중 중심)가 거의 정중앙에 몰림"
   what_to_observe: "주된 형태가 화면 어디에 놓였는지, 주변 여백과의 무게 균형을 보세요. 늘 정중앙이면 정적이고, 의도 없는 치우침이면 한쪽이 비어 보입니다."
   default_effect: "형태와 여백의 무게가 맞으면 화면이 안정돼 시선이 머무를 곳이 생기고, 의도 없이 치우치면 한쪽이 비거나 답답한 인상으로 읽힙니다."
-  reference_query: "composition rule of thirds focal point placement"
+  reference_query: "painting off-center subject open sky negative space"
   practice_prompt: "주제를 정중앙에서 한 칸 옮겨 배치해보고 인상이 어떻게 달라지는지 비교하기."
 
 - id: color_harmony
@@ -87,3 +87,42 @@
   default_effect: "광원 방향이 한쪽으로 일관되면 모든 형태의 밝은 면이 같은 곳을 향해 입체가 한 덩어리로 모이고, 섞이면 면들이 따로 놀아 평면적으로 읽힙니다."
   reference_query: "single light source form shadow direction study"
   practice_prompt: "광원 화살표를 화면 밖에 하나 정해두고, 모든 형태의 밝은 면이 그 방향을 향하는지 점검하기."
+
+# ── 풍경/비인물 전용 축 (landscape track) ──────────────────────────────────────
+# 인물 트랙엔 포함되지 않는다(profiles._SCENE_ORDER 에서만 eligible). 측정 가능한 둘(대기원근·지평선)은
+# auto:true 로 image 신호 스코어러가 붙고, 나머지 둘(선원근·깊이층)은 persona/언급으로 surface(auto:false).
+- id: linear_perspective
+  personas: [perspective, composition]
+  auto: false
+  trigger: "persona=perspective 또는 사용자 원근/소실점 언급 (선 수렴 자동 판정 어려움)"
+  what_to_observe: "건물·길·평면의 가장자리 선들이 한 소실점으로 모이는지, 눈높이(지평선)와 일관되는지 보세요. 선이 제각각 모이면 공간이 휘어 보입니다."
+  default_effect: "가장자리 선들이 하나의 소실점으로 일관되게 모이면 공간이 곧고 깊게 펼쳐져 보이고, 어긋나면 평면이 휘거나 기울어 공간이 불안정하게 읽힙니다."
+  reference_query: "one point linear perspective vanishing point grid study"
+  practice_prompt: "눈높이 선 하나와 소실점 하나를 먼저 찍고, 주요 평면의 가장자리를 그 점으로 모아 다시 그려보기."
+
+- id: atmospheric_perspective
+  personas: [perspective, light]
+  auto: true
+  trigger: "원경의 대비/채도가 근경만큼 강해 거리에 따른 약화가 약함(depth_contrast_falloff 작음)"
+  what_to_observe: "가까운 것과 먼 것의 대비·채도 차이를 보세요. 먼 곳도 가까운 곳만큼 또렷하고 진하면 거리감이 평면적으로 모입니다."
+  default_effect: "먼 곳일수록 대비가 옅어지고 색이 차분해지면 화면에 공기와 깊이가 생기고, 원경이 근경만큼 또렷하면 모든 것이 같은 평면에 붙어 보입니다."
+  reference_query: "atmospheric perspective distant mountains haze depth landscape"
+  practice_prompt: "원경 영역의 대비와 채도를 한 단계 낮추고 약간 밝게 밀어, 근경과의 거리 차이를 만들어보기."
+
+- id: depth_layering
+  personas: [composition, perspective]
+  auto: false
+  trigger: "persona=composition/perspective 또는 사용자 깊이/공간 언급 (평면 분리 자동 판정 약함)"
+  what_to_observe: "근경·중경·원경이 겹침과 명도로 분리되는지 보세요. 층이 한 덩어리로 붙으면 공간이 납작해집니다."
+  default_effect: "근·중·원경이 겹침과 명도 차로 또렷이 나뉘면 화면에 깊이의 단계가 생기고, 층이 붙으면 공간이 한 평면으로 납작하게 읽힙니다."
+  reference_query: "foreground midground background depth layers landscape composition"
+  practice_prompt: "화면을 근·중·원 세 층으로 나눠 각 층의 명도를 다르게 묶고, 겹치는 가장자리를 한 군데 만들어보기."
+
+- id: horizon_placement
+  personas: [composition]
+  auto: true
+  trigger: "지평선(가장 강한 수평 명도 전이)이 화면 세로 중앙 부근에 위치(horizon_y≈0.5)"
+  what_to_observe: "지평선이 화면을 위아래로 어떻게 나누는지 보세요. 정중앙에 두면 하늘과 땅의 비중이 같아 어느 쪽도 주인공이 되지 못합니다."
+  default_effect: "지평선을 위나 아래 1/3 쯤에 두면 하늘 또는 땅 한쪽이 주연이 되어 화면에 의도가 생기고, 정중앙이면 둘이 비겨 밋밋해집니다."
+  reference_query: "landscape horizon line placement rule of thirds sky ground"
+  practice_prompt: "지평선을 화면 위 1/3과 아래 1/3 두 위치에 각각 두고 같은 장면을 비교해 인상 차이를 보기."
