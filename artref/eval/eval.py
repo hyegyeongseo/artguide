@@ -1,4 +1,4 @@
-"""평가 harness. 창작지원AI_평가계획.md 참조.
+"""평가 harness.
 - safety: 순수 파이썬(오프라인 동작) — 샘플 가이드 출력에 금지 표현 누출 검사.
 - retrieval: search_text 호출(Qdrant 필요).
 - diagnosis: WoZ 라벨 대비 primary_focus 일치(키포인트/이미지 필요).

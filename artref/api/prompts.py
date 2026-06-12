@@ -24,7 +24,7 @@ SYSTEM = """너는 중급 취미 화가의 그림을 코칭하는 도구다. 너
 - confidence가 낮거나 degraded면 더 강하게 가설형으로.
 - GuideResponse JSON만 출력. 다른 텍스트 금지. '정답 이미지/대신 그린 결과' 금지."""
 
-def build_coach_prompt(diagnosis: dict, refs_by_sp: dict) -> str:
+def build_coach_prompt(diagnosis: dict, refs_by_sp: dict, intent: str = "open") -> str:
     obs = {
         "primary_focus": diagnosis.get("primary_focus"),
         "degraded": diagnosis.get("degraded", False),
@@ -32,16 +32,28 @@ def build_coach_prompt(diagnosis: dict, refs_by_sp: dict) -> str:
             {"sub_problem": o["sub_problem"], "confidence": o["confidence"],
              # measured=True면 그림에서 자동 측정된 근거가 있음(signal). False면 근거 없이 작가가 고른 관심.
              "measured": o.get("measured", False),
+             # recurred=True면 최근 코칭에서도 반복적으로 보였던 주제(연속성).
+             "recurred": o.get("recurred", False),
              "signal": o.get("signal", ""),
              "what_to_observe": o["what_to_observe"], "practice_prompt": o["practice_prompt"]}
             for o in diagnosis.get("observations", [])
         ],
     }
     refs = {sp: [rid for rid, _ in lst] for sp, lst in refs_by_sp.items()}
+    # 그림 '단계'에 따른 자세. 완성작이면 '고칠 점'이 아니라 '앞으로 키울 것'으로 무게 이동.
+    stance = ""
+    if intent == "finished":
+        stance = ("\n[그림 단계] 이 그림은 작가가 '완성작'으로 올린 것이다. 현재 그림을 '고쳐야 할 문제'로 "
+                  "다루지 마라. observation은 짧고 가볍게, one_thing은 '다음에 무엇을 키우면 좋을지'(앞으로의 "
+                  "성장 방향)로 써라. 완성에 대한 칭찬·점수·합격 판정은 금지(칭찬도 평가다).\n")
+    cont = ("\n[연속성] recurred=true인 관찰은 최근에도 보였던 주제다. synthesis에서 '지난번에도 함께 봤던 "
+            "부분'처럼 이어지는 흐름으로 자연스럽게 언급해도 좋다. 단 '여전히 못한다/안 된다'식 평가는 금지하고 "
+            "관찰·실험 중심으로만 말한다.\n")
     return (
         SYSTEM
         + "\n\n[작업] 아래 진단과 레퍼런스로 코칭 GuideResponse(mode='coach')를 작성. 관찰별 블록 1개.\n"
         + "주어진 sub_problem·ref만 사용. confidence는 관찰값을 넘기지 마라.\n"
+        + stance + cont
         + "<<OBS>>" + json.dumps(obs, ensure_ascii=False) + "<<END>>\n"
         + "<<REFS>>" + json.dumps(refs, ensure_ascii=False) + "<<END>>\n"
     )

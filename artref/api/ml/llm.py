@@ -97,4 +97,12 @@ class RealLLM:
             yield out[i:i + 24]
 
 def get_llm():
-    return RealLLM() if settings.llm_provider else DummyLLM()
+    # 시작 시 어떤 LLM이 활성인지 로그 — 'Grok 붙었나?'를 docker compose logs api 에서 바로 확인.
+    if settings.llm_provider:
+        llm = RealLLM()
+        key_state = "set" if llm.key else "MISSING(.env XAI_API_KEY 비었음 → 템플릿 폴백)"
+        print(f"[llm] provider={settings.llm_provider} model={llm.model} key={key_state}")
+        return llm
+    print("[llm] LLM_PROVIDER 미설정 → DummyLLM(오프라인 템플릿). "
+          "Grok 쓰려면 .env에 LLM_PROVIDER=grok 설정 후 컨테이너 재생성하세요.")
+    return DummyLLM()
