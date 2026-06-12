@@ -1,6 +1,14 @@
+"""safety/moderation.py — 업로드 안전 스크리닝(이제 실제 동작; 기존 no-op 스텁 대체).
+
+기존 시그니처 그대로: screen_upload(pil) -> {"allow": bool, "reason": str|None}.
+main.py 의 `if not screen_upload(pil)["allow"]: ... refused` 가 수정 없이 동작한다.
+
+실제 판정은 safety/screen.screen() 에 위임한다(대조 CLIP baseline + 외부 provider 훅,
+fail-open/closed 설정 가능). 한계·운영 권장은 screen.py 의 docstring 참고.
+"""
+from safety.screen import screen
+
+
 def screen_upload(pil) -> dict:
-    """입력 이미지 안전 스크리닝. 성적/폭력/미성년 관련 차단.
-    베타: 외부 모더레이션 API/분류기 훅을 연결. 미연결 시 보수적으로 진행.
-    최소선: analyzable 게이트로 비-작품 거절, 인물 신원 식별 안 함, 인물 이미지 생성 안 함."""
-    # TODO: provider 연결
-    return {"allow": True, "reason": None}
+    v = screen(pil)
+    return {"allow": bool(v.get("allow", True)), "reason": v.get("reason")}
