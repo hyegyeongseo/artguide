@@ -1,0 +1,18 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="depth_layering">
+  <style>
+    .guide { fill:none; stroke:#c7ccd4; stroke-width:2.5; }
+    .gfill { fill:#c7ccd4; opacity:.18; stroke:none; }
+    .cons  { fill:none; stroke:#e0533d; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .consd { fill:none; stroke:#e0533d; stroke-width:2; stroke-dasharray:6 5; }
+    .acc   { fill:none; stroke:#2f6df0;  stroke-width:2.5; stroke-linecap:round; }
+    .dot   { fill:#e0533d; stroke:none; }
+    .lbl   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:14px; }
+    .cap   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:13px; opacity:.8; }
+    .tag   { fill:#e0533d; font-family:sans-serif; font-size:12px; font-weight:600; }
+  </style>
+  <g id="guide"></g>
+  <g id="construction"><rect x="40" y="70" width="400" height="95" fill="#cdd3dc"/><text class="tag" x="56" y="122" fill="#3a3f47">원경</text><rect x="40" y="165" width="400" height="95" fill="#909aa8"/><text class="tag" x="56" y="217" fill="#3a3f47">중경</text><rect x="40" y="260" width="400" height="130" fill="#3f4651"/><text class="tag" x="56" y="312" fill="#e9edf2">근경</text><path class="cons" d="M250 260 q55 -70 120 -8 q14 50 -30 56 q-70 8 -90 -48 Z" fill="#3f4651"/></g>
+  <g id="label">
+    <text class="cap" x="20" y="462">근·중·원경을 명도로 나누고 겹침을 한 군데.</text>
+  </g>
+</svg>

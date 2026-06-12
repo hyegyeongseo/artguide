@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="figure_eight_heads">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><circle class="guide" cx="220" cy="91.0" r="21.0"/><line class="cons" x1="150" y1="70" x2="168" y2="70"/><text class="tag" x="140" y="74" text-anchor="end">0</text><line class="consd" x1="150" y1="112" x2="168" y2="112"/><text class="tag" x="140" y="116" text-anchor="end">1</text><line class="consd" x1="150" y1="154" x2="168" y2="154"/><text class="tag" x="140" y="158" text-anchor="end">2</text><line class="consd" x1="150" y1="196" x2="168" y2="196"/><text class="tag" x="140" y="200" text-anchor="end">3</text><line class="consd" x1="150" y1="238" x2="168" y2="238"/><text class="tag" x="140" y="242" text-anchor="end">4</text><line class="consd" x1="150" y1="280" x2="168" y2="280"/><text class="tag" x="140" y="284" text-anchor="end">5</text><line class="consd" x1="150" y1="322" x2="168" y2="322"/><text class="tag" x="140" y="326" text-anchor="end">6</text><line class="consd" x1="150" y1="364" x2="168" y2="364"/><text class="tag" x="140" y="368" text-anchor="end">7</text><line class="consd" x1="150" y1="406" x2="168" y2="406"/><text class="tag" x="140" y="410" text-anchor="end">8</text><line class="gthin" x1="168" y1="112" x2="270" y2="112"/><text class="lbl" x="276" y="116">턱</text><line class="gthin" x1="168" y1="154" x2="270" y2="154"/><text class="lbl" x="276" y="158">젖꼭지선</text><line class="gthin" x1="168" y1="196" x2="270" y2="196"/><text class="lbl" x="276" y="200">배꼽</text><line class="gthin" x1="168" y1="238" x2="270" y2="238"/><text class="lbl" x="276" y="242">샅(절반)</text><line class="gthin" x1="168" y1="322" x2="270" y2="322"/><text class="lbl" x="276" y="326">무릎</text><line class="gthin" x1="168" y1="406" x2="270" y2="406"/><text class="lbl" x="276" y="410">발바닥</text><ellipse class="gfill" cx="220" cy="162.4" rx="26" ry="44"/><ellipse class="gfill" cx="220" cy="254.8" rx="24" ry="52"/><line class="guide" x1="220" y1="259.0" x2="210" y2="406"/><line class="guide" x1="220" y1="259.0" x2="232" y2="406"/><text class="tag" x="300" y="60">8두신(이상비율)</text><text class="cap" x="20" y="462">8두신 기준: 키=머리 8개. 4번째가 몸 절반(샅), 무릎≈6, 발바닥=8. 머리를 자로 쓴다.</text>
+</svg>

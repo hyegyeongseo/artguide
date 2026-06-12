@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="line_of_action">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><path class="cons" d="M240 70 C200 160 210 280 270 410"/><circle class="dot" cx="240" cy="70" r="5"/><circle class="dot" cx="270" cy="410" r="5"/><circle class="guide" cx="238" cy="88" r="24"/><ellipse class="gfill" cx="220" cy="180" rx="36" ry="60"/><ellipse class="gfill" cx="244" cy="320" rx="30" ry="80"/><line class="gthin" x1="220" y1="150" x2="150" y2="110"/><line class="gthin" x1="248" y1="200" x2="330" y2="250"/><text class="tag" x="150" y="80">동작선(관통선)</text><text class="lbl" x="300" y="410">발끝까지 한 흐름</text><text class="lbl" x="40" y="450">포즈 하나엔 머리→발끝을 꿰는 '한 줄'이 있다 — 먼저 그 선부터.</text><text class="cap" x="20" y="462">동작선: 머리에서 발끝까지 꿰는 단 하나의 흐르는 선. 디테일보다 이 선이 먼저.</text>
+</svg>

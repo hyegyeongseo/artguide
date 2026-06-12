@@ -1,0 +1,1193 @@
+{
+  "diagrams": {
+    "head_construction": {
+      "supports": [
+        "proportion"
+      ],
+      "personas": [
+        "anatomy",
+        "pose"
+      ],
+      "caption": "머리통(공)+턱 + 얼굴 3등분."
+    },
+    "facial_proportion": {
+      "supports": [
+        "proportion"
+      ],
+      "personas": [
+        "anatomy"
+      ],
+      "caption": "눈은 머리 높이 정중앙, 얼굴=눈 5칸."
+    },
+    "torso_box": {
+      "supports": [
+        "weight_balance",
+        "proportion"
+      ],
+      "personas": [
+        "anatomy",
+        "pose"
+      ],
+      "caption": "흉곽·골반 두 상자와 척추의 비틀림."
+    },
+    "gesture_rhythm": {
+      "supports": [
+        "action_line"
+      ],
+      "personas": [
+        "pose"
+      ],
+      "caption": "C·S·I 선과 직선 대 곡선 리듬."
+    },
+    "mannequin_blocking": {
+      "supports": [
+        "proportion",
+        "weight_balance",
+        "joint_articulation"
+      ],
+      "personas": [
+        "pose",
+        "anatomy"
+      ],
+      "caption": "상자·원통으로 전신 블로킹."
+    },
+    "perspective_grid": {
+      "supports": [
+        "foreshortening"
+      ],
+      "personas": [
+        "perspective"
+      ],
+      "caption": "지평선(눈높이)+소실점 2점 투시."
+    },
+    "form_shadow_terms": {
+      "supports": [
+        "light_direction",
+        "value_structure"
+      ],
+      "personas": [
+        "light",
+        "technique"
+      ],
+      "caption": "구 한 장에 빛 용어 전체."
+    },
+    "edge_control": {
+      "supports": [
+        "value_structure"
+      ],
+      "personas": [
+        "technique"
+      ],
+      "caption": "단단·부드러움·잃은 모서리."
+    },
+    "color_wheel": {
+      "supports": [
+        "color_harmony"
+      ],
+      "personas": [
+        "color"
+      ],
+      "caption": "12색 색상환 + 보색·유사색."
+    },
+    "notan_massing": {
+      "supports": [
+        "composition_balance",
+        "value_structure"
+      ],
+      "personas": [
+        "composition",
+        "light"
+      ],
+      "caption": "2값 노탄으로 큰 덩어리 묶기."
+    },
+    "hand_planes": {
+      "supports": [
+        "hand_structure"
+      ],
+      "personas": [
+        "hand",
+        "anatomy"
+      ],
+      "caption": "손등 평면 + 너클 아치 + 마디 3칸."
+    },
+    "foot_structure": {
+      "supports": [
+        "proportion",
+        "weight_balance"
+      ],
+      "personas": [
+        "anatomy",
+        "pose"
+      ],
+      "caption": "발 = 쐐기 + 발목 공, 안쪽 아치."
+    },
+    "head_angles": {
+      "supports": [
+        "proportion",
+        "foreshortening"
+      ],
+      "personas": [
+        "anatomy"
+      ],
+      "caption": "고개 들기·숙이기로 가로선이 휜다."
+    },
+    "value_scale": {
+      "supports": [
+        "value_structure"
+      ],
+      "personas": [
+        "light",
+        "technique"
+      ],
+      "caption": "9단 명도 자."
+    },
+    "planes_of_form": {
+      "supports": [
+        "value_structure",
+        "light_direction"
+      ],
+      "personas": [
+        "light",
+        "anatomy",
+        "technique"
+      ],
+      "caption": "면이 꺾이면 명도가 바뀐다(큐브·원기둥)."
+    },
+    "one_point_perspective": {
+      "supports": [
+        "foreshortening"
+      ],
+      "personas": [
+        "perspective"
+      ],
+      "caption": "소실점 1개 투시."
+    },
+    "ellipse_perspective": {
+      "supports": [
+        "foreshortening"
+      ],
+      "personas": [
+        "perspective",
+        "anatomy"
+      ],
+      "caption": "원기둥의 타원 — 단축은 중심축."
+    },
+    "color_temperature": {
+      "supports": [
+        "color_harmony"
+      ],
+      "personas": [
+        "color",
+        "light"
+      ],
+      "caption": "따뜻한 빛 / 차가운 그림자."
+    },
+    "leading_lines": {
+      "supports": [
+        "composition_balance"
+      ],
+      "personas": [
+        "composition"
+      ],
+      "caption": "유도선으로 시선을 초점으로."
+    },
+    "silhouette_read": {
+      "supports": [
+        "action_line",
+        "composition_balance"
+      ],
+      "personas": [
+        "pose",
+        "composition"
+      ],
+      "caption": "실루엣 가독성 · 음형."
+    },
+    "joint_hinge": {
+      "supports": [
+        "joint_articulation"
+      ],
+      "personas": [
+        "anatomy",
+        "pose"
+      ],
+      "caption": "경첩 관절(무릎·팔꿈치)은 1축 굽힘."
+    },
+    "joint_ball_socket": {
+      "supports": [
+        "joint_articulation"
+      ],
+      "personas": [
+        "anatomy",
+        "pose"
+      ],
+      "caption": "볼-소켓(어깨·고관절) 다축 회전."
+    },
+    "joint_range_arcs": {
+      "supports": [
+        "joint_articulation"
+      ],
+      "personas": [
+        "anatomy",
+        "pose"
+      ],
+      "caption": "관절별 가동범위(ROM) 호."
+    },
+    "joint_cylinder_sphere": {
+      "supports": [
+        "joint_articulation",
+        "proportion"
+      ],
+      "personas": [
+        "anatomy",
+        "pose"
+      ],
+      "caption": "원통(뼈)+구(관절) 사슬."
+    },
+    "spine_flexion": {
+      "supports": [
+        "joint_articulation",
+        "action_line"
+      ],
+      "personas": [
+        "anatomy",
+        "pose"
+      ],
+      "caption": "척추 굴곡·신전 곡선."
+    },
+    "wrist_ankle": {
+      "supports": [
+        "joint_articulation",
+        "hand_structure"
+      ],
+      "personas": [
+        "anatomy"
+      ],
+      "caption": "손목·발목(작은뼈 블록) 관절."
+    },
+    "line_of_action": {
+      "supports": [
+        "action_line"
+      ],
+      "personas": [
+        "pose"
+      ],
+      "caption": "단일 동작선(관통선) 우선."
+    },
+    "force_arrows": {
+      "supports": [
+        "action_line"
+      ],
+      "personas": [
+        "pose"
+      ],
+      "caption": "힘의 방향(밀기·당기기·비틀기)."
+    },
+    "straight_vs_curve": {
+      "supports": [
+        "action_line"
+      ],
+      "personas": [
+        "pose"
+      ],
+      "caption": "직선 대 곡선 리듬."
+    },
+    "squash_stretch": {
+      "supports": [
+        "action_line"
+      ],
+      "personas": [
+        "pose"
+      ],
+      "caption": "스쿼시·스트레치(부피 보존)."
+    },
+    "contrapposto": {
+      "supports": [
+        "weight_balance"
+      ],
+      "personas": [
+        "pose",
+        "anatomy"
+      ],
+      "caption": "콘트라포스토(어깨·골반 반대 기울기)."
+    },
+    "plumb_line": {
+      "supports": [
+        "weight_balance"
+      ],
+      "personas": [
+        "pose"
+      ],
+      "caption": "무게중심 수직선 ↔ 지지면."
+    },
+    "base_of_support": {
+      "supports": [
+        "weight_balance"
+      ],
+      "personas": [
+        "pose"
+      ],
+      "caption": "지지면 폭 ↔ 안정성."
+    },
+    "counterbalance_load": {
+      "supports": [
+        "weight_balance"
+      ],
+      "personas": [
+        "pose"
+      ],
+      "caption": "짐의 반대 카운터밸런스."
+    },
+    "weight_shift_walk": {
+      "supports": [
+        "weight_balance",
+        "action_line"
+      ],
+      "personas": [
+        "pose"
+      ],
+      "caption": "걸음의 무게 이동."
+    },
+    "hand_proportion": {
+      "supports": [
+        "hand_structure",
+        "proportion"
+      ],
+      "personas": [
+        "anatomy"
+      ],
+      "caption": "손바닥≈손가락 길이 비율."
+    },
+    "finger_segments": {
+      "supports": [
+        "hand_structure"
+      ],
+      "personas": [
+        "anatomy"
+      ],
+      "caption": "손가락 3마디 + 너클 호."
+    },
+    "thumb_opposition": {
+      "supports": [
+        "hand_structure"
+      ],
+      "personas": [
+        "anatomy"
+      ],
+      "caption": "엄지 대립(다른 평면)."
+    },
+    "hand_gesture_relaxed": {
+      "supports": [
+        "hand_structure"
+      ],
+      "personas": [
+        "anatomy",
+        "pose"
+      ],
+      "caption": "이완된 손(자연스런 말림)."
+    },
+    "hand_back_view": {
+      "supports": [
+        "hand_structure"
+      ],
+      "personas": [
+        "anatomy"
+      ],
+      "caption": "손등(너클·힘줄) 구조."
+    },
+    "light_on_sphere": {
+      "supports": [
+        "light_direction",
+        "value_structure"
+      ],
+      "personas": [
+        "light"
+      ],
+      "caption": "구의 빛 명암 구조(기본)."
+    },
+    "light_directions_set": {
+      "supports": [
+        "light_direction"
+      ],
+      "personas": [
+        "light"
+      ],
+      "caption": "빛 방향별 인상(정면/측면/역광/탑)."
+    },
+    "terminator_core": {
+      "supports": [
+        "light_direction",
+        "value_structure"
+      ],
+      "personas": [
+        "light",
+        "value"
+      ],
+      "caption": "명암경계·코어섀도·반사광."
+    },
+    "occlusion_shadow": {
+      "supports": [
+        "light_direction",
+        "value_structure"
+      ],
+      "personas": [
+        "light",
+        "value"
+      ],
+      "caption": "폐색(접촉) 그림자가 가장 어둡다."
+    },
+    "head_planes_light": {
+      "supports": [
+        "light_direction",
+        "value_structure"
+      ],
+      "personas": [
+        "light",
+        "anatomy"
+      ],
+      "caption": "머리 평면별 명암."
+    },
+    "complementary_scheme": {
+      "supports": [
+        "color_harmony"
+      ],
+      "personas": [
+        "color"
+      ],
+      "caption": "보색·분할보색."
+    },
+    "analogous_scheme": {
+      "supports": [
+        "color_harmony"
+      ],
+      "personas": [
+        "color"
+      ],
+      "caption": "유사색 배색."
+    },
+    "triadic_scheme": {
+      "supports": [
+        "color_harmony"
+      ],
+      "personas": [
+        "color"
+      ],
+      "caption": "3색조(트라이어드)."
+    },
+    "warm_cool_balance": {
+      "supports": [
+        "color_harmony"
+      ],
+      "personas": [
+        "color"
+      ],
+      "caption": "따뜻·차가움 주조+강조(7:3)."
+    },
+    "color_light_shadow": {
+      "supports": [
+        "color_harmony",
+        "light_direction"
+      ],
+      "personas": [
+        "color",
+        "light"
+      ],
+      "caption": "따뜻한 빛·차가운 그림자."
+    },
+    "rule_of_thirds": {
+      "supports": [
+        "composition_balance"
+      ],
+      "personas": [
+        "composition"
+      ],
+      "caption": "삼분할 교차점(힘점)."
+    },
+    "golden_spiral": {
+      "supports": [
+        "composition_balance"
+      ],
+      "personas": [
+        "composition"
+      ],
+      "caption": "황금비 나선·수렴점."
+    },
+    "symmetry_asymmetry": {
+      "supports": [
+        "composition_balance"
+      ],
+      "personas": [
+        "composition"
+      ],
+      "caption": "대칭 vs 비대칭 균형."
+    },
+    "visual_weight": {
+      "supports": [
+        "composition_balance"
+      ],
+      "personas": [
+        "composition"
+      ],
+      "caption": "시각적 무게 균형."
+    },
+    "focal_emphasis": {
+      "supports": [
+        "composition_balance"
+      ],
+      "personas": [
+        "composition"
+      ],
+      "caption": "초점(대비·고립·수렴)."
+    },
+    "negative_space": {
+      "supports": [
+        "composition_balance"
+      ],
+      "personas": [
+        "composition"
+      ],
+      "caption": "음(여백)·양(주제) 디자인."
+    },
+    "figure_eight_heads": {
+      "supports": [
+        "proportion"
+      ],
+      "personas": [
+        "anatomy"
+      ],
+      "caption": "8두신 인체 비율."
+    },
+    "comparative_proportion": {
+      "supports": [
+        "proportion"
+      ],
+      "personas": [
+        "anatomy"
+      ],
+      "caption": "단위(머리·눈)로 비교 측정."
+    },
+    "overlapping_forms": {
+      "supports": [
+        "foreshortening"
+      ],
+      "personas": [
+        "perspective",
+        "pose"
+      ],
+      "caption": "겹침=단축의 깊이 단서."
+    },
+    "high_low_key": {
+      "supports": [
+        "value_structure"
+      ],
+      "personas": [
+        "value"
+      ],
+      "caption": "하이키·로키 명도 범위."
+    }
+  },
+  "asset_index": {
+    "proportion": [
+      {
+        "type": "svg",
+        "ref_id": "reference/head_construction.svg",
+        "label": "도식",
+        "caption": "머리통(공)+턱 + 얼굴 3등분.",
+        "personas": [
+          "anatomy",
+          "pose"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/facial_proportion.svg",
+        "label": "도식",
+        "caption": "눈은 머리 높이 정중앙, 얼굴=눈 5칸.",
+        "personas": [
+          "anatomy"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/torso_box.svg",
+        "label": "도식",
+        "caption": "흉곽·골반 두 상자와 척추의 비틀림.",
+        "personas": [
+          "anatomy",
+          "pose"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/mannequin_blocking.svg",
+        "label": "도식",
+        "caption": "상자·원통으로 전신 블로킹.",
+        "personas": [
+          "pose",
+          "anatomy"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/foot_structure.svg",
+        "label": "도식",
+        "caption": "발 = 쐐기 + 발목 공, 안쪽 아치.",
+        "personas": [
+          "anatomy",
+          "pose"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/head_angles.svg",
+        "label": "도식",
+        "caption": "고개 들기·숙이기로 가로선이 휜다.",
+        "personas": [
+          "anatomy"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/joint_cylinder_sphere.svg",
+        "label": "도식",
+        "caption": "원통(뼈)+구(관절) 사슬."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/hand_proportion.svg",
+        "label": "도식",
+        "caption": "손바닥≈손가락 길이 비율."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/figure_eight_heads.svg",
+        "label": "도식",
+        "caption": "8두신 인체 비율."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/comparative_proportion.svg",
+        "label": "도식",
+        "caption": "단위(머리·눈)로 비교 측정."
+      }
+    ],
+    "weight_balance": [
+      {
+        "type": "svg",
+        "ref_id": "reference/torso_box.svg",
+        "label": "도식",
+        "caption": "흉곽·골반 두 상자와 척추의 비틀림.",
+        "personas": [
+          "anatomy",
+          "pose"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/mannequin_blocking.svg",
+        "label": "도식",
+        "caption": "상자·원통으로 전신 블로킹.",
+        "personas": [
+          "pose",
+          "anatomy"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/foot_structure.svg",
+        "label": "도식",
+        "caption": "발 = 쐐기 + 발목 공, 안쪽 아치.",
+        "personas": [
+          "anatomy",
+          "pose"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/contrapposto.svg",
+        "label": "도식",
+        "caption": "콘트라포스토(어깨·골반 반대 기울기)."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/plumb_line.svg",
+        "label": "도식",
+        "caption": "무게중심 수직선 ↔ 지지면."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/base_of_support.svg",
+        "label": "도식",
+        "caption": "지지면 폭 ↔ 안정성."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/counterbalance_load.svg",
+        "label": "도식",
+        "caption": "짐의 반대 카운터밸런스."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/weight_shift_walk.svg",
+        "label": "도식",
+        "caption": "걸음의 무게 이동."
+      }
+    ],
+    "action_line": [
+      {
+        "type": "svg",
+        "ref_id": "reference/gesture_rhythm.svg",
+        "label": "도식",
+        "caption": "C·S·I 선과 직선 대 곡선 리듬.",
+        "personas": [
+          "pose"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/silhouette_read.svg",
+        "label": "도식",
+        "caption": "실루엣 가독성 · 음형.",
+        "personas": [
+          "pose",
+          "composition"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/spine_flexion.svg",
+        "label": "도식",
+        "caption": "척추 굴곡·신전 곡선."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/line_of_action.svg",
+        "label": "도식",
+        "caption": "단일 동작선(관통선) 우선."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/force_arrows.svg",
+        "label": "도식",
+        "caption": "힘의 방향(밀기·당기기·비틀기)."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/straight_vs_curve.svg",
+        "label": "도식",
+        "caption": "직선 대 곡선 리듬."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/squash_stretch.svg",
+        "label": "도식",
+        "caption": "스쿼시·스트레치(부피 보존)."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/weight_shift_walk.svg",
+        "label": "도식",
+        "caption": "걸음의 무게 이동."
+      }
+    ],
+    "joint_articulation": [
+      {
+        "type": "svg",
+        "ref_id": "reference/mannequin_blocking.svg",
+        "label": "도식",
+        "caption": "상자·원통으로 전신 블로킹.",
+        "personas": [
+          "pose",
+          "anatomy"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/joint_hinge.svg",
+        "label": "도식",
+        "caption": "경첩 관절(무릎·팔꿈치)은 1축 굽힘."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/joint_ball_socket.svg",
+        "label": "도식",
+        "caption": "볼-소켓(어깨·고관절) 다축 회전."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/joint_range_arcs.svg",
+        "label": "도식",
+        "caption": "관절별 가동범위(ROM) 호."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/joint_cylinder_sphere.svg",
+        "label": "도식",
+        "caption": "원통(뼈)+구(관절) 사슬."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/spine_flexion.svg",
+        "label": "도식",
+        "caption": "척추 굴곡·신전 곡선."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/wrist_ankle.svg",
+        "label": "도식",
+        "caption": "손목·발목(작은뼈 블록) 관절."
+      }
+    ],
+    "foreshortening": [
+      {
+        "type": "svg",
+        "ref_id": "reference/perspective_grid.svg",
+        "label": "도식",
+        "caption": "지평선(눈높이)+소실점 2점 투시.",
+        "personas": [
+          "perspective"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/head_angles.svg",
+        "label": "도식",
+        "caption": "고개 들기·숙이기로 가로선이 휜다.",
+        "personas": [
+          "anatomy"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/one_point_perspective.svg",
+        "label": "도식",
+        "caption": "소실점 1개 투시.",
+        "personas": [
+          "perspective"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/ellipse_perspective.svg",
+        "label": "도식",
+        "caption": "원기둥의 타원 — 단축은 중심축.",
+        "personas": [
+          "perspective",
+          "anatomy"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/overlapping_forms.svg",
+        "label": "도식",
+        "caption": "겹침=단축의 깊이 단서."
+      }
+    ],
+    "light_direction": [
+      {
+        "type": "svg",
+        "ref_id": "reference/form_shadow_terms.svg",
+        "label": "도식",
+        "caption": "구 한 장에 빛 용어 전체.",
+        "personas": [
+          "light",
+          "technique"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/planes_of_form.svg",
+        "label": "도식",
+        "caption": "면이 꺾이면 명도가 바뀐다(큐브·원기둥).",
+        "personas": [
+          "light",
+          "anatomy",
+          "technique"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/light_on_sphere.svg",
+        "label": "도식",
+        "caption": "구의 빛 명암 구조(기본)."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/light_directions_set.svg",
+        "label": "도식",
+        "caption": "빛 방향별 인상(정면/측면/역광/탑)."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/terminator_core.svg",
+        "label": "도식",
+        "caption": "명암경계·코어섀도·반사광."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/occlusion_shadow.svg",
+        "label": "도식",
+        "caption": "폐색(접촉) 그림자가 가장 어둡다."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/head_planes_light.svg",
+        "label": "도식",
+        "caption": "머리 평면별 명암."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/color_light_shadow.svg",
+        "label": "도식",
+        "caption": "따뜻한 빛·차가운 그림자."
+      }
+    ],
+    "value_structure": [
+      {
+        "type": "svg",
+        "ref_id": "reference/form_shadow_terms.svg",
+        "label": "도식",
+        "caption": "구 한 장에 빛 용어 전체.",
+        "personas": [
+          "light",
+          "technique"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/edge_control.svg",
+        "label": "도식",
+        "caption": "단단·부드러움·잃은 모서리.",
+        "personas": [
+          "technique"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/notan_massing.svg",
+        "label": "도식",
+        "caption": "2값 노탄으로 큰 덩어리 묶기.",
+        "personas": [
+          "composition",
+          "light"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/value_scale.svg",
+        "label": "도식",
+        "caption": "9단 명도 자.",
+        "personas": [
+          "light",
+          "technique"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/planes_of_form.svg",
+        "label": "도식",
+        "caption": "면이 꺾이면 명도가 바뀐다(큐브·원기둥).",
+        "personas": [
+          "light",
+          "anatomy",
+          "technique"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/light_on_sphere.svg",
+        "label": "도식",
+        "caption": "구의 빛 명암 구조(기본)."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/terminator_core.svg",
+        "label": "도식",
+        "caption": "명암경계·코어섀도·반사광."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/occlusion_shadow.svg",
+        "label": "도식",
+        "caption": "폐색(접촉) 그림자가 가장 어둡다."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/head_planes_light.svg",
+        "label": "도식",
+        "caption": "머리 평면별 명암."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/high_low_key.svg",
+        "label": "도식",
+        "caption": "하이키·로키 명도 범위."
+      }
+    ],
+    "color_harmony": [
+      {
+        "type": "svg",
+        "ref_id": "reference/color_wheel.svg",
+        "label": "도식",
+        "caption": "12색 색상환 + 보색·유사색.",
+        "personas": [
+          "color"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/color_temperature.svg",
+        "label": "도식",
+        "caption": "따뜻한 빛 / 차가운 그림자.",
+        "personas": [
+          "color",
+          "light"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/complementary_scheme.svg",
+        "label": "도식",
+        "caption": "보색·분할보색."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/analogous_scheme.svg",
+        "label": "도식",
+        "caption": "유사색 배색."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/triadic_scheme.svg",
+        "label": "도식",
+        "caption": "3색조(트라이어드)."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/warm_cool_balance.svg",
+        "label": "도식",
+        "caption": "따뜻·차가움 주조+강조(7:3)."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/color_light_shadow.svg",
+        "label": "도식",
+        "caption": "따뜻한 빛·차가운 그림자."
+      }
+    ],
+    "composition_balance": [
+      {
+        "type": "svg",
+        "ref_id": "reference/notan_massing.svg",
+        "label": "도식",
+        "caption": "2값 노탄으로 큰 덩어리 묶기.",
+        "personas": [
+          "composition",
+          "light"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/leading_lines.svg",
+        "label": "도식",
+        "caption": "유도선으로 시선을 초점으로.",
+        "personas": [
+          "composition"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/silhouette_read.svg",
+        "label": "도식",
+        "caption": "실루엣 가독성 · 음형.",
+        "personas": [
+          "pose",
+          "composition"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/rule_of_thirds.svg",
+        "label": "도식",
+        "caption": "삼분할 교차점(힘점)."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/golden_spiral.svg",
+        "label": "도식",
+        "caption": "황금비 나선·수렴점."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/symmetry_asymmetry.svg",
+        "label": "도식",
+        "caption": "대칭 vs 비대칭 균형."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/visual_weight.svg",
+        "label": "도식",
+        "caption": "시각적 무게 균형."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/focal_emphasis.svg",
+        "label": "도식",
+        "caption": "초점(대비·고립·수렴)."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/negative_space.svg",
+        "label": "도식",
+        "caption": "음(여백)·양(주제) 디자인."
+      }
+    ],
+    "hand_structure": [
+      {
+        "type": "svg",
+        "ref_id": "reference/hand_planes.svg",
+        "label": "도식",
+        "caption": "손등 평면 + 너클 아치 + 마디 3칸.",
+        "personas": [
+          "hand",
+          "anatomy"
+        ]
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/wrist_ankle.svg",
+        "label": "도식",
+        "caption": "손목·발목(작은뼈 블록) 관절."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/hand_proportion.svg",
+        "label": "도식",
+        "caption": "손바닥≈손가락 길이 비율."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/finger_segments.svg",
+        "label": "도식",
+        "caption": "손가락 3마디 + 너클 호."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/thumb_opposition.svg",
+        "label": "도식",
+        "caption": "엄지 대립(다른 평면)."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/hand_gesture_relaxed.svg",
+        "label": "도식",
+        "caption": "이완된 손(자연스런 말림)."
+      },
+      {
+        "type": "svg",
+        "ref_id": "reference/hand_back_view.svg",
+        "label": "도식",
+        "caption": "손등(너클·힘줄) 구조."
+      }
+    ]
+  }
+}

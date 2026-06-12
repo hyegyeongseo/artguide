@@ -1,0 +1,20 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="hand_planes">
+  <style>
+    .guide { fill:none; stroke:#c7ccd4; stroke-width:2.5; }
+    .gfill { fill:#c7ccd4; opacity:.18; stroke:none; }
+    .cons  { fill:none; stroke:#e0533d; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .consd { fill:none; stroke:#e0533d; stroke-width:2; stroke-dasharray:6 5; }
+    .acc   { fill:none; stroke:#2f6df0;  stroke-width:2.5; stroke-linecap:round; }
+    .accd  { fill:none; stroke:#2f6df0;  stroke-width:2; stroke-dasharray:6 5; }
+    .dot   { fill:#e0533d; stroke:none; }
+    .adot  { fill:#2f6df0; stroke:none; }
+    .lbl   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:14px; }
+    .cap   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:13px; opacity:.8; }
+    .tag   { fill:#e0533d; font-family:sans-serif; font-size:12px; font-weight:600; }
+  </style>
+  <g id="guide"><path class="gfill" d="M150 322 L312 322 L296 178 L166 178 Z"/></g>
+  <g id="construction"><path class="cons" d="M160 322 L300 322 L288 188 L172 188 Z"/><path class="consd" d="M172 200 Q230 170 288 200"/><line class="cons" x1="190" y1="192" x2="190" y2="88"/><line class="consd" x1="181" y1="157" x2="199" y2="157"/><line class="consd" x1="181" y1="123" x2="199" y2="123"/><line class="cons" x1="220" y1="192" x2="220" y2="70"/><line class="consd" x1="211" y1="151" x2="229" y2="151"/><line class="consd" x1="211" y1="111" x2="229" y2="111"/><line class="cons" x1="250" y1="192" x2="250" y2="80"/><line class="consd" x1="241" y1="155" x2="259" y2="155"/><line class="consd" x1="241" y1="117" x2="259" y2="117"/><line class="cons" x1="280" y1="192" x2="280" y2="106"/><line class="consd" x1="271" y1="163" x2="289" y2="163"/><line class="consd" x1="271" y1="135" x2="289" y2="135"/><path class="cons" d="M162 300 q-46 -4 -66 -38 q-10 -18 7 -30 q18 -10 31 9 l32 42"/><path class="acc" d="M232 258 L214 226"/><path class="acc" d="M214 226 L226 233 M214 226 L214 240"/></g>
+  <g id="label"><text class="lbl" x="312" y="262">손등 평면</text><text class="lbl" x="296" y="168">너클 아치</text><text class="lbl" x="296" y="118">마디 3칸</text><text class="lbl" x="74" y="252">엄지</text><text class="lbl" x="190" y="244" fill="#2f6df0">평면 방향</text>
+    <text class="cap" x="20" y="462">손등은 한 평면, 너클은 아치. 손가락은 마디 3칸으로.</text>
+  </g>
+</svg>

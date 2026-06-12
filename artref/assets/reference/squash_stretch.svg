@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="squash_stretch">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><ellipse class="consf" cx="120" cy="320" rx="64" ry="26"/><ellipse class="cons" cx="120" cy="320" rx="64" ry="26"/><text class="lbl" x="120" y="370" text-anchor="middle">스쿼시(눌림)</text><ellipse class="accf" cx="250" cy="240" rx="26" ry="70"/><ellipse class="acc" cx="250" cy="240" rx="26" ry="70"/><text class="lbl" x="250" y="370" text-anchor="middle">스트레치(늘림)</text><circle class="guide" cx="380" cy="290" r="44"/><text class="lbl" x="380" y="370" text-anchor="middle">원래 부피</text><line class="guide" x1="184" y1="320" x2="222" y2="290" marker-end="url(#ag)"/><line class="guide" x1="282" y1="220" x2="332" y2="270" marker-end="url(#ag)"/><text class="lbl" x="40" y="110">부피는 같게 — 누르면 넓어지고, 늘리면 가늘어진다.</text><text class="lbl" x="40" y="140">동세의 탄력·속도감이 여기서 나온다.</text><text class="cap" x="20" y="462">스쿼시·스트레치: 부피는 유지하며 눌리고 늘어난다 — 동작의 탄력과 속도감.</text>
+</svg>

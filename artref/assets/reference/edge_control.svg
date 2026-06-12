@@ -1,0 +1,20 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="edge_control">
+  <style>
+    .guide { fill:none; stroke:#c7ccd4; stroke-width:2.5; }
+    .gfill { fill:#c7ccd4; opacity:.18; stroke:none; }
+    .cons  { fill:none; stroke:#e0533d; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .consd { fill:none; stroke:#e0533d; stroke-width:2; stroke-dasharray:6 5; }
+    .acc   { fill:none; stroke:#2f6df0;  stroke-width:2.5; stroke-linecap:round; }
+    .accd  { fill:none; stroke:#2f6df0;  stroke-width:2; stroke-dasharray:6 5; }
+    .dot   { fill:#e0533d; stroke:none; }
+    .adot  { fill:#2f6df0; stroke:none; }
+    .lbl   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:14px; }
+    .cap   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:13px; opacity:.8; }
+    .tag   { fill:#e0533d; font-family:sans-serif; font-size:12px; font-weight:600; }
+  </style>
+  <defs><linearGradient id="soft" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#33373d"/><stop offset="100%" stop-color="#e9eaec"/></linearGradient><linearGradient id="lost" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#9aa0a8"/><stop offset="100%" stop-color="#cfd3d8"/></linearGradient></defs><g id="guide"><rect x="60" y="70" width="360" height="300" rx="10" fill="#cfd3d8"/></g>
+  <g id="construction"><path d="M120 110 a70 70 0 0 1 0 200 Z" fill="#33373d"/><path class="cons" d="M120 110 a70 70 0 0 1 0 200" stroke-width="2"/><rect x="200" y="120" width="90" height="180" rx="44" fill="url(#soft)"/><path d="M330 130 q60 20 50 90 q-8 70 -64 78 q-30 4 -36 -10" fill="url(#lost)"/></g>
+  <g id="label"><text class="lbl" x="92" y="350">단단한 모서리</text><text class="lbl" x="206" y="350">부드러운 모서리</text><text class="lbl" x="326" y="350">잃은 모서리</text>
+    <text class="cap" x="20" y="462">같은 형태도 모서리를 단단히·부드럽게·잃게 해 입체와 초점을 만든다.</text>
+  </g>
+</svg>

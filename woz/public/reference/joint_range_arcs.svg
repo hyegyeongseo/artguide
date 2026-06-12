@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="joint_range_arcs">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><circle class="dot" cx="110" cy="150" r="4"/><circle class="guide" cx="110" cy="150" r="5"/><path class="acc" d="M-40 0 A 40 40 0 0 1 28 -28" transform="translate(110 150)"/><line class="consd" x1="110" y1="150" x2="150" y2="150"/><text class="lbl" x="96" y="230" text-anchor="middle">목</text><circle class="dot" cx="250" cy="150" r="4"/><circle class="guide" cx="250" cy="150" r="5"/><path class="acc" d="M40 0 A 40 40 0 0 1 -10 38" transform="translate(250 150)"/><line class="consd" x1="250" y1="150" x2="290" y2="150"/><text class="lbl" x="236" y="230" text-anchor="middle">팔꿈치</text><circle class="dot" cx="390" cy="150" r="4"/><circle class="guide" cx="390" cy="150" r="5"/><path class="acc" d="M40 0 A 40 40 0 0 1 -6 39" transform="translate(390 150)"/><line class="consd" x1="390" y1="150" x2="430" y2="150"/><text class="lbl" x="376" y="230" text-anchor="middle">무릎</text><text class="lbl" x="60" y="250">관절마다 '돌 수 있는 범위(ROM)'가 정해져 있다.</text><text class="lbl" x="60" y="280">그 호를 넘으면 부자연 — 포즈가 깨져 보인다.</text><line class="ink" x1="150" y1="360" x2="230" y2="360"/><line class="cons" x1="230" y1="360" x2="320" y2="300"/><text class="tag" x="258" y="320">정상</text><line class="ink" x1="150" y1="410" x2="230" y2="410"/><line class="consd" x1="230" y1="410" x2="300" y2="430"/><text class="tag" x="258" y="432">범위초과(X)</text><text class="cap" x="20" y="462">각 관절엔 정해진 가동범위(ROM)가 있다. 호를 넘기면 포즈가 부자연스럽다.</text>
+</svg>

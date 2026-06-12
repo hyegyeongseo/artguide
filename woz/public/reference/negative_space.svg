@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="negative_space">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><rect x="70" y="90" width="340" height="250" fill="none" stroke="#3a3f47" stroke-width="1.6"/><rect x="70" y="90" width="340" height="250" fill="#eef0f2"/><rect x="70" y="90" width="340" height="250" fill="none" stroke="#3a3f47" stroke-width="1.6"/><path d="M220 130 C290 130 310 210 290 260 C280 290 300 310 290 320 L220 320 Z" fill="#3a3f47"/><text class="atag" x="130" y="210">음(여백)</text><text class="lbl" x="255" y="210" text-anchor="middle" fill="#ffffff">양(주제)</text><path d="M220 130 C290 130 310 210 290 260 C280 290 300 310 290 320 L220 320 Z" fill="none" stroke="#e0533d" stroke-width="2"/><text class="lbl" x="40" y="380">주제(양)만큼 그 주변 여백(음)의 모양도 디자인한다 — 둘 다 좋아야 구도가 산다.</text><text class="cap" x="20" y="462">음·양(여백·주제): 주제만큼 그 주변 빈 공간의 모양도 디자인해야 화면이 짜임새 있다.</text>
+</svg>

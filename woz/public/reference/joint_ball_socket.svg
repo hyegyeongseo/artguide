@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="joint_ball_socket">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><circle class="gfill" cx="180" cy="200" r="46"/><circle class="guide" cx="180" cy="200" r="46"/><circle class="consf" cx="180" cy="200" r="22"/><circle class="cons" cx="180" cy="200" r="22"/><circle class="dot" cx="180" cy="200" r="4"/><line class="consd" x1="180" y1="200" x2="300" y2="130"/><line class="cons" x1="180" y1="200" x2="310" y2="210"/><line class="consd" x1="180" y1="200" x2="290" y2="290"/><line class="consd" x1="180" y1="200" x2="240" y2="320"/><path class="acc" d="M310 210 A 132 132 0 0 1 240 320"/><line class="acc" x1="300" y1="145" x2="240" y2="312" marker-end="url(#ab)"/><text class="lbl" x="260" y="140">여러 축으로 회전</text><text class="tag" x="130" y="270">구·소켓</text><text class="lbl" x="300" y="110">어깨·고관절</text><text class="cap" x="20" y="446">어깨·고관절은 볼-소켓: 여러 축으로 회전(원뿔 범위).</text><text class="cap" x="20" y="465">그래서 팔·다리는 위·아래·앞·뒤로 자유롭게 돈다.</text>
+</svg>

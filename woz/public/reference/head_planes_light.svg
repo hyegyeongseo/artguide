@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="head_planes_light">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><line class="cons" x1="70" y1="80" x2="140" y2="130" marker-end="url(#ar)"/><text class="tag" x="40" y="80">광원(3/4)</text><circle class="guide" cx="240" cy="175" r="80"/><polygon class="ink" points="196,120 284,120 292,250 210,275"/><polygon points="284,120 320,150 312,235 292,250" fill="#8a8f95" opacity=".8" stroke="#3a3f47" stroke-width="1"/><polygon points="210,275 292,250 270,300 222,300" fill="#5d626a" opacity=".85" stroke="#3a3f47" stroke-width="1"/><line class="gthin" x1="196" y1="175" x2="284" y2="175"/><line class="gthin" x1="240" y1="120" x2="240" y2="300"/><text class="tag" x="150" y="175" text-anchor="end">정면=빛</text><text class="atag" x="335" y="200">측면=그림자</text><text class="lbl" x="230" y="330" text-anchor="middle">턱 아래=가장 어두움</text><text class="lbl" x="40" y="410">머리를 몇 개 평면으로 단순화하면, 빛을 받는 면과 꺾여 그늘진 면이 명확해진다.</text><text class="cap" x="20" y="462">머리를 평면으로 단순화: 빛 받는 정면 vs 꺾여 그늘진 측면·턱밑. 명암은 평면의 방향에서 나온다.</text>
+</svg>

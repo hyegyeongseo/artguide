@@ -1,0 +1,20 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="torso_box">
+  <style>
+    .guide { fill:none; stroke:#c7ccd4; stroke-width:2.5; }
+    .gfill { fill:#c7ccd4; opacity:.18; stroke:none; }
+    .cons  { fill:none; stroke:#e0533d; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .consd { fill:none; stroke:#e0533d; stroke-width:2; stroke-dasharray:6 5; }
+    .acc   { fill:none; stroke:#2f6df0;  stroke-width:2.5; stroke-linecap:round; }
+    .accd  { fill:none; stroke:#2f6df0;  stroke-width:2; stroke-dasharray:6 5; }
+    .dot   { fill:#e0533d; stroke:none; }
+    .adot  { fill:#2f6df0; stroke:none; }
+    .lbl   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:14px; }
+    .cap   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:13px; opacity:.8; }
+    .tag   { fill:#e0533d; font-family:sans-serif; font-size:12px; font-weight:600; }
+  </style>
+  <g id="guide"><path class="gfill" d="M180 100 L300 86 L312 196 L196 214 Z"/><path class="gfill" d="M196 280 L300 292 L292 372 L188 360 Z"/></g>
+  <g id="construction"><path class="cons" d="M180 100 L300 86 L312 196 L196 214 Z"/><path class="cons" d="M196 280 L300 292 L292 372 L188 360 Z"/><path class="acc" d="M250 150 C262 210 232 250 244 326"/><line class="consd" x1="172" y1="93" x2="312" y2="76"/><line class="consd" x1="188" y1="372" x2="304" y2="384"/><circle class="dot" cx="250" cy="150" r="4"/><circle class="dot" cx="244" cy="326" r="4"/></g>
+  <g id="label"><text class="lbl" x="316" y="150">흉곽 상자</text><text class="lbl" x="312" y="336">골반 상자</text><text class="lbl" x="258" y="246" fill="#2f6df0">척추</text><text class="lbl" x="120" y="86">기울기 ↘</text><text class="lbl" x="120" y="388">기울기 ↗</text>
+    <text class="cap" x="20" y="462">몸통 = 흉곽 상자 + 골반 상자. 둘은 척추로 잇고 서로 반대로 비튼다.</text>
+  </g>
+</svg>

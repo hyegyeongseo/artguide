@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="counterbalance_load">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><circle class="guide" cx="210" cy="90" r="22"/><path class="ink" d="M210 112 C245 170 235 250 220 300"/><line class="ink" x1="220" y1="300" x2="210" y2="410"/><line class="ink" x1="220" y1="300" x2="250" y2="410"/><rect x="285" y="250" width="50" height="50" fill="#e0533d" stroke="#e0533d" stroke-width="0"/><rect x="285" y="250" width="50" height="50" class="consf"/><rect x="285" y="250" width="50" height="50" fill="none" stroke="#e0533d" stroke-width="2"/><line class="ink" x1="238" y1="210" x2="295" y2="255"/><text class="tag" x="300" y="240">짐</text><line class="consd" x1="228" y1="130" x2="228" y2="430"/><circle class="dot" cx="228" cy="130" r="4"/><ellipse class="acc" cx="230" cy="416" rx="44" ry="10"/><line class="acc" x1="150" y1="150" x2="195" y2="165" marker-end="url(#ab)"/><text class="atag" x="95" y="150">몸은 반대로</text><text class="lbl" x="40" y="452">한쪽에 짐 → 무게중심이 쏠림 → 몸을 반대로 기울여 수직선을 발 사이로 되돌린다.</text><text class="cap" x="20" y="462">짐을 한쪽에 들면 몸은 반대로 기운다 — 무게중심을 지지면 안으로 되돌리기 위해.</text>
+</svg>

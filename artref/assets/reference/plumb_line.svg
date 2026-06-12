@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="plumb_line">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><circle class="guide" cx="230" cy="80" r="22"/><ellipse class="gfill" cx="228" cy="165" rx="34" ry="55"/><line class="ink" x1="220" y1="230" x2="210" y2="400"/><line class="ink" x1="245" y1="230" x2="255" y2="400"/><circle class="dot" cx="228" cy="130" r="5"/><text class="tag" x="245" y="128">목아래(무게중심 위)</text><line class="consd" x1="228" y1="130" x2="228" y2="430"/><ellipse class="accf" cx="232" cy="418" rx="70" ry="12"/><ellipse class="acc" cx="232" cy="418" rx="70" ry="12"/><text class="atag" x="300" y="418">지지면</text><circle class="adot" cx="228" cy="418" r="4"/><text class="lbl" x="40" y="452">목아래에서 내린 수직선이 두 발(지지면) 안에 떨어지면 균형 — 벗어나면 넘어진다.</text><text class="cap" x="20" y="462">무게중심 수직선이 지지면(두 발 사이) 안에 떨어져야 균형이 선다.</text>
+</svg>

@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="occlusion_shadow">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><ellipse class="gthin" cx="190" cy="360" rx="150" ry="22"/><circle class="guide" cx="170" cy="290" r="64"/><ellipse cx="180" cy="356" rx="110" ry="18" fill="#9aa0a7" opacity=".5"/><ellipse cx="172" cy="354" rx="40" ry="11" fill="#5d626a" opacity=".85"/><line class="cons" x1="150" y1="372" x2="174" y2="358" marker-end="url(#ar)"/><text class="tag" x="70" y="388">접촉부=가장 어두움(폐색)</text><rect x="330" y="250" width="70" height="110" fill="none" stroke="#c7ccd4" stroke-width="2"/><rect x="360" y="300" width="70" height="60" fill="none" stroke="#c7ccd4" stroke-width="2"/><rect x="358" y="300" width="6" height="60" fill="#5d626a" opacity=".8"/><text class="lbl" x="380" y="410" text-anchor="middle">맞닿은 틈도 가장 어둡다</text><text class="cap" x="20" y="462">폐색(접촉) 그림자: 형태가 바닥·서로 맞닿는 지점이 가장 어둡다 — 거기서 멀수록 옅어진다.</text>
+</svg>

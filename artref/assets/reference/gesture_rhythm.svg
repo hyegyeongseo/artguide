@@ -1,0 +1,20 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="gesture_rhythm">
+  <style>
+    .guide { fill:none; stroke:#c7ccd4; stroke-width:2.5; }
+    .gfill { fill:#c7ccd4; opacity:.18; stroke:none; }
+    .cons  { fill:none; stroke:#e0533d; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .consd { fill:none; stroke:#e0533d; stroke-width:2; stroke-dasharray:6 5; }
+    .acc   { fill:none; stroke:#2f6df0;  stroke-width:2.5; stroke-linecap:round; }
+    .accd  { fill:none; stroke:#2f6df0;  stroke-width:2; stroke-dasharray:6 5; }
+    .dot   { fill:#e0533d; stroke:none; }
+    .adot  { fill:#2f6df0; stroke:none; }
+    .lbl   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:14px; }
+    .cap   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:13px; opacity:.8; }
+    .tag   { fill:#e0533d; font-family:sans-serif; font-size:12px; font-weight:600; }
+  </style>
+  <g id="guide"><circle class="gfill" cx="330" cy="120" r="26"/><ellipse class="gfill" cx="318" cy="240" rx="42" ry="64"/></g>
+  <g id="construction"><path class="cons" d="M70 90 C40 150 40 200 70 260"/><path class="cons" d="M150 90 C120 140 180 200 150 260"/><path class="cons" d="M110 300 L110 410"/><path class="acc" d="M330 96 C300 170 360 250 318 410"/><circle class="dot" cx="330" cy="96" r="4"/><circle class="dot" cx="318" cy="410" r="4"/><path class="cons" d="M300 200 C282 250 286 300 300 350"/><line class="consd" x1="350" y1="196" x2="356" y2="356"/></g>
+  <g id="label"><text class="lbl" x="58" y="80">C</text><text class="lbl" x="138" y="80">S</text><text class="lbl" x="98" y="290">I</text><text class="lbl" x="250" y="250" fill="#e0533d">곡선</text><text class="lbl" x="362" y="280">직선</text><text class="lbl" x="252" y="130" fill="#2f6df0">관통선</text>
+    <text class="cap" x="20" y="462">모든 선은 C·S·I 중 하나. 한쪽이 곡선이면 반대쪽은 직선으로 받친다.</text>
+  </g>
+</svg>

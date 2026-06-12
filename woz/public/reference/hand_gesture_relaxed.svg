@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="hand_gesture_relaxed">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><rect x="120" y="200" width="70" height="60" fill="none" stroke="#c7ccd4" stroke-width="2"/><path class="cons" d="M0 0 C28 -6 40 16 30 44" transform="translate(190 205)"/><path class="cons" d="M0 0 C34 -4 48 22 36 52" transform="translate(190 222)"/><path class="cons" d="M0 0 C30 0 42 22 32 48" transform="translate(190 240)"/><path class="cons" d="M0 0 C22 4 30 22 22 40" transform="translate(188 256)"/><text class="tag" x="80" y="180">이완된 손</text><rect x="330" y="200" width="60" height="56" fill="none" stroke="#c7ccd4" stroke-width="2"/><line class="consd" x1="390" y1="206" x2="440" y2="206"/><line class="consd" x1="390" y1="220" x2="440" y2="220"/><line class="consd" x1="390" y1="234" x2="440" y2="234"/><line class="consd" x1="390" y1="248" x2="440" y2="248"/><text class="lbl" x="350" y="290" text-anchor="middle">쫙 편 손(뻣뻣)</text><text class="lbl" x="40" y="360">쉴 때 손가락은 조금씩 다른 각도로 자연스레 말린다 — 일자로 펴면 시체손.</text><text class="cap" x="20" y="462">이완된 손은 손가락이 조금씩 다른 각도로 말린다. 일자로 쫙 펴면 뻣뻣해 보인다.</text>
+</svg>

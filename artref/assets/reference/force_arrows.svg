@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="force_arrows">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><ellipse class="gfill" cx="230" cy="220" rx="70" ry="100"/><ellipse class="guide" cx="230" cy="220" rx="70" ry="100"/><line class="cons" x1="120" y1="170" x2="200" y2="200" marker-end="url(#ar)"/><text class="lbl" x="70" y="165">밀기</text><line class="cons" x1="360" y1="270" x2="270" y2="245" marker-end="url(#ar)"/><text class="lbl" x="366" y="268">당기기</text><path class="acc" d="M230 110 C300 130 300 180 250 200"/><line class="acc" x1="258" y1="196" x2="250" y2="200" marker-end="url(#ab)"/><text class="atag" x="310" y="130">비틀기</text><line class="cons" x1="230" y1="360" x2="230" y2="420" marker-end="url(#ar)"/><text class="lbl" x="245" y="405">무게(아래)</text><text class="lbl" x="40" y="452">포즈를 '힘의 방향'으로 본다 — 밀고·당기고·비틀고·누르는 화살표.</text><text class="cap" x="20" y="462">형태가 아니라 힘으로 보기: 밀기·당기기·비틀기·무게 화살표가 동세를 만든다.</text>
+</svg>

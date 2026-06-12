@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="base_of_support">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><circle class="guide" cx="110" cy="110" r="16"/><line class="ink" x1="110" y1="130" x2="106" y2="250"/><line class="ink" x1="110" y1="130" x2="114" y2="250"/><ellipse class="consf" cx="110" cy="262" rx="22" ry="11"/><ellipse class="cons" cx="110" cy="262" rx="22" ry="11"/><text class="lbl" x="110" y="300" text-anchor="middle">좁음=불안정</text><circle class="guide" cx="240" cy="110" r="16"/><line class="ink" x1="240" y1="130" x2="236" y2="250"/><line class="ink" x1="240" y1="130" x2="244" y2="250"/><ellipse class="accf" cx="240" cy="262" rx="64" ry="11"/><ellipse class="acc" cx="240" cy="262" rx="64" ry="11"/><text class="lbl" x="240" y="300" text-anchor="middle">넓음=안정</text><circle class="guide" cx="370" cy="110" r="16"/><line class="ink" x1="370" y1="130" x2="366" y2="250"/><line class="ink" x1="370" y1="130" x2="374" y2="250"/><ellipse class="consf" cx="370" cy="262" rx="10" ry="11"/><ellipse class="cons" cx="370" cy="262" rx="10" ry="11"/><text class="lbl" x="370" y="300" text-anchor="middle">한발=가장 불안정</text><text class="lbl" x="40" y="360">지지면이 넓고 무게중심이 낮을수록 안정.</text><text class="lbl" x="40" y="390">동세를 주려면 일부러 지지면을 좁혀 '쓰러지기 직전'을 만든다.</text><text class="cap" x="20" y="462">지지면이 넓을수록 안정, 좁을수록 불안정. 동세는 불안정을 의도적으로 쓴다.</text>
+</svg>

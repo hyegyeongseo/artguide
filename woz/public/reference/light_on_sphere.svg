@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="light_on_sphere">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><defs><radialGradient id="sph" cx="36%" cy="32%" r="72%"><stop offset="0%" stop-color="#fcfcfd"/><stop offset="48%" stop-color="#cdd1d7"/><stop offset="74%" stop-color="#8d9298"/><stop offset="100%" stop-color="#6c7178"/></radialGradient></defs><ellipse class="consf" cx="280" cy="335" rx="120" ry="24"/><ellipse class="gthin" cx="280" cy="335" rx="120" ry="24"/><circle cx="210" cy="215" r="110" fill="url(#sph)"/><circle cx="172" cy="171" r="13" fill="#ffffff" opacity=".9"/><path class="accd" d="M268 123 A 110 110 0 0 1 268 307"/><line class="cons" x1="90" y1="95" x2="150" y2="145" marker-end="url(#ar)"/><text class="tag" x="60" y="95">광원</text><line class="gthin" x1="172" y1="171" x2="350" y2="171"/><text class="lbl" x="356" y="175">하이라이트</text><line class="gthin" x1="240" y1="205" x2="350" y2="205"/><text class="lbl" x="356" y="209">중간톤</text><line class="gthin" x1="274" y1="245" x2="350" y2="245"/><text class="lbl" x="356" y="249">명암경계</text><line class="gthin" x1="298" y1="279" x2="350" y2="279"/><text class="lbl" x="356" y="283">코어섀도</text><line class="gthin" x1="280" y1="311" x2="350" y2="311"/><text class="lbl" x="356" y="315">반사광</text><text class="cap" x="20" y="462">한 광원 아래 구의 명암 구조: 하이라이트→중간톤→명암경계→코어섀도→반사광→그림자.</text>
+</svg>

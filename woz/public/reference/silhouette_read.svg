@@ -1,0 +1,20 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="silhouette_read">
+  <style>
+    .guide { fill:none; stroke:#c7ccd4; stroke-width:2.5; }
+    .gfill { fill:#c7ccd4; opacity:.18; stroke:none; }
+    .cons  { fill:none; stroke:#e0533d; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .consd { fill:none; stroke:#e0533d; stroke-width:2; stroke-dasharray:6 5; }
+    .acc   { fill:none; stroke:#2f6df0;  stroke-width:2.5; stroke-linecap:round; }
+    .accd  { fill:none; stroke:#2f6df0;  stroke-width:2; stroke-dasharray:6 5; }
+    .dot   { fill:#e0533d; stroke:none; }
+    .adot  { fill:#2f6df0; stroke:none; }
+    .lbl   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:14px; }
+    .cap   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:13px; opacity:.8; }
+    .tag   { fill:#e0533d; font-family:sans-serif; font-size:12px; font-weight:600; }
+  </style>
+  <g id="guide"><rect class="gfill" x="40" y="70" width="180" height="320"/><rect class="gfill" x="260" y="70" width="180" height="320"/></g>
+  <g id="construction"><circle cx="128" cy="116" r="22" fill="#33373d"/><path d="M110 138 L146 138 L156 250 L138 256 L128 200 L118 256 L100 250 Z" fill="#33373d"/><path d="M114 150 L70 120 L60 132 L104 168 Z" fill="#33373d"/><path d="M142 150 L188 196 L178 208 L132 172 Z" fill="#33373d"/><path d="M122 250 L108 360 L96 360 L114 252 Z" fill="#33373d"/><path d="M134 252 L160 356 L148 360 L126 254 Z" fill="#33373d"/><circle cx="350" cy="116" r="22" fill="#33373d"/><path d="M316 138 L384 138 L392 300 L356 372 L348 372 L308 300 Z" fill="#33373d"/></g>
+  <g id="label"><text class="lbl" x="56" y="62">읽힘 (틈이 보임)</text><text class="lbl" x="276" y="62">안 읽힘 (덩어리)</text><text class="lbl" x="60" y="384" fill="#e0533d">팔다리 사이 음형</text>
+    <text class="cap" x="20" y="462">실루엣만 검게 채워 보기 — 팔다리 사이 틈(음형)이 보여야 읽힌다.</text>
+  </g>
+</svg>

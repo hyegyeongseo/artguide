@@ -1,0 +1,20 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ellipse_perspective">
+  <style>
+    .guide { fill:none; stroke:#c7ccd4; stroke-width:2.5; }
+    .gfill { fill:#c7ccd4; opacity:.18; stroke:none; }
+    .cons  { fill:none; stroke:#e0533d; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .consd { fill:none; stroke:#e0533d; stroke-width:2; stroke-dasharray:6 5; }
+    .acc   { fill:none; stroke:#2f6df0;  stroke-width:2.5; stroke-linecap:round; }
+    .accd  { fill:none; stroke:#2f6df0;  stroke-width:2; stroke-dasharray:6 5; }
+    .dot   { fill:#e0533d; stroke:none; }
+    .adot  { fill:#2f6df0; stroke:none; }
+    .lbl   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:14px; }
+    .cap   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:13px; opacity:.8; }
+    .tag   { fill:#e0533d; font-family:sans-serif; font-size:12px; font-weight:600; }
+  </style>
+  <g id="guide"></g>
+  <g id="construction"><line class="accd" x1="250" y1="120" x2="250" y2="392"/><ellipse class="cons" cx="250" cy="150" rx="82" ry="26"/><ellipse class="cons" cx="250" cy="362" rx="82" ry="34"/><line class="cons" x1="168" y1="150" x2="168" y2="362"/><line class="cons" x1="332" y1="150" x2="332" y2="362"/><line class="acc" x1="168" y1="150" x2="332" y2="150"/><ellipse class="consd" cx="86" cy="150" rx="44" ry="4"/><ellipse class="consd" cx="86" cy="240" rx="44" ry="12"/><ellipse class="consd" cx="86" cy="330" rx="44" ry="22"/></g>
+  <g id="label"><text class="lbl" x="242" y="248" text-anchor="end" fill="#2f6df0">중심축 = 단축</text><text class="lbl" x="340" y="146">장축 ⟂ 축</text><text class="lbl" x="40" y="120">눈높이</text><text class="lbl" x="40" y="372">멀수록 ↑</text>
+    <text class="cap" x="20" y="462">원은 시점에서 타원이 된다. 단축은 중심축과 나란히, 멀수록 더 벌어진다.</text>
+  </g>
+</svg>

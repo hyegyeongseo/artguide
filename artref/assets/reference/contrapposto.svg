@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="contrapposto">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><circle class="guide" cx="240" cy="85" r="24"/><line class="acc" x1="195" y1="160" x2="285" y2="145"/><text class="atag" x="150" y="158">어깨</text><line class="cons" x1="205" y1="250" x2="285" y2="268"/><text class="tag" x="150" y="262">골반</text><line class="ink" x1="268" y1="268" x2="272" y2="410"/><line class="ink" x1="218" y1="250" x2="200" y2="350"/><line class="ink" x1="200" y1="350" x2="230" y2="410"/><ellipse class="gfill" cx="245" cy="205" rx="40" ry="52"/><line class="consd" x1="245" y1="150" x2="245" y2="415"/><circle class="dot" cx="272" cy="410" r="4"/><text class="lbl" x="255" y="430">지지발</text><text class="lbl" x="300" y="200">어깨↘ 골반↗</text><text class="lbl" x="300" y="228">반대로 기운다</text><text class="cap" x="20" y="462">콘트라포스토: 한 다리에 체중 → 그쪽 골반이 올라가고, 어깨는 반대로 기운다.</text>
+</svg>

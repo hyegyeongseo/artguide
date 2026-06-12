@@ -1,0 +1,20 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="foot_structure">
+  <style>
+    .guide { fill:none; stroke:#c7ccd4; stroke-width:2.5; }
+    .gfill { fill:#c7ccd4; opacity:.18; stroke:none; }
+    .cons  { fill:none; stroke:#e0533d; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .consd { fill:none; stroke:#e0533d; stroke-width:2; stroke-dasharray:6 5; }
+    .acc   { fill:none; stroke:#2f6df0;  stroke-width:2.5; stroke-linecap:round; }
+    .accd  { fill:none; stroke:#2f6df0;  stroke-width:2; stroke-dasharray:6 5; }
+    .dot   { fill:#e0533d; stroke:none; }
+    .adot  { fill:#2f6df0; stroke:none; }
+    .lbl   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:14px; }
+    .cap   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:13px; opacity:.8; }
+    .tag   { fill:#e0533d; font-family:sans-serif; font-size:12px; font-weight:600; }
+  </style>
+  <g id="guide"><path class="gfill" d="M170 360 L174 302 Q180 252 212 250 L232 252 Q272 272 320 346 L360 348 L362 360 Q255 346 196 360 Z"/></g>
+  <g id="construction"><path class="cons" d="M170 360 L174 302 Q180 252 212 250 L232 252 Q272 272 320 346 L360 348 L362 360 Q255 346 196 360 Z"/><circle class="cons" cx="212" cy="240" r="26"/><line class="consd" x1="320" y1="346" x2="362" y2="350"/><line class="consd" x1="336" y1="346" x2="338" y2="360"/><path class="acc" d="M196 360 Q250 340 320 350"/></g>
+  <g id="label"><text class="lbl" x="240" y="232">발목(공)</text><text class="lbl" x="244" y="300">발등 경사</text><text class="lbl" x="316" y="332">발가락 상자</text><text class="lbl" x="92" y="318">발꿈치</text><text class="lbl" x="226" y="392" fill="#2f6df0">아치(살짝 들림)</text>
+    <text class="cap" x="20" y="462">발 = 쐐기 덩어리 + 발목 공. 안쪽 아치는 바닥에서 살짝 들린다.</text>
+  </g>
+</svg>

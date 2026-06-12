@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="rule_of_thirds">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><rect x="70" y="90" width="340" height="250" fill="none" stroke="#3a3f47" stroke-width="1.6"/><line class="gthin" x1="183.33333333333331" y1="90" x2="183.33333333333331" y2="340"/><line class="gthin" x1="70" y1="173.33333333333331" x2="410" y2="173.33333333333331"/><line class="gthin" x1="296.66666666666663" y1="90" x2="296.66666666666663" y2="340"/><line class="gthin" x1="70" y1="256.66666666666663" x2="410" y2="256.66666666666663"/><circle class="adot" cx="183.33333333333331" cy="173.33333333333331" r="5"/><circle class="adot" cx="296.66666666666663" cy="173.33333333333331" r="5"/><circle class="adot" cx="183.33333333333331" cy="256.66666666666663" r="5"/><circle class="adot" cx="296.66666666666663" cy="256.66666666666663" r="5"/><circle class="consf" cx="296.66666666666663" cy="173.33333333333331" r="26"/><circle class="cons" cx="296.66666666666663" cy="173.33333333333331" r="26"/><text class="lbl" x="332.66666666666663" y="173.33333333333331">주제를 교차점에</text><text class="lbl" x="40" y="380">화면을 3등분 → 네 교차점이 '힘점'. 주제를 중앙이 아니라 교차점에 두면 안정·긴장.</text><text class="cap" x="20" y="462">삼분할: 화면을 3등분한 네 교차점(힘점)에 주제를 두면 한가운데보다 생동감 있다.</text>
+</svg>

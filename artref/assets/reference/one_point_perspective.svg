@@ -1,0 +1,20 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="one_point_perspective">
+  <style>
+    .guide { fill:none; stroke:#c7ccd4; stroke-width:2.5; }
+    .gfill { fill:#c7ccd4; opacity:.18; stroke:none; }
+    .cons  { fill:none; stroke:#e0533d; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .consd { fill:none; stroke:#e0533d; stroke-width:2; stroke-dasharray:6 5; }
+    .acc   { fill:none; stroke:#2f6df0;  stroke-width:2.5; stroke-linecap:round; }
+    .accd  { fill:none; stroke:#2f6df0;  stroke-width:2; stroke-dasharray:6 5; }
+    .dot   { fill:#e0533d; stroke:none; }
+    .adot  { fill:#2f6df0; stroke:none; }
+    .lbl   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:14px; }
+    .cap   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:13px; opacity:.8; }
+    .tag   { fill:#e0533d; font-family:sans-serif; font-size:12px; font-weight:600; }
+  </style>
+  <g id="guide"></g>
+  <g id="construction"><line class="acc" x1="20" y1="188" x2="460" y2="188"/><circle class="adot" cx="240" cy="188" r="5"/><rect class="cons" x="150" y="214" width="100" height="90"/><path class="cons" d="M150 214 L195 201 L245 201 L250 214"/><line class="consd" x1="150" y1="214" x2="240" y2="188"/><line class="consd" x1="250" y1="214" x2="240" y2="188"/><line class="consd" x1="150" y1="304" x2="240" y2="188"/><line class="consd" x1="250" y1="304" x2="240" y2="188"/></g>
+  <g id="label"><text class="lbl" x="250" y="178">소실점 1개</text><text class="lbl" x="22" y="210" fill="#2f6df0">지평선 = 눈높이</text><text class="lbl" x="96" y="350">앞면은 화면과 평행</text>
+    <text class="cap" x="20" y="462">소실점 하나. 깊이로 가는 선만 그 점으로, 앞면은 화면과 평행.</text>
+  </g>
+</svg>

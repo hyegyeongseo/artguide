@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="terminator_core">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><defs><linearGradient id="cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#f6f6f7"/><stop offset="30%" stop-color="#d2d6db"/><stop offset="56%" stop-color="#74797f"/><stop offset="64%" stop-color="#5d626a"/><stop offset="72%" stop-color="#8a8f95"/><stop offset="100%" stop-color="#a6abb1"/></linearGradient></defs><rect x="120" y="120" width="240" height="170" rx="14" fill="url(#cyl)" stroke="#3a3f47" stroke-width="1.2"/><line class="cons" x1="70" y1="100" x2="130" y2="140" marker-end="url(#ar)"/><text class="tag" x="40" y="100">광원</text><line class="gthin" x1="140" y1="290" x2="140" y2="330"/><text class="lbl" x="140" y="348" text-anchor="middle">하이라이트</text><line class="gthin" x1="185" y1="290" x2="185" y2="352"/><text class="lbl" x="185" y="370" text-anchor="middle">라이트(명부)</text><line class="gthin" x1="228" y1="290" x2="228" y2="330"/><text class="lbl" x="228" y="348" text-anchor="middle">중간톤</text><line class="gthin" x1="262" y1="290" x2="262" y2="352"/><text class="lbl" x="262" y="370" text-anchor="middle">명암경계</text><line class="gthin" x1="290" y1="290" x2="290" y2="330"/><text class="lbl" x="290" y="348" text-anchor="middle">코어섀도</text><line class="gthin" x1="340" y1="290" x2="340" y2="352"/><text class="lbl" x="340" y="370" text-anchor="middle">반사광</text><line class="accd" x1="262" y1="120" x2="262" y2="290"/><text class="lbl" x="40" y="430">명부에서 가장 어두운 건 끝이 아니라 '명암경계' — 반대편은 반사광으로 다시 밝아진다.</text><text class="cap" x="20" y="462">형태 그림자 해부: 명암경계(코어섀도)가 가장 어둡고, 그림자 안쪽은 반사광으로 밝아진다.</text>
+</svg>

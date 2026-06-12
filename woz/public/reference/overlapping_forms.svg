@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="overlapping_forms">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><ellipse class="consf" cx="150" cy="200" rx="70" ry="56"/><ellipse class="cons" cx="150" cy="200" rx="70" ry="56"/><ellipse class="gfill" cx="250" cy="210" rx="46" ry="40"/><ellipse class="guide" cx="250" cy="210" rx="46" ry="40"/><ellipse class="gfill" cx="320" cy="220" rx="30" ry="28"/><ellipse class="guide" cx="320" cy="220" rx="30" ry="28"/><ellipse class="gfill" cx="372" cy="228" rx="20" ry="20"/><ellipse class="guide" cx="372" cy="228" rx="20" ry="20"/><text class="tag" x="120" y="150">가까움(큼)</text><text class="lbl" x="360" y="270">멈(작음)</text><line class="guide" x1="150" y1="300" x2="350" y2="300" marker-end="url(#ag)"/><text class="lbl" x="220" y="320">깊이 →</text><text class="lbl" x="40" y="380">단축된 팔: 앞 형태가 뒤 형태를 가린다. 이 '겹침'이 원근선보다 강한 깊이 단서.</text><text class="lbl" x="40" y="408">크기 축소 + 겹침을 함께 쓰면 팔이 화면 안으로 들어간다.</text><text class="cap" x="20" y="462">단축의 핵심 단서는 '겹침': 앞 형태가 뒤를 가리고 점점 작아진다 — 원근선보다 강하다.</text>
+</svg>

@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="high_low_key">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><text class="lbl" x="40" y="90">명도 스케일</text><rect x="60" y="100" width="26" height="26" fill="rgb(240,240,240)" stroke="#c7ccd4" stroke-width="0.6"/><rect x="86" y="100" width="26" height="26" fill="rgb(214,214,214)" stroke="#c7ccd4" stroke-width="0.6"/><rect x="112" y="100" width="26" height="26" fill="rgb(188,188,188)" stroke="#c7ccd4" stroke-width="0.6"/><rect x="138" y="100" width="26" height="26" fill="rgb(162,162,162)" stroke="#c7ccd4" stroke-width="0.6"/><rect x="164" y="100" width="26" height="26" fill="rgb(136,136,136)" stroke="#c7ccd4" stroke-width="0.6"/><rect x="190" y="100" width="26" height="26" fill="rgb(110,110,110)" stroke="#c7ccd4" stroke-width="0.6"/><rect x="216" y="100" width="26" height="26" fill="rgb(84,84,84)" stroke="#c7ccd4" stroke-width="0.6"/><rect x="242" y="100" width="26" height="26" fill="rgb(58,58,58)" stroke="#c7ccd4" stroke-width="0.6"/><rect x="268" y="100" width="26" height="26" fill="rgb(32,32,32)" stroke="#c7ccd4" stroke-width="0.6"/><rect x="60" y="180" width="160" height="120" fill="#eceef0" stroke="#3a3f47" stroke-width="1.2"/><circle cx="140" cy="240" r="34" fill="#cdd0d4"/><rect x="110" y="270" width="60" height="14" fill="#dfe1e4"/><text class="lbl" x="140" y="320" text-anchor="middle">하이키=밝은 값만</text><text class="lbl" x="140" y="340" text-anchor="middle">가볍고 부드러움</text><rect x="260" y="180" width="160" height="120" fill="#33373d" stroke="#3a3f47" stroke-width="1.2"/><circle cx="340" cy="240" r="34" fill="#5a5f66"/><rect x="310" y="270" width="60" height="14" fill="#4a4f55"/><text class="lbl" x="340" y="320" text-anchor="middle">로키=어두운 값만</text><text class="lbl" x="340" y="340" text-anchor="middle">무겁고 극적</text><text class="lbl" x="40" y="400">값 범위를 좁혀 한쪽에 모으면 분위기가 생긴다 — 밝은 쪽=경쾌, 어두운 쪽=무게.</text><text class="cap" x="20" y="462">하이키(밝은 값만)는 가볍고 부드럽게, 로키(어두운 값만)는 무겁고 극적으로 — 값 범위가 분위기.</text>
+</svg>

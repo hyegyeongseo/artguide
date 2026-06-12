@@ -1,0 +1,20 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="perspective_grid">
+  <style>
+    .guide { fill:none; stroke:#c7ccd4; stroke-width:2.5; }
+    .gfill { fill:#c7ccd4; opacity:.18; stroke:none; }
+    .cons  { fill:none; stroke:#e0533d; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .consd { fill:none; stroke:#e0533d; stroke-width:2; stroke-dasharray:6 5; }
+    .acc   { fill:none; stroke:#2f6df0;  stroke-width:2.5; stroke-linecap:round; }
+    .accd  { fill:none; stroke:#2f6df0;  stroke-width:2; stroke-dasharray:6 5; }
+    .dot   { fill:#e0533d; stroke:none; }
+    .adot  { fill:#2f6df0; stroke:none; }
+    .lbl   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:14px; }
+    .cap   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:13px; opacity:.8; }
+    .tag   { fill:#e0533d; font-family:sans-serif; font-size:12px; font-weight:600; }
+  </style>
+  <g id="guide"></g>
+  <g id="construction"><line class="cons" x1="240" y1="150" x2="240" y2="300"/><line class="acc" x1="20" y1="190" x2="460" y2="190"/><circle class="adot" cx="28" cy="190" r="5"/><circle class="adot" cx="452" cy="190" r="5"/><line class="consd" x1="240" y1="150" x2="28" y2="190"/><line class="consd" x1="240" y1="150" x2="452" y2="190"/><line class="consd" x1="240" y1="300" x2="28" y2="190"/><line class="consd" x1="240" y1="300" x2="452" y2="190"/><line class="cons" x1="132" y1="170" x2="132" y2="244"/><line class="cons" x1="348" y1="170" x2="348" y2="244"/></g>
+  <g id="label"><text class="lbl" x="28" y="178">소실점</text><text class="lbl" x="408" y="178">소실점</text><text class="lbl" x="22" y="212" fill="#2f6df0">지평선 = 눈높이</text><text class="lbl" x="248" y="142">앞모서리</text>
+    <text class="cap" x="20" y="462">눈높이(지평선)를 먼저 긋고, 모든 면을 소실점으로 모은다.</text>
+  </g>
+</svg>

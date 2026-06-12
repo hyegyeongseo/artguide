@@ -1,0 +1,18 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="joint_articulation">
+  <style>
+    .guide { fill:none; stroke:#c7ccd4; stroke-width:2.5; }
+    .gfill { fill:#c7ccd4; opacity:.18; stroke:none; }
+    .cons  { fill:none; stroke:#e0533d; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .consd { fill:none; stroke:#e0533d; stroke-width:2; stroke-dasharray:6 5; }
+    .acc   { fill:none; stroke:#2f6df0;  stroke-width:2.5; stroke-linecap:round; }
+    .dot   { fill:#e0533d; stroke:none; }
+    .lbl   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:14px; }
+    .cap   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:13px; opacity:.8; }
+    .tag   { fill:#e0533d; font-family:sans-serif; font-size:12px; font-weight:600; }
+  </style>
+  <g id="guide"><path class="gfill" d="M120 120 q40 -10 60 30 l60 120 q20 40 -10 70 q-40 20 -60 -20 l-60 -130 q-20 -40 10 -70 Z"/></g>
+  <g id="construction"><line class="cons" x1="140" y1="130" x2="240" y2="250"/><line class="cons" x1="240" y1="250" x2="210" y2="380"/><circle class="dot" cx="240" cy="250" r="6"/><path class="consd" d="M275 250 A 40 40 0 0 1 240 290"/></g>
+  <g id="label"><text class="lbl" x="250" y="245">관절</text><text class="lbl" x="150" y="185">위 뼈</text><text class="lbl" x="120" y="340">아래 뼈</text><text class="lbl" x="285" y="290">자연스러운 굽힘 범위</text>
+    <text class="cap" x="20" y="462">관절 위·아래를 직선 둘로 단순화해 각도 확인.</text>
+  </g>
+</svg>

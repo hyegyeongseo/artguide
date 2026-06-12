@@ -1,0 +1,18 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="atmospheric_perspective">
+  <style>
+    .guide { fill:none; stroke:#c7ccd4; stroke-width:2.5; }
+    .gfill { fill:#c7ccd4; opacity:.18; stroke:none; }
+    .cons  { fill:none; stroke:#e0533d; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .consd { fill:none; stroke:#e0533d; stroke-width:2; stroke-dasharray:6 5; }
+    .acc   { fill:none; stroke:#2f6df0;  stroke-width:2.5; stroke-linecap:round; }
+    .dot   { fill:#e0533d; stroke:none; }
+    .lbl   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:14px; }
+    .cap   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:13px; opacity:.8; }
+    .tag   { fill:#e0533d; font-family:sans-serif; font-size:12px; font-weight:600; }
+  </style>
+  <g id="guide"></g>
+  <g id="construction"><path d="M40 150 Q150 120 240 148 T440 144 L440 205 L40 205 Z" fill="#c4cad3"/><path d="M40 215 Q160 175 280 210 T440 206 L440 285 L40 285 Z" fill="#8b94a3"/><path d="M40 305 Q150 258 260 302 T440 298 L440 430 L40 430 Z" fill="#3b424e"/><rect x="60" y="60" width="44" height="44" rx="4" fill="#3b424e"/><text class="tag" x="82" y="88" text-anchor="middle" fill="#e9edf2">근</text><rect x="116" y="60" width="44" height="44" rx="4" fill="#8b94a3"/><text class="tag" x="138" y="88" text-anchor="middle" fill="#3a3f47">중</text><rect x="172" y="60" width="44" height="44" rx="4" fill="#c4cad3"/><text class="tag" x="194" y="88" text-anchor="middle" fill="#3a3f47">원</text></g>
+  <g id="label"><text class="lbl" x="240" y="92">멀수록 대비↓ 채도↓ 밝기↑</text>
+    <text class="cap" x="20" y="462">원경의 대비·채도를 낮춰 공기와 거리감을.</text>
+  </g>
+</svg>

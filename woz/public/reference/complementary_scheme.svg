@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="complementary_scheme">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><path d="M138.9 74.1 A 120 120 0 0 1 201.1 74.1 L 181.4 147.5 A 44 44 0 0 0 158.6 147.5 Z" fill="#e23b2e" stroke="#ffffff" stroke-width="1.2"/><path d="M201.1 74.1 A 120 120 0 0 1 254.9 105.1 L 201.1 158.9 A 44 44 0 0 0 181.4 147.5 Z" fill="#ef7d2e" stroke="#ffffff" stroke-width="1.2"/><path d="M254.9 105.1 A 120 120 0 0 1 285.9 158.9 L 212.5 178.6 A 44 44 0 0 0 201.1 158.9 Z" fill="#f4a72e" stroke="#ffffff" stroke-width="1.2"/><path d="M285.9 158.9 A 120 120 0 0 1 285.9 221.1 L 212.5 201.4 A 44 44 0 0 0 212.5 178.6 Z" fill="#f2d22e" stroke="#ffffff" stroke-width="1.2"/><path d="M285.9 221.1 A 120 120 0 0 1 254.9 274.9 L 201.1 221.1 A 44 44 0 0 0 212.5 201.4 Z" fill="#b6c62e" stroke="#ffffff" stroke-width="1.2"/><path d="M254.9 274.9 A 120 120 0 0 1 201.1 305.9 L 181.4 232.5 A 44 44 0 0 0 201.1 221.1 Z" fill="#4caf50" stroke="#ffffff" stroke-width="1.2"/><path d="M201.1 305.9 A 120 120 0 0 1 138.9 305.9 L 158.6 232.5 A 44 44 0 0 0 181.4 232.5 Z" fill="#2eb6a8" stroke="#ffffff" stroke-width="1.2"/><path d="M138.9 305.9 A 120 120 0 0 1 85.1 274.9 L 138.9 221.1 A 44 44 0 0 0 158.6 232.5 Z" fill="#2ea8d6" stroke="#ffffff" stroke-width="1.2"/><path d="M85.1 274.9 A 120 120 0 0 1 54.1 221.1 L 127.5 201.4 A 44 44 0 0 0 138.9 221.1 Z" fill="#2f6df0" stroke="#ffffff" stroke-width="1.2"/><path d="M54.1 221.1 A 120 120 0 0 1 54.1 158.9 L 127.5 178.6 A 44 44 0 0 0 127.5 201.4 Z" fill="#6a4fd0" stroke="#ffffff" stroke-width="1.2"/><path d="M54.1 158.9 A 120 120 0 0 1 85.1 105.1 L 138.9 158.9 A 44 44 0 0 0 127.5 178.6 Z" fill="#9b3fd0" stroke="#ffffff" stroke-width="1.2"/><path d="M85.1 105.1 A 120 120 0 0 1 138.9 74.1 L 158.6 147.5 A 44 44 0 0 0 138.9 158.9 Z" fill="#d63b9a" stroke="#ffffff" stroke-width="1.2"/><circle cx="170.0" cy="70.0" r="13" fill="#e23b2e" stroke="#3a3f47" stroke-width="3"/><circle cx="170.0" cy="310.0" r="13" fill="#2eb6a8" stroke="#3a3f47" stroke-width="3"/><line class="guide" x1="170.0" y1="70.0" x2="170.0" y2="310.0"/><circle cx="230.0" cy="293.9" r="13" fill="#4caf50" stroke="#9aa1ab" stroke-width="3"/><circle cx="110.0" cy="293.9" r="13" fill="#2ea8d6" stroke="#9aa1ab" stroke-width="3"/><text class="tag" x="330" y="130">보색</text><text class="lbl" x="330" y="158">색환에서 마주보는 쌍.</text><text class="lbl" x="330" y="200">강한 대비·생기.</text><text class="lbl" x="330" y="228">하나를 주조, 하나를 강조로.</text><text class="atag" x="330" y="290">분할보색</text><text class="lbl" x="330" y="318">보색의 양옆 둘 — 대비는 살리고 더 부드럽게.</text><text class="cap" x="20" y="462">보색: 색환에서 마주보는 쌍(강한 대비). 하나를 주조·하나를 강조로. 양옆을 쓰면 분할보색.</text>
+</svg>

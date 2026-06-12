@@ -1,0 +1,20 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="color_temperature">
+  <style>
+    .guide { fill:none; stroke:#c7ccd4; stroke-width:2.5; }
+    .gfill { fill:#c7ccd4; opacity:.18; stroke:none; }
+    .cons  { fill:none; stroke:#e0533d; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .consd { fill:none; stroke:#e0533d; stroke-width:2; stroke-dasharray:6 5; }
+    .acc   { fill:none; stroke:#2f6df0;  stroke-width:2.5; stroke-linecap:round; }
+    .accd  { fill:none; stroke:#2f6df0;  stroke-width:2; stroke-dasharray:6 5; }
+    .dot   { fill:#e0533d; stroke:none; }
+    .adot  { fill:#2f6df0; stroke:none; }
+    .lbl   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:14px; }
+    .cap   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:13px; opacity:.8; }
+    .tag   { fill:#e0533d; font-family:sans-serif; font-size:12px; font-weight:600; }
+  </style>
+  <defs><linearGradient id="warm" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#e23b2e"/><stop offset="100%" stop-color="#f2b134"/></linearGradient><linearGradient id="cool" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#3fa86a"/><stop offset="100%" stop-color="#3157c4"/></linearGradient><radialGradient id="lit" cx="36%" cy="32%" r="78%"><stop offset="0%" stop-color="#ffd9a0"/><stop offset="45%" stop-color="#e08a4a"/><stop offset="100%" stop-color="#5a4a6e"/></radialGradient></defs><g id="guide"></g>
+  <g id="construction"><rect x="48" y="86" width="184" height="48" rx="6" fill="url(#warm)"/><rect x="248" y="86" width="184" height="48" rx="6" fill="url(#cool)"/><path class="acc" d="M96 196 L156 244"/><path class="acc" d="M156 244 L142 242 M156 244 L151 231"/><circle cx="232" cy="304" r="84" fill="url(#lit)"/><path d="M232 220 A84 84 0 0 0 232 388 A56 56 0 0 0 232 220 Z" fill="#2f3f6b" opacity=".4"/><ellipse cx="312" cy="404" rx="86" ry="18" fill="#33373d" opacity=".28"/></g>
+  <g id="label"><text class="lbl" x="80" y="78">따뜻함</text><text class="lbl" x="300" y="78">차가움</text><text class="lbl" x="64" y="196" fill="#2f6df0">따뜻한 빛</text><text class="lbl" x="300" y="300">차가운 그림자</text>
+    <text class="cap" x="20" y="462">빛이 따뜻하면 그림자는 차갑게(또는 반대로) — 온도 대비로 입체감.</text>
+  </g>
+</svg>

@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="finger_segments">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><rect x="150" y="110" width="26" height="70" fill="none" stroke="#e0533d" stroke-width="2"/><circle class="guide" cx="163" cy="180" r="6"/><rect x="150" y="180" width="26" height="55" fill="none" stroke="#e0533d" stroke-width="2"/><circle class="guide" cx="163" cy="235" r="6"/><rect x="150" y="235" width="26" height="43" fill="none" stroke="#e0533d" stroke-width="2"/><circle class="guide" cx="163" cy="278" r="6"/><text class="lbl" x="200" y="130">끝마디</text><text class="lbl" x="200" y="190">중간마디</text><text class="lbl" x="200" y="250">첫마디</text><text class="tag" x="140" y="110" text-anchor="end">3마디 + 관절</text><path class="acc" d="M300 260 C330 230 380 230 410 250"/><text class="atag" x="300" y="300">주먹 쥐면 너클이 호를 그린다</text><circle class="adot" cx="310" cy="256" r="4"/><circle class="adot" cx="345" cy="240" r="4"/><circle class="adot" cx="380" cy="240" r="4"/><circle class="adot" cx="405" cy="250" r="4"/><text class="cap" x="20" y="462">손가락은 3마디(엄지는 2) + 관절. 너클(손가락 밑마디)은 부채꼴 호로 늘어선다.</text>
+</svg>

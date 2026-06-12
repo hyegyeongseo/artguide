@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="symmetry_asymmetry">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><rect x="50" y="100" width="170" height="170" fill="none" stroke="#3a3f47" stroke-width="1.6"/><line class="accd" x1="135.0" y1="100" x2="135.0" y2="270"/><circle class="guide" cx="95.0" cy="190" r="22"/><circle class="guide" cx="175.0" cy="190" r="22"/><text class="lbl" x="135.0" y="294" text-anchor="middle">대칭=안정·격식</text><rect x="265" y="100" width="170" height="170" fill="none" stroke="#3a3f47" stroke-width="1.6"/><circle class="consf" cx="310" cy="180" r="34"/><circle class="cons" cx="310" cy="180" r="34"/><circle class="guide" cx="393" cy="220" r="12"/><circle class="guide" cx="403" cy="195" r="8"/><line x1="355" y1="256" x2="355" y2="268" class="gthin"/><polygon class="guide" points="347,268 363,268 355,258"/><text class="lbl" x="350.0" y="294" text-anchor="middle">비대칭=동적 균형</text><text class="lbl" x="40" y="360">대칭은 안정·격식, 비대칭은 동적. 비대칭은 '큰 고요 vs 작은 강함'으로 무게를 맞춘다.</text><text class="cap" x="20" y="462">대칭(안정·격식) vs 비대칭(동적 균형). 비대칭은 크고 조용한 것과 작고 강한 것으로 균형.</text>
+</svg>

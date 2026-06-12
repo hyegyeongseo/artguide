@@ -1,0 +1,20 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="leading_lines">
+  <style>
+    .guide { fill:none; stroke:#c7ccd4; stroke-width:2.5; }
+    .gfill { fill:#c7ccd4; opacity:.18; stroke:none; }
+    .cons  { fill:none; stroke:#e0533d; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .consd { fill:none; stroke:#e0533d; stroke-width:2; stroke-dasharray:6 5; }
+    .acc   { fill:none; stroke:#2f6df0;  stroke-width:2.5; stroke-linecap:round; }
+    .accd  { fill:none; stroke:#2f6df0;  stroke-width:2; stroke-dasharray:6 5; }
+    .dot   { fill:#e0533d; stroke:none; }
+    .adot  { fill:#2f6df0; stroke:none; }
+    .lbl   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:14px; }
+    .cap   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:13px; opacity:.8; }
+    .tag   { fill:#e0533d; font-family:sans-serif; font-size:12px; font-weight:600; }
+  </style>
+  <g id="guide"><rect class="guide" x="40" y="60" width="400" height="340"/></g>
+  <g id="construction"><line class="cons" x1="110" y1="400" x2="307" y2="173"/><line class="cons" x1="400" y1="400" x2="307" y2="173"/><path class="consd" d="M40 360 Q180 253 307 173"/><path class="acc" d="M110 150 L291 167"/><path class="acc" d="M291 167 L278 173 M291 167 L279 159"/><circle class="dot" cx="307" cy="173" r="13"/><line class="consd" x1="173" y1="60" x2="173" y2="400" opacity=".5"/><line class="consd" x1="40" y1="173" x2="440" y2="173" opacity=".5"/><line class="consd" x1="307" y1="60" x2="307" y2="400" opacity=".5"/><line class="consd" x1="40" y1="287" x2="440" y2="287" opacity=".5"/></g>
+  <g id="label"><text class="lbl" x="325" y="178">초점</text><text class="lbl" x="130" y="388">유도선</text><text class="lbl" x="90" y="146" fill="#2f6df0">시선</text>
+    <text class="cap" x="20" y="462">선·길·시선이 한 점(초점)으로 모이게 해 시선을 이끈다.</text>
+  </g>
+</svg>

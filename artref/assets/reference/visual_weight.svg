@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="visual_weight">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><polygon class="ink" points="240,360 222,392 258,392"/><line class="ink" x1="70" y1="360" x2="410" y2="360"/><circle class="guide" cx="150" cy="320" r="44"/><text class="lbl" x="150" y="388" text-anchor="middle">크지만 옅음</text><circle cx="340" cy="330" r="20" fill="#5d626a"/><text class="lbl" x="340" y="388" text-anchor="middle">작지만 짙음·복잡</text><line class="gthin" x1="150" y1="320" x2="150" y2="360"/><line class="gthin" x1="340" y1="330" x2="340" y2="360"/><text class="lbl" x="40" y="130">시각적 무게 = 크기만이 아니라 명암·채도·복잡함·고립의 합.</text><text class="lbl" x="40" y="160">작아도 어둡거나 화려하면 무겁다 → 큰 옅은 덩어리와 균형이 맞는다.</text><text class="cap" x="20" y="462">시각적 무게: 크기뿐 아니라 명암·채도·복잡함·고립이 더한다. 작고 짙은 것이 크고 옅은 것과 균형.</text>
+</svg>

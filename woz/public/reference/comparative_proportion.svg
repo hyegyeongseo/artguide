@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="comparative_proportion">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><circle class="guide" cx="120" cy="110" r="28"/><text class="lbl" x="120" y="160" text-anchor="middle">1 머리=자</text><line class="ink" x1="80" y1="230" x2="360" y2="230"/><circle class="dot" cx="80" cy="230" r="4"/><circle class="dot" cx="360" cy="230" r="4"/><line class="consd" x1="80" y1="224" x2="80" y2="236"/><line class="consd" x1="136" y1="224" x2="136" y2="236"/><line class="consd" x1="192" y1="224" x2="192" y2="236"/><line class="consd" x1="248" y1="224" x2="248" y2="236"/><line class="consd" x1="304" y1="224" x2="304" y2="236"/><line class="consd" x1="360" y1="224" x2="360" y2="236"/><text class="lbl" x="220" y="215" text-anchor="middle">팔 길이 ≈ 머리 몇 개?</text><text class="lbl" x="40" y="300">절대 cm가 아니라 '머리 몇 개'처럼 한 단위로 다른 부분을 비교해 잰다.</text><text class="lbl" x="40" y="330">이 비교 측정이 비율을 일관되게 유지하는 핵심 — 눈대중보다 정확.</text><ellipse class="guide" cx="150" cy="400" rx="18" ry="9"/><ellipse class="guide" cx="195" cy="400" rx="18" ry="9"/><text class="lbl" x="250" y="405">얼굴 폭 ≈ 눈 5개</text><text class="cap" x="20" y="462">비교 측정: 머리·눈 같은 한 단위를 자로 삼아 '몇 개분'으로 다른 부분을 잰다(눈대중 금지).</text>
+</svg>

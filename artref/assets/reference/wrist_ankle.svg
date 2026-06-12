@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="wrist_ankle">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><line class="ink" x1="80" y1="130" x2="150" y2="160"/><rect x="150" y="150" width="34" height="26" fill="none" stroke="#e0533d" stroke-width="2.2"/><line class="gthin" x1="184" y1="163" x2="254" y2="120"/><line class="gthin" x1="184" y1="163" x2="254" y2="142"/><line class="gthin" x1="184" y1="163" x2="254" y2="164"/><line class="gthin" x1="184" y1="163" x2="254" y2="186"/><line class="gthin" x1="184" y1="163" x2="254" y2="208"/><path class="acc" d="M184 150 A 30 30 0 0 1 200 200"/><line class="acc" x1="196" y1="150" x2="196" y2="205" marker-end="url(#ab)"/><text class="tag" x="135" y="135">손목=작은뼈 뭉치</text><text class="lbl" x="210" y="240">위·아래·좌우 약간씩</text><line class="ink" x1="330" y1="250" x2="330" y2="340"/><polygon class="ink" points="330,340 410,360 410,375 320,375"/><circle class="consf" cx="330" cy="345" r="10"/><circle class="cons" cx="330" cy="345" r="10"/><path class="acc" d="M330 345 A 26 26 0 0 1 356 360"/><line class="acc" x1="348" y1="332" x2="356" y2="360" marker-end="url(#ab)"/><text class="tag" x="300" y="300">발목</text><text class="cap" x="20" y="462">손목·발목은 작은 뼈 뭉치 — 굽힘은 크지만 회전은 작다. 한 점이 아니라 '블록'.</text>
+</svg>

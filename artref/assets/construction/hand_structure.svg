@@ -1,0 +1,18 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="hand_structure">
+  <style>
+    .guide { fill:none; stroke:#c7ccd4; stroke-width:2.5; }
+    .gfill { fill:#c7ccd4; opacity:.18; stroke:none; }
+    .cons  { fill:none; stroke:#e0533d; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .consd { fill:none; stroke:#e0533d; stroke-width:2; stroke-dasharray:6 5; }
+    .acc   { fill:none; stroke:#2f6df0;  stroke-width:2.5; stroke-linecap:round; }
+    .dot   { fill:#e0533d; stroke:none; }
+    .lbl   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:14px; }
+    .cap   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:13px; opacity:.8; }
+    .tag   { fill:#e0533d; font-family:sans-serif; font-size:12px; font-weight:600; }
+  </style>
+  <g id="guide"><path class="guide" d="M180 250 q-15 -70 25 -120 q35 -40 70 -10 q20 -50 45 -20 q18 -45 38 -12 q22 -35 30 5 q26 30 -8 90 q-30 60 -95 70 q-70 8 -105 -3 Z"/></g>
+  <g id="construction"><path class="cons" d="M175 250 L205 150 L300 165 L285 270 Z"/><path class="cons" d="M205 150 q12 -55 30 -50 q14 4 8 56"/><path class="cons" d="M238 150 q14 -62 32 -56 q14 4 6 62"/><path class="cons" d="M270 156 q14 -52 30 -44 q12 6 4 56"/><path class="cons" d="M295 165 q12 -38 26 -30 q10 6 2 44"/><path class="cons" d="M175 250 q-44 4 -58 40 q-6 18 14 24 q22 4 40 -24"/><path class="acc" d="M235 205 l60 -22"/><path class="acc" d="M289 178 l8 5 l-9 4"/></g>
+  <g id="label"><text class="lbl" x="300" y="250">손바닥 = 상자</text><text class="lbl" x="250" y="95">손가락 = 원통</text><text class="lbl" x="300" y="170" fill="#2f6df0">평면 방향</text>
+    <text class="cap" x="20" y="462">손 = 손바닥(상자) + 손가락(원통). 먼저 평면 방향부터.</text>
+  </g>
+</svg>

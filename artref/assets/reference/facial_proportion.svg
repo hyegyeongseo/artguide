@@ -1,0 +1,20 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="facial_proportion">
+  <style>
+    .guide { fill:none; stroke:#c7ccd4; stroke-width:2.5; }
+    .gfill { fill:#c7ccd4; opacity:.18; stroke:none; }
+    .cons  { fill:none; stroke:#e0533d; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .consd { fill:none; stroke:#e0533d; stroke-width:2; stroke-dasharray:6 5; }
+    .acc   { fill:none; stroke:#2f6df0;  stroke-width:2.5; stroke-linecap:round; }
+    .accd  { fill:none; stroke:#2f6df0;  stroke-width:2; stroke-dasharray:6 5; }
+    .dot   { fill:#e0533d; stroke:none; }
+    .adot  { fill:#2f6df0; stroke:none; }
+    .lbl   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:14px; }
+    .cap   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:13px; opacity:.8; }
+    .tag   { fill:#e0533d; font-family:sans-serif; font-size:12px; font-weight:600; }
+  </style>
+  <g id="guide"><ellipse class="gfill" cx="240" cy="245" rx="120" ry="175"/></g>
+  <g id="construction"><line class="consd" x1="120" y1="70" x2="360" y2="70"/><line class="consd" x1="120" y1="210" x2="360" y2="210"/><line class="consd" x1="120" y1="245.0" x2="360" y2="245.0"/><line class="consd" x1="120" y1="320" x2="360" y2="320"/><line class="consd" x1="120" y1="372" x2="360" y2="372"/><line class="consd" x1="120" y1="420" x2="360" y2="420"/><line class="consd" x1="120" y1="215" x2="120" y2="275"/><line class="consd" x1="168" y1="215" x2="168" y2="275"/><line class="consd" x1="216" y1="215" x2="216" y2="275"/><line class="consd" x1="264" y1="215" x2="264" y2="275"/><line class="consd" x1="312" y1="215" x2="312" y2="275"/><line class="consd" x1="360" y1="215" x2="360" y2="275"/><ellipse class="cons" cx="192" cy="245" rx="20" ry="9"/><circle class="dot" cx="192" cy="245" r="3.5"/><ellipse class="cons" cx="288" cy="245" rx="20" ry="9"/><circle class="dot" cx="288" cy="245" r="3.5"/><line class="acc" x1="240" y1="70" x2="240" y2="420"/></g>
+  <g id="label"><text class="lbl" x="372" y="74">머리끝</text><text class="lbl" x="372" y="214">눈썹</text><text class="lbl" x="372" y="249.0">눈</text><text class="lbl" x="372" y="324">코밑</text><text class="lbl" x="372" y="376">입</text><text class="lbl" x="372" y="424">턱</text><text class="lbl" x="240" y="207" text-anchor="middle">얼굴 너비 = 눈 5칸</text>
+    <text class="cap" x="20" y="462">눈은 머리 높이의 한가운데, 눈과 눈 사이는 눈 하나 폭.</text>
+  </g>
+</svg>

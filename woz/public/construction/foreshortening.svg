@@ -1,0 +1,18 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="foreshortening">
+  <style>
+    .guide { fill:none; stroke:#c7ccd4; stroke-width:2.5; }
+    .gfill { fill:#c7ccd4; opacity:.18; stroke:none; }
+    .cons  { fill:none; stroke:#e0533d; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .consd { fill:none; stroke:#e0533d; stroke-width:2; stroke-dasharray:6 5; }
+    .acc   { fill:none; stroke:#2f6df0;  stroke-width:2.5; stroke-linecap:round; }
+    .dot   { fill:#e0533d; stroke:none; }
+    .lbl   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:14px; }
+    .cap   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:13px; opacity:.8; }
+    .tag   { fill:#e0533d; font-family:sans-serif; font-size:12px; font-weight:600; }
+  </style>
+  <g id="guide"><ellipse class="gfill" cx="250" cy="250" rx="120" ry="60"/></g>
+  <g id="construction"><ellipse class="cons" cx="170" cy="250" rx="62" ry="60"/><ellipse class="cons" cx="280" cy="250" rx="40" ry="46"/><ellipse class="cons" cx="345" cy="250" rx="24" ry="30"/><path class="consd" d="M170 250 L280 250"/><path class="consd" d="M280 250 L345 250"/><path class="acc" d="M150 360 l210 0"/><text class="tag" x="360" y="364" fill="#2f6df0">평평(아는 대로)</text></g>
+  <g id="label"><text class="lbl" x="140" y="180">가까운 마디 크게</text><text class="lbl" x="300" y="200">먼 마디 작게·겹침</text>
+    <text class="cap" x="20" y="462">원통 마디로: 가까운 건 크게, 먼 건 작게 겹쳐.</text>
+  </g>
+</svg>

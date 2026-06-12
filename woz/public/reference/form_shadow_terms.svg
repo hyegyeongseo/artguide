@@ -1,0 +1,20 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="form_shadow_terms">
+  <style>
+    .guide { fill:none; stroke:#c7ccd4; stroke-width:2.5; }
+    .gfill { fill:#c7ccd4; opacity:.18; stroke:none; }
+    .cons  { fill:none; stroke:#e0533d; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .consd { fill:none; stroke:#e0533d; stroke-width:2; stroke-dasharray:6 5; }
+    .acc   { fill:none; stroke:#2f6df0;  stroke-width:2.5; stroke-linecap:round; }
+    .accd  { fill:none; stroke:#2f6df0;  stroke-width:2; stroke-dasharray:6 5; }
+    .dot   { fill:#e0533d; stroke:none; }
+    .adot  { fill:#2f6df0; stroke:none; }
+    .lbl   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:14px; }
+    .cap   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:13px; opacity:.8; }
+    .tag   { fill:#e0533d; font-family:sans-serif; font-size:12px; font-weight:600; }
+  </style>
+  <defs><radialGradient id="sph" cx="38%" cy="34%" r="75%"><stop offset="0%" stop-color="#f3f3f3"/><stop offset="48%" stop-color="#b9bdc4"/><stop offset="74%" stop-color="#4c5057"/><stop offset="86%" stop-color="#33373d"/><stop offset="100%" stop-color="#5b5f66"/></radialGradient></defs><g id="guide"><circle class="guide" cx="230" cy="215" r="110"/></g>
+  <g id="construction"><path class="acc" d="M70 70 L150 150"/><path class="acc" d="M150 150 L136 146 M150 150 L146 136"/><circle cx="230" cy="215" r="110" fill="url(#sph)"/><ellipse cx="325" cy="350" rx="120" ry="26" fill="#33373d" opacity=".30"/><ellipse cx="238" cy="319" rx="44" ry="12" fill="#26292e" opacity=".55"/><circle cx="192" cy="171" r="14" fill="#f6f6f6"/><path d="M152 289 A110 110 0 0 1 300 133" fill="none" stroke="#2b2e33" stroke-width="6" opacity=".5"/></g>
+  <g id="label"><text class="lbl" x="60" y="56" fill="#2f6df0">광원</text><text class="lbl" x="120" y="150">하이라이트</text><text class="lbl" x="120" y="196">중간톤</text><text class="lbl" x="252" y="150">코어 그림자</text><text class="lbl" x="300" y="300">반사광</text><text class="lbl" x="300" y="360">캐스트 그림자</text><text class="lbl" x="120" y="340">접지(오클루전)</text>
+    <text class="cap" x="20" y="462">구 하나에 빛의 모든 부분: 하이라이트·중간톤·코어그림자·반사광·캐스트·접지.</text>
+  </g>
+</svg>

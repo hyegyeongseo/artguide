@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="light_directions_set">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><circle class="guide" cx="95" cy="170" r="42"/><path d="M61 194 A 42 42 0 0 1 119 136 A 42 42 0 0 0 61 194 Z" fill="#7b8087" opacity=".7"/><line class="cons" x1="47.0" y1="122.0" x2="65" y2="140" marker-end="url(#ar)"/><text class="lbl" x="95" y="260" text-anchor="middle">정면광</text><circle class="guide" cx="200" cy="170" r="42"/><path d="M197 128 A 42 42 0 0 1 217 208 A 42 42 0 0 0 197 128 Z" fill="#7b8087" opacity=".7"/><line class="cons" x1="264.0" y1="154.0" x2="240" y2="160" marker-end="url(#ar)"/><text class="lbl" x="200" y="260" text-anchor="middle">측면광</text><circle class="guide" cx="305" cy="170" r="42"/><path d="M337 143 A 42 42 0 0 1 284 206 A 42 42 0 0 0 337 143 Z" fill="#7b8087" opacity=".7"/><line class="cons" x1="401.0" y1="250.0" x2="365" y2="220" marker-end="url(#ar)"/><text class="lbl" x="305" y="260" text-anchor="middle">역광(림)</text><circle class="guide" cx="410" cy="170" r="42"/><path d="M369 159 A 42 42 0 0 1 452 166 A 42 42 0 0 0 369 159 Z" fill="#7b8087" opacity=".7"/><line class="cons" x1="418.0" y1="74.0" x2="415" y2="110" marker-end="url(#ar)"/><text class="lbl" x="410" y="260" text-anchor="middle">탑광</text><text class="lbl" x="40" y="300">같은 형태라도 빛 방향만 바꾸면 인상이 완전히 달라진다.</text><text class="lbl" x="40" y="330">정면=평평,  측면=입체,  역광=실루엣,  탑광=극적.</text><text class="cap" x="20" y="462">빛 방향 비교: 정면(평면)·측면(입체)·역광(실루엣)·탑광(극적) — 같은 형태도 인상이 바뀐다.</text>
+</svg>

@@ -1,0 +1,20 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="color_wheel">
+  <style>
+    .guide { fill:none; stroke:#c7ccd4; stroke-width:2.5; }
+    .gfill { fill:#c7ccd4; opacity:.18; stroke:none; }
+    .cons  { fill:none; stroke:#e0533d; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .consd { fill:none; stroke:#e0533d; stroke-width:2; stroke-dasharray:6 5; }
+    .acc   { fill:none; stroke:#2f6df0;  stroke-width:2.5; stroke-linecap:round; }
+    .accd  { fill:none; stroke:#2f6df0;  stroke-width:2; stroke-dasharray:6 5; }
+    .dot   { fill:#e0533d; stroke:none; }
+    .adot  { fill:#2f6df0; stroke:none; }
+    .lbl   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:14px; }
+    .cap   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:13px; opacity:.8; }
+    .tag   { fill:#e0533d; font-family:sans-serif; font-size:12px; font-weight:600; }
+  </style>
+  <g id="guide"></g>
+  <g id="construction"><path d="M232.0 70.0 A150 150 0 0 1 307.0 90.1 L264.0 164.6 A64 64 0 0 0 232.0 156.0 Z" fill="#ea5959"/><path d="M307.0 90.1 A150 150 0 0 1 361.9 145.0 L287.4 188.0 A64 64 0 0 0 264.0 164.6 Z" fill="#eaa159"/><path d="M361.9 145.0 A150 150 0 0 1 382.0 220.0 L296.0 220.0 A64 64 0 0 0 287.4 188.0 Z" fill="#eaea59"/><path d="M382.0 220.0 A150 150 0 0 1 361.9 295.0 L287.4 252.0 A64 64 0 0 0 296.0 220.0 Z" fill="#a1ea59"/><path d="M361.9 295.0 A150 150 0 0 1 307.0 349.9 L264.0 275.4 A64 64 0 0 0 287.4 252.0 Z" fill="#59ea59"/><path d="M307.0 349.9 A150 150 0 0 1 232.0 370.0 L232.0 284.0 A64 64 0 0 0 264.0 275.4 Z" fill="#59eaa1"/><path d="M232.0 370.0 A150 150 0 0 1 157.0 349.9 L200.0 275.4 A64 64 0 0 0 232.0 284.0 Z" fill="#59eaea"/><path d="M157.0 349.9 A150 150 0 0 1 102.1 295.0 L176.6 252.0 A64 64 0 0 0 200.0 275.4 Z" fill="#59a1ea"/><path d="M102.1 295.0 A150 150 0 0 1 82.0 220.0 L168.0 220.0 A64 64 0 0 0 176.6 252.0 Z" fill="#5959ea"/><path d="M82.0 220.0 A150 150 0 0 1 102.1 145.0 L176.6 188.0 A64 64 0 0 0 168.0 220.0 Z" fill="#a159ea"/><path d="M102.1 145.0 A150 150 0 0 1 157.0 90.1 L200.0 164.6 A64 64 0 0 0 176.6 188.0 Z" fill="#ea59ea"/><path d="M157.0 90.1 A150 150 0 0 1 232.0 70.0 L232.0 156.0 A64 64 0 0 0 200.0 164.6 Z" fill="#ea59a1"/><line class="cons" x1="272.4" y1="69.3" x2="191.6" y2="370.7"/><circle class="dot" cx="272.4" cy="69.3" r="5"/><circle class="dot" cx="191.6" cy="370.7" r="5"/><path class="acc" d="M372.9 128.5 A168 168 0 0 1 308.3 369.7"/></g>
+  <g id="label"><text class="lbl" x="280" y="63">보색</text><text class="lbl" x="400" y="230" fill="#2f6df0">유사색</text>
+    <text class="cap" x="20" y="462">색상환: 마주 보면 보색(강한 대비), 이웃하면 유사색(통일감).</text>
+  </g>
+</svg>

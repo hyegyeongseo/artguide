@@ -1,0 +1,18 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="light_direction">
+  <style>
+    .guide { fill:none; stroke:#c7ccd4; stroke-width:2.5; }
+    .gfill { fill:#c7ccd4; opacity:.18; stroke:none; }
+    .cons  { fill:none; stroke:#e0533d; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .consd { fill:none; stroke:#e0533d; stroke-width:2; stroke-dasharray:6 5; }
+    .acc   { fill:none; stroke:#2f6df0;  stroke-width:2.5; stroke-linecap:round; }
+    .dot   { fill:#e0533d; stroke:none; }
+    .lbl   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:14px; }
+    .cap   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:13px; opacity:.8; }
+    .tag   { fill:#e0533d; font-family:sans-serif; font-size:12px; font-weight:600; }
+  </style>
+  <g id="guide"><circle class="guide" cx="250" cy="250" r="90"/></g>
+  <g id="construction"><line class="acc" x1="80" y1="90" x2="190" y2="190"/><path class="acc" d="M190 190 l-2 -16 m2 16 l-16 -2"/><circle cx="225" cy="220" r="20" fill="#f4f4f4"/><path d="M250 160 A90 90 0 0 0 250 340 A60 60 0 0 0 250 160 Z" fill="#33373d" opacity=".85"/><ellipse cx="330" cy="360" rx="90" ry="18" fill="#33373d" opacity=".35"/></g>
+  <g id="label"><text class="lbl" x="60" y="80" fill="#2f6df0">광원</text><text class="lbl" x="195" y="215">밝은 면</text><text class="lbl" x="255" y="255">코어 그림자</text><text class="lbl" x="300" y="395">캐스트 그림자</text>
+    <text class="cap" x="20" y="462">광원 하나를 정하고 모든 형태의 밝은 면이 그쪽을 향하게.</text>
+  </g>
+</svg>

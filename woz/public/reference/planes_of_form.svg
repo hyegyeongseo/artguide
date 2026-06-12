@@ -1,0 +1,20 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="planes_of_form">
+  <style>
+    .guide { fill:none; stroke:#c7ccd4; stroke-width:2.5; }
+    .gfill { fill:#c7ccd4; opacity:.18; stroke:none; }
+    .cons  { fill:none; stroke:#e0533d; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .consd { fill:none; stroke:#e0533d; stroke-width:2; stroke-dasharray:6 5; }
+    .acc   { fill:none; stroke:#2f6df0;  stroke-width:2.5; stroke-linecap:round; }
+    .accd  { fill:none; stroke:#2f6df0;  stroke-width:2; stroke-dasharray:6 5; }
+    .dot   { fill:#e0533d; stroke:none; }
+    .adot  { fill:#2f6df0; stroke:none; }
+    .lbl   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:14px; }
+    .cap   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:13px; opacity:.8; }
+    .tag   { fill:#e0533d; font-family:sans-serif; font-size:12px; font-weight:600; }
+  </style>
+  <defs><linearGradient id="cyl" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#e7e8ea"/><stop offset="42%" stop-color="#b6bac1"/><stop offset="74%" stop-color="#5b5f66"/><stop offset="90%" stop-color="#3a3e44"/><stop offset="100%" stop-color="#7e828a"/></linearGradient></defs><g id="guide"></g>
+  <g id="construction"><path class="acc" d="M70 70 L132 124"/><path class="acc" d="M132 124 L118 121 M132 124 L127 111"/><polygon points="96,210 176,210 216,180 136,180" fill="#e7e8ea" stroke="#3a3f47"/><polygon points="96,210 176,210 176,312 96,312" fill="#b6bac1" stroke="#3a3f47"/><polygon points="176,210 216,180 216,282 176,312" fill="#5b5f66" stroke="#3a3f47"/><ellipse cx="330" cy="196" rx="56" ry="18" fill="#eceded" stroke="#3a3f47"/><path d="M274 196 L274 320 A56 18 0 0 0 386 320 L386 196" fill="url(#cyl)" stroke="#3a3f47"/><path d="M274 320 A56 18 0 0 0 386 320" fill="none" stroke="#3a3f47"/></g>
+  <g id="label"><text class="lbl" x="150" y="172">윗면 밝음</text><text class="lbl" x="40" y="270">앞면 중간</text><text class="lbl" x="222" y="250">옆면 어둠</text><text class="lbl" x="296" y="180">둥근 면은 부드럽게</text>
+    <text class="cap" x="20" y="462">면이 꺾이는 곳에서 명도가 바뀐다 — 윗면 밝게, 옆면 어둡게.</text>
+  </g>
+</svg>

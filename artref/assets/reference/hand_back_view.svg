@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="hand_back_view">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><polygon class="ink" points="160,150 300,150 285,260 175,260"/><line class="gthin" x1="178" y1="150" x2="230" y2="255"/><line class="gthin" x1="213" y1="150" x2="230" y2="255"/><line class="gthin" x1="248" y1="150" x2="230" y2="255"/><line class="gthin" x1="283" y1="150" x2="230" y2="255"/><circle class="dot" cx="178" cy="155" r="4"/><circle class="dot" cx="213" cy="155" r="4"/><circle class="dot" cx="248" cy="155" r="4"/><circle class="dot" cx="283" cy="155" r="4"/><path class="cons" d="M160 150 C150 160 152 180 165 195"/><text class="tag" x="310" y="150">너클(밑마디)</text><text class="atag" x="250" y="290">힘줄이 손목으로 모인다</text><text class="lbl" x="40" y="360">손등은 너클(주먹뼈)이 줄지어 솟고, 힘줄이 손목으로 부채처럼 모인다.</text><text class="cap" x="20" y="462">손등: 너클이 줄지어 솟고 힘줄이 손목으로 부채꼴로 모인다(손바닥과 다른 구조).</text>
+</svg>

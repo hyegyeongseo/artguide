@@ -1,0 +1,24 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="weight_shift_walk">
+  <style>
+    .guide{fill:none;stroke:#c7ccd4;stroke-width:2.5}
+    .gthin{fill:none;stroke:#c7ccd4;stroke-width:1.4}
+    .gfill{fill:#c7ccd4;opacity:.18;stroke:none}
+    .cons{fill:none;stroke:#e0533d;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .consf{fill:#e0533d;opacity:.14;stroke:none}
+    .consd{fill:none;stroke:#e0533d;stroke-width:2;stroke-dasharray:6 5}
+    .acc{fill:none;stroke:#2f6df0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .accf{fill:#2f6df0;opacity:.14;stroke:none}
+    .accd{fill:none;stroke:#2f6df0;stroke-width:2;stroke-dasharray:6 5}
+    .ink{fill:none;stroke:#3a3f47;stroke-width:1.5;stroke-linejoin:round}
+    .dot{fill:#e0533d;stroke:none}
+    .adot{fill:#2f6df0;stroke:none}
+    .lbl{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:14px}
+    .cap{fill:#3a3f47;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;font-size:13px;opacity:.85}
+    .tag{fill:#e0533d;font-family:sans-serif;font-size:12px;font-weight:600}
+    .atag{fill:#2f6df0;font-family:sans-serif;font-size:12px;font-weight:600}
+  </style><defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e0533d"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#2f6df0"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="7.5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9aa1ab"/></marker>
+  </defs><circle class="guide" cx="110" cy="110" r="14"/><line class="ink" x1="110" y1="124" x2="110" y2="210"/><line class="ink" x1="110" y1="210" x2="82" y2="300"/><line class="ink" x1="110" y1="210" x2="138" y2="300"/><text class="lbl" x="110" y="330" text-anchor="middle">양발 디딤(전환)</text><circle class="guide" cx="240" cy="110" r="14"/><line class="ink" x1="240" y1="124" x2="240" y2="210"/><line class="cons" x1="240" y1="210" x2="238" y2="300"/><line class="ink" x1="240" y1="210" x2="270" y2="280"/><line class="ink" x1="270" y1="280" x2="276" y2="300"/><line class="consd" x1="238" y1="250" x2="238" y2="305"/><text class="lbl" x="240" y="330" text-anchor="middle">체중 지지발 위</text><circle class="guide" cx="370" cy="110" r="14"/><line class="ink" x1="370" y1="124" x2="370" y2="210"/><line class="ink" x1="370" y1="210" x2="342" y2="300"/><line class="ink" x1="370" y1="210" x2="398" y2="300"/><text class="lbl" x="370" y="330" text-anchor="middle">양발 디딤(전환)</text><line class="guide" x1="170" y1="360" x2="210" y2="360" marker-end="url(#ag)"/><line class="guide" x1="300" y1="360" x2="340" y2="360" marker-end="url(#ag)"/><text class="lbl" x="40" y="400">걸음 = 무게중심이 한 발 위 → 공중 → 다음 발 위로 넘어가는 연속.</text><text class="cap" x="20" y="462">걸음의 핵심은 무게 이동: 체중이 지지발 위에 실렸다가 다음 발로 넘어간다.</text>
+</svg>
