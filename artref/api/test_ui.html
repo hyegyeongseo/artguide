@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>한 끗 가이드 — FastAPI 테스트</title>
+<style>
+  /* === Figma 디자인 토큰 (제공된 스펙 그대로) ===================== */
+  :root{
+    --orange:#FF8534; --orange-soft:#FFFBF5; --orange-chip:#FFF1DC;
+    --ink:#24221F; --body:#4A4846; --muted:#888685;
+    --line:#EDEBEA; --line2:#D8D7D5;
+    --bg:#FEFEFF; --rail:#FBFBFB; --img:#F6F6F6;
+    --r-card:12px; --r-img:8px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--body);
+    font-family:'Wanted Sans Variable','Pretendard',system-ui,-apple-system,'Apple SD Gothic Neo',sans-serif;
+    -webkit-font-smoothing:antialiased;}
+  /* 레이아웃: 좌측 얇은 레일(장식) + 중앙 가이드 컬럼 */
+  .app{display:flex;min-height:100vh}
+  .rail{width:72px;flex:none;background:var(--rail);border-right:1px solid var(--line);
+    display:flex;flex-direction:column;align-items:center;gap:14px;padding:20px 0}
+  .rail .dot{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;color:#fff;font-weight:700}
+  .rail .dot.on{background:var(--orange)}
+  .rail .dot.off{background:#EFEDEA;color:var(--muted)}
+  .main{flex:1;display:flex;flex-direction:column;min-width:0}
+  .topbar{display:flex;align-items:center;gap:16px;padding:24px 32px 8px}
+  .topbar .title{font-weight:700;font-size:24px;line-height:32px;color:#0F0F0F}
+  .settings{margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .settings input{border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:13px;color:var(--body);background:#fff}
+  .settings label{font-size:12px;color:var(--muted)}
+  .col{width:100%;max-width:836px;margin:0 auto;padding:12px 48px 64px}
+
+  /* === 카드/섹션 공통 ============================================ */
+  .sec{margin-top:40px}
+  .sec-label{display:inline-block;font-weight:700;font-size:18px;line-height:24px;color:var(--ink);margin-bottom:8px}
+  .sec-label.accent{color:var(--orange)}
+  .card{border:1px solid var(--line);border-radius:var(--r-card);background:#fff;padding:24px}
+  .card.accent{background:var(--orange-soft);border-color:var(--orange)}
+  .lead{font-size:14px;line-height:22px;color:var(--body)}
+  .lead b{font-weight:700;color:var(--ink)}
+
+  /* 1. 분석 — 업로드 이미지 + 관찰 */
+  .analysis{display:flex;flex-direction:column;gap:16px}
+  .analysis .thumb{width:170px;height:170px;border-radius:var(--r-img);background:var(--img);
+    border:1px solid var(--line);overflow:hidden;display:grid;place-items:center}
+  .analysis .thumb img{width:100%;height:100%;object-fit:cover}
+
+  /* 3. 한 끗 포인트 — 도식 */
+  .asset{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:var(--r-img);
+    padding:16px;display:flex;flex-direction:column;align-items:center;gap:8px;max-width:360px}
+  .asset img{max-width:100%;height:auto;border-radius:6px}
+  .asset .cap{font-size:12px;line-height:18px;color:var(--muted);text-align:center}
+
+  /* 4. 추천 레퍼런스 */
+  .refs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .refcard .ph{aspect-ratio:1/1;background:var(--img);border-radius:var(--r-img);
+    box-shadow:0 2px 15px rgba(15,15,15,.05);overflow:hidden;display:grid;place-items:center;color:var(--line2)}
+  .refcard .ph img{width:100%;height:100%;object-fit:cover}
+  .refcard .meta{display:flex;align-items:center;gap:8px;padding:8px 0 0 4px}
+  .refcard .n{background:var(--img);border-radius:4px;padding:0 8px;font-size:12px;color:var(--body);line-height:20px}
+  .refcard .lab{font-size:14px;font-weight:600;color:var(--ink)}
+  .refcard .cardreact{display:inline-flex;gap:2px;margin-left:auto}
+  .refcard .cardreact button{border:none;background:transparent;border-radius:6px;cursor:pointer;font-size:14px;line-height:1;padding:3px 5px;opacity:.5}
+  .refcard .cardreact button:hover{background:var(--img);opacity:1}
+  .refcard .cardreact button.on{opacity:1;background:var(--orange-chip)}
+  .reactions{display:flex;gap:6px;margin-top:12px}
+  .reactions button{width:28px;height:28px;border:none;background:transparent;border-radius:8px;cursor:pointer;color:var(--body);font-size:15px}
+  .reactions button:hover{background:var(--img)}
+
+  /* 5. 앞으로 해야 할 것 */
+  .goal{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+  .goal .chip{background:var(--orange-chip);color:var(--orange);font-weight:600;font-size:14px;border-radius:999px;padding:8px 12px}
+  .goal .name{font-weight:700;font-size:18px;color:var(--body)}
+
+  /* 성장 흐름 */
+  .growth .cream{background:var(--orange-chip);border-radius:var(--r-card);padding:24px}
+  .growth .chartbox{background:#fff;border-radius:var(--r-img);padding:24px}
+  .growth .chart-title{font-size:14px;font-weight:600;color:var(--muted)}
+  .growth .cold{font-size:13px;line-height:22px;color:var(--body)}
+  .growth .note{font-size:12px;line-height:20px;color:var(--body);margin-top:12px}
+  .growth .note b{color:var(--orange)}
+  .stagebox{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:var(--r-card);padding:16px 24px;margin-top:8px}
+  .stagebox .k{font-size:14px;color:var(--muted)}
+  .tag{border:1px solid var(--line);border-radius:8px;padding:8px 16px;font-size:16px;color:var(--body);background:#fff}
+
+  /* === 입력 폼 (이미지 3) ======================================== */
+  .form{border:1px solid var(--line);border-radius:16px;background:#fff;padding:28px;margin-top:8px;max-width:680px;margin-left:auto;margin-right:auto}
+  .form h2{margin:0 0 4px;font-size:20px;font-weight:700;color:var(--ink)}
+  .form .flabel{font-size:13px;color:var(--body);margin:18px 0 8px;font-weight:600}
+  .drop{border:1px dashed var(--orange);background:var(--orange-soft);border-radius:12px;
+    padding:24px;text-align:center;color:var(--muted);font-size:13px}
+  .drop .pick{margin-top:12px;display:inline-flex;gap:6px;align-items:center;background:var(--orange);color:#fff;
+    border:none;border-radius:8px;padding:10px 16px;font-size:14px;font-weight:600;cursor:pointer}
+  .filepreview{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:12px;padding:12px}
+  .filepreview .fthumb{width:56px;height:56px;border-radius:8px;background:var(--img);overflow:hidden;display:grid;place-items:center}
+  .filepreview .fthumb img{width:100%;height:100%;object-fit:cover}
+  .filepreview .fname{font-weight:600;color:var(--ink);font-size:14px}
+  .filepreview .fsize{font-size:12px;color:var(--muted)}
+  .filepreview .x{margin-left:auto;border:none;background:transparent;font-size:18px;color:var(--muted);cursor:pointer}
+  .ti{width:100%;border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:14px;color:var(--body)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .chips button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font-size:13px;color:var(--body);cursor:pointer}
+  .chips button.sel{border-color:var(--orange);color:var(--orange);background:var(--orange-soft)}
+  .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  select.ti{appearance:auto}
+  .toggle{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .toggle button{border:none;background:#fff;padding:8px 16px;font-size:14px;color:var(--body);cursor:pointer}
+  .toggle button.sel{background:var(--orange);color:#fff;font-weight:600}
+  .submit{margin-top:24px;width:100%;border:none;border-radius:10px;padding:14px;font-size:15px;font-weight:700;
+    color:#fff;background:var(--orange);cursor:pointer}
+  .submit:disabled{background:#E7E4E0;color:#B6B2AD;cursor:not-allowed}
+
+  .banner{display:flex;gap:10px;align-items:center;width:100%;text-align:left;padding:10px 14px;margin-bottom:16px;
+    border:1px solid var(--line);border-radius:12px;background:var(--orange-soft);font-size:13px;color:var(--body)}
+  .err{background:#FEECEC;border-color:#F5B5B5;color:#9B2C2C}
+  .muted{color:var(--muted)}
+  .spinner{display:inline-block;width:14px;height:14px;border:2px solid var(--line2);border-top-color:var(--orange);
+    border-radius:50%;animation:spin .8s linear infinite;vertical-align:middle}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .hidden{display:none}
+  .backbtn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 14px;font-size:13px;color:var(--body);cursor:pointer;margin-top:24px}
+</style>
+</head>
+<body>
+<div class="app">
+  <nav class="rail">
+    <div class="dot off">S</div>
+    <div class="dot on">📁</div>
+    <div class="dot off">🗄</div>
+  </nav>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="title" id="docTitle">한 끗 가이드 · FastAPI 테스트</div>
+      <div class="settings">
+        <label>API</label><input id="apiBase" size="22" placeholder="http://localhost:8000" />
+        <label>user_id</label><input id="userId" size="12" value="test_user" />
+      </div>
+    </div>
+
+    <div class="col">
+      <!-- 입력 폼 -->
+      <section id="formView">
+        <div class="form">
+          <h2>한 끗 가이드</h2>
+
+          <div class="flabel">그림 업로드</div>
+          <div id="dropArea" class="drop">
+            첨부할 파일 한 장을 여기에 끌어다 놓거나, 직접 선택해주세요.
+            <div><button class="pick" id="pickBtn" type="button">⬆ 파일 선택</button></div>
+          </div>
+          <div id="filePreview" class="filepreview hidden">
+            <div class="fthumb"><img id="fthumbImg" alt=""/></div>
+            <div><div class="fname" id="fname"></div><div class="fsize" id="fsize"></div></div>
+            <button class="x" id="clearFile" type="button">×</button>
+          </div>
+          <input type="file" id="fileInput" accept="image/*" class="hidden" />
+
+          <div class="flabel">어떤 점이 마음에 걸리시나요?</div>
+          <input class="ti" id="message" placeholder="예: 얼굴 부분의 명암 단계가 다 비슷해 보여서 평평하게 읽혀요" />
+          <div class="chips" id="chips">
+            <button type="button" data-msg="손이 어색해요">손이 어색해요</button>
+            <button type="button" data-msg="얼굴이 어색해요">얼굴이 어색해요</button>
+            <button type="button" data-msg="입체감이 없어요">입체감이 없어요</button>
+            <button type="button" data-msg="구도가 단조로워요">구도가 단조로워요</button>
+            <button type="button" data-msg="톤을 바꾸고 싶어요">톤을 바꾸고 싶어요</button>
+          </div>
+
+          <div class="flabel">이 그림 화풍은</div>
+          <select class="ti" id="style">
+            <option value="">자동 (AI 자동 판단)</option>
+            <option value="sketch">스케치</option>
+          </select>
+
+          <div class="flabel">이 그림의 상태는</div>
+          <div class="toggle" id="stateToggle">
+            <button type="button" data-intent="open" class="sel">작업중</button>
+            <button type="button" data-intent="finished">완성작</button>
+          </div>
+
+          <button class="submit" id="submitBtn" type="button" disabled>가이드 요청하기</button>
+        </div>
+      </section>
+
+      <!-- 결과 -->
+      <section id="resultView" class="hidden"></section>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  // ── 설정 ──────────────────────────────────────────────────────────
+  // /test 로 같은 출처에서 열면 상대경로(빈 base)로 CORS 없이 동작. 파일로 열면 localhost:8000.
+  const sameOrigin = location.protocol.startsWith("http");
+  const apiInput = document.getElementById("apiBase");
+  apiInput.value = sameOrigin ? "" : "http://localhost:8000";
+  const API = () => apiInput.value.replace(/\/+$/, "");
+  const userId = () => document.getElementById("userId").value.trim() || "test_user";
+
+  // sub_problem → 한글 라벨 (roadmap.py LABELS 와 동일)
+  const LABELS = {
+    weight_balance:"무게중심", foreshortening:"단축(투시)", proportion:"비율", action_line:"동세",
+    joint_articulation:"관절", hand_structure:"손 구조", value_structure:"명암", composition_balance:"구도",
+    color_harmony:"색 조화", light_direction:"빛 방향", linear_perspective:"선원근",
+    atmospheric_perspective:"대기원근", depth_layering:"공간 깊이", horizon_placement:"지평선 배치",
+  };
+  const L = (sp) => LABELS[sp] || sp;
+
+  // ── 폼 상태 ───────────────────────────────────────────────────────
+  let file = null, intent = "open";
+  const $ = (id) => document.getElementById(id);
+  const fileInput = $("fileInput");
+
+  $("pickBtn").onclick = () => fileInput.click();
+  $("dropArea").onclick = (e) => { if (e.target.id === "dropArea") fileInput.click(); };
+  $("dropArea").ondragover = (e) => { e.preventDefault(); };
+  $("dropArea").ondrop = (e) => { e.preventDefault(); if (e.dataTransfer.files[0]) setFile(e.dataTransfer.files[0]); };
+  fileInput.onchange = () => { if (fileInput.files[0]) setFile(fileInput.files[0]); };
+  $("clearFile").onclick = () => setFile(null);
+
+  function setFile(f) {
+    file = f;
+    if (f) {
+      $("fthumbImg").src = URL.createObjectURL(f);
+      $("fname").textContent = f.name;
+      $("fsize").textContent = (f.size / 1024 / 1024).toFixed(1) + "MB";
+      $("filePreview").classList.remove("hidden");
+      $("dropArea").classList.add("hidden");
+    } else {
+      $("filePreview").classList.add("hidden");
+      $("dropArea").classList.remove("hidden");
+    }
+    $("submitBtn").disabled = !file;
+  }
+
+  // 빠른 칩 → 메시지 채우기(토글)
+  $("chips").querySelectorAll("button").forEach((b) => {
+    b.onclick = () => {
+      const m = b.dataset.msg, ti = $("message");
+      if (b.classList.contains("sel")) { b.classList.remove("sel"); ti.value = ti.value.replace(m, "").trim(); }
+      else { b.classList.add("sel"); ti.value = (ti.value ? ti.value + " " : "") + m; }
+    };
+  });
+
+  $("stateToggle").querySelectorAll("button").forEach((b) => {
+    b.onclick = () => {
+      $("stateToggle").querySelectorAll("button").forEach((x) => x.classList.remove("sel"));
+      b.classList.add("sel"); intent = b.dataset.intent;
+    };
+  });
+
+  // ── 제출 → /guide ────────────────────────────────────────────────
+  $("submitBtn").onclick = async () => {
+    const btn = $("submitBtn");
+    btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> 분석 중…';
+    try {
+      const fd = new FormData();
+      fd.append("file", file);
+      fd.append("message", $("message").value);
+      fd.append("user_id", userId());
+      fd.append("intent", intent);
+      const style = $("style").value;
+      if (style) fd.append("medium", style);     // '스케치' → medium 소프트 부스트
+
+      const res = await fetch(API() + "/guide", { method: "POST", body: fd });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
+      renderResult(data, URL.createObjectURL(file));
+    } catch (e) {
+      showError(e);
+    } finally {
+      btn.disabled = false; btn.textContent = "가이드 요청하기";
+    }
+  };
+
+  function showError(e) {
+    const msg = (e && e.message) || e;
+    const hint = String(msg).includes("Failed to fetch")
+      ? "FastAPI(8000)가 떠 있는지, 그리고 이 페이지를 /test 로 열었는지(또는 CORS_ORIGINS 에 이 주소를 넣었는지) 확인하세요."
+      : "응답을 처리하지 못했습니다.";
+    const rv = $("resultView");
+    rv.classList.remove("hidden");
+    rv.innerHTML = `<div class="banner err">요청 실패: ${msg}<br>${hint}</div>
+      <button class="backbtn" onclick="location.reload()">← 다시 시도</button>`;
+    $("formView").classList.add("hidden");
+  }
+
+  // ── 결과 렌더 ─────────────────────────────────────────────────────
+  function esc(s){ return (s==null?"":String(s)).replace(/[&<>]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c])); }
+
+  async function renderResult(d, imgUrl) {
+    $("formView").classList.add("hidden");
+    const rv = $("resultView"); rv.classList.remove("hidden");
+
+    if (d.mode !== "coach") {
+      rv.innerHTML = `<div class="banner">${esc(d.message) || "코칭 대상이 아니에요."}</div>
+        <button class="backbtn" id="back">← 다른 그림 보기</button>`;
+      $("back").onclick = () => location.reload();
+      return;
+    }
+
+    const b = (d.blocks && d.blocks[0]) || {};
+    const title = (d.primary_focus ? L(d.primary_focus) + " 한 끗 가이드" : "한 끗 가이드");
+    $("docTitle").textContent = title;
+    const api = API();
+
+    // 가이드 자산(도식)
+    let assetHtml = "";
+    if (b.guide_asset && b.guide_asset.ref_id) {
+      assetHtml = `<div class="asset">
+        <img src="${api}/guide-asset/${b.guide_asset.ref_id}" alt="${esc(b.guide_asset.label)}"
+             onerror="this.style.display='none'"/>
+        ${b.guide_asset.caption ? `<div class="cap">${esc(b.guide_asset.caption)}</div>` : ""}
+      </div>`;
+    }
+
+    // 추천 레퍼런스
+    const refs = (b.reference_ids || []).slice(0, 3);
+    const refCards = refs.length
+      ? refs.map((id, i) => `<div class="refcard">
+          <div class="ph"><img src="${api}/image/${id}" alt="" onerror="this.parentNode.innerHTML='🖼'"/></div>
+          <div class="meta"><span class="n">${i + 1}</span><span class="lab">레퍼런스</span>
+            <span class="cardreact">
+              <button data-ref="${id}" data-kind="like" title="도움돼요">👍</button>
+              <button data-ref="${id}" data-kind="dislike" title="별로예요">👎</button>
+            </span>
+          </div>
+        </div>`).join("")
+      : `<div class="muted" style="grid-column:1/-1;padding:8px">레퍼런스가 아직 없어요(코퍼스 보강 대상).</div>`;
+
+    // 앞으로 해야 할 것
+    const ns = d.next_steps || {};
+    const goalSp = ns.next_goal || ns.focus;
+    const goalPractice = ns.next_goal_practice || ns.focus_practice || d.one_thing || "";
+    const goalHtml = goalSp ? `
+      <div class="goal"><span class="chip">다음 목표</span><span class="name">${esc(L(goalSp))}</span></div>
+      <div class="lead">${esc(goalPractice)}</div>` : `<div class="lead muted">아직 다음 목표가 정해지지 않았어요.</div>`;
+
+    rv.innerHTML = `
+      <div class="sec" style="margin-top:8px">
+        <span class="sec-label">1. 분석</span>
+        <div class="card analysis">
+          <div class="thumb"><img src="${imgUrl}" alt="업로드 그림"/></div>
+          <div class="lead">${esc(b.observation) || "관찰 내용이 여기 표시됩니다."}</div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <span class="sec-label">2. 읽히는 느낌</span>
+        <div class="card"><div class="lead">${esc(b.effect) || "읽히는 느낌이 여기 표시됩니다."}</div></div>
+      </div>
+
+      <div class="sec">
+        <span class="sec-label accent">3. 한 끗 포인트</span>
+        <div class="card accent">
+          <div class="lead">${esc(b.direction) || esc(d.one_thing) || "지금 해볼 실험이 여기 표시됩니다."}</div>
+          ${assetHtml}
+        </div>
+      </div>
+
+      <div class="sec">
+        <span class="sec-label">4. 추천 레퍼런스</span>
+        <div class="card">
+          <div class="refs">${refCards}</div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <span class="sec-label">5. 앞으로 해야 할 것</span>
+        <div class="card">${goalHtml}</div>
+      </div>
+
+      <div class="sec growth">
+        <span class="sec-label accent">성장 흐름</span>
+        <div id="growthBox"><div class="lead muted">성장 흐름 불러오는 중…</div></div>
+      </div>
+
+      <button class="backbtn" id="back">← 다른 그림 보기</button>
+    `;
+    $("back").onclick = () => location.reload();
+
+    // 레퍼런스 좋아요/싫어요 → /adopt (검색 랭킹에 ±가중 반영)
+    const reacted = {};   // ref_id -> "like" | "dislike"
+    rv.querySelectorAll(".cardreact button").forEach((btn) => {
+      btn.onclick = async () => {
+        const refId = btn.dataset.ref, kind = btn.dataset.kind, group = btn.parentNode;
+        const next = reacted[refId] === kind ? null : kind;   // 같은 버튼 다시 누르면 취소(토글)
+        reacted[refId] = next;
+        group.querySelectorAll("button").forEach((x) => x.classList.remove("on"));
+        if (next) btn.classList.add("on"); else return;       // 취소면 로깅 안 함
+        try {
+          await fetch(api + "/adopt", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              guide_id: d.guide_id || "",                      // 노출(shown) 로그와 join → sub_problem 회수
+              reference_id: refId,
+              persona: "", source_type: "",
+              event: kind === "like" ? "liked" : "disliked",
+            }),
+          });
+        } catch (e) { /* 피드백 로깅 실패가 화면을 막지 않게 무시 */ }
+      };
+    });
+
+    loadGrowth($("style").value);
+  }
+
+  // ── 성장 흐름 (/roadmap) ─────────────────────────────────────────
+  async function loadGrowth() {
+    const box = document.getElementById("growthBox");
+    try {
+      const res = await fetch(`${API()}/roadmap?user_id=${encodeURIComponent(userId())}`);
+      const r = await res.json();
+      const tl = (r.timeline || []).map((t) => t.flagged_count ?? 0);
+      const cold = tl.length < 3;   // 데이터 적으면 콜드스타트 안내(roadmap trend='new'와 동일 취지)
+
+      if (cold) {
+        box.innerHTML = `<div class="cream">
+          <div class="cold">처음으로 한 끗 가이드를 사용하셨어요!<br>
+          몇 번 더 사용하면 지금까지 어떤 어려움을 가장 많이 겪는지 보여드릴게요.</div>
+        </div>
+        ${stageRow("현재 그림 단계", r.current && r.current.sub_problem ? [L(r.current.sub_problem)] : [])}`;
+        return;
+      }
+
+      // 감소율(파생: 처음 대비 최근). 백엔드는 timeline/trend 만 주므로 여기서 계산.
+      const first = tl[0] || 0, last = tl[tl.length - 1] || 0;
+      const pct = first > 0 ? Math.round(((first - last) / first) * 100) : 0;
+      const steady = (r.ladder || []).filter((x) => x.status === "steady").map((x) => L(x.sub_problem)).slice(0, 3);
+
+      box.innerHTML = `<div class="cream">
+        <div class="chartbox">
+          <div class="chart-title">그림 한 장당 어려움을 느낀 횟수</div>
+          ${sparkline(tl)}
+        </div>
+        <div class="note">처음 가이드를 요청했을 때보다 어려움을 보이는 부분이
+          <b>${pct >= 0 ? pct + "% 감소" : Math.abs(pct) + "% 증가"}</b>했어요!</div>
+      </div>
+      ${stageRow("현재 그림 단계", r.current && r.current.sub_problem ? [L(r.current.sub_problem)] : [])}
+      ${steady.length ? stageRow("최근에 덜 보이는 어려움", steady) : ""}`;
+    } catch (e) {
+      box.innerHTML = `<div class="lead muted">성장 흐름을 불러오지 못했어요 (${esc(e.message)}). /roadmap 응답을 확인하세요.</div>`;
+    }
+  }
+
+  function stageRow(k, tags) {
+    return `<div class="stagebox"><span class="k">${k}</span>
+      ${(tags.length ? tags : ["—"]).map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div>`;
+  }
+
+  // 오렌지 area 스파크라인 (timeline 값으로)
+  function sparkline(vals) {
+    const w = 360, h = 90, pad = 4;
+    const max = Math.max(...vals, 1), n = vals.length;
+    const x = (i) => pad + (i * (w - 2 * pad)) / Math.max(n - 1, 1);
+    const y = (v) => pad + (h - 2 * pad) * (1 - v / max);
+    const pts = vals.map((v, i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`);
+    const area = `M${pad},${h} L` + pts.join(" L") + ` L${w - pad},${h} Z`;
+    const line = "M" + pts.join(" L");
+    return `<svg viewBox="0 0 ${w} ${h}" width="100%" height="100" preserveAspectRatio="none" style="margin-top:8px">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#FF8534" stop-opacity="0.55"/><stop offset="100%" stop-color="#FF8534" stop-opacity="0"/>
+      </linearGradient></defs>
+      <path d="${area}" fill="url(#g)"/>
+      <path d="${line}" fill="none" stroke="#FF8534" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+    </svg>`;
+  }
+})();
+</script>
+</body>
+</html>
