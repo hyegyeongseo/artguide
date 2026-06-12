@@ -5,7 +5,7 @@
 태그는 CLI로 직접 지정. "일단 몇 장으로 코치 연결을 확인"하는 가장 빠른 경로.
 
 컨테이너에서 실행(ingest가 CLIP/Qdrant/MinIO/DB 접근). 이미지는 /repo 아래(읽기전용)에 둔다:
-  docker compose exec -w /repo api python scripts/ingest_folder.py /repo/manual_poses \
+  docker compose exec -w /repo api python scripts/ingest_folder.py /repo/my_poses \
       --personas pose anatomy --gender female --body-type female_avg \
       --region full --category rest --tags standing relaxed
 
@@ -33,7 +33,7 @@ def flatten(path):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("folder", help="적재할 이미지 폴더 (예: /repo/manual_poses)")
+    ap.add_argument("folder", help="적재할 이미지 폴더 (예: /repo/my_poses)")
     ap.add_argument("--personas", nargs="+", default=["pose", "anatomy"],
                     help="앱 페르소나 어휘: pose anatomy hand light color composition 등")
     ap.add_argument("--gender", default=None)

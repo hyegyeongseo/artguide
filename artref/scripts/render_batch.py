@@ -50,18 +50,14 @@ def flatten_rgba(path):
 
 def _reset_self_render(state_path):
     """기존 self_render를 Qdrant + DB에서 제거(깨끗이 재적재용). MinIO 객체는 남지만 무해."""
-    from stores.vectors import qc
+    from stores import vectors as vstore
     from stores.db import engine
-    from config import settings
-    from qdrant_client.models import Filter, FieldCondition, MatchValue, FilterSelector
     from sqlalchemy import text
-    flt = Filter(must=[FieldCondition(key="source_type",
-                                      match=MatchValue(value="self_render"))])
     try:
-        qc.delete(settings.qdrant_collection, points_selector=FilterSelector(filter=flt))
-        print("reset: Qdrant self_render 삭제")
+        vstore.delete_by({"source_type": "self_render"})   # 백엔드 중립(qdrant/pinecone)
+        print("reset: 벡터DB self_render 삭제")
     except Exception as e:
-        print(f"reset Qdrant 실패(수동 확인 필요): {type(e).__name__}: {e}")
+        print(f"reset 벡터DB 실패(수동 확인 필요): {type(e).__name__}: {e}")
     try:
         with engine.begin() as cx:
             cx.execute(text("DELETE FROM reference_images WHERE source_type='self_render'"))
@@ -113,7 +109,7 @@ def main():
         if rid in done:
             n_skip += 1
             continue
-        img_path = os.path.join(args.out_dir, r["path"])
+        img_path = os.path.join(args.out_dir, r["path"].replace("\\", "/"))
         if not os.path.exists(img_path):
             print(f"이미지 없음, 건너뜀: {img_path}")
             n_miss += 1

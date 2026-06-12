@@ -35,14 +35,28 @@ from mathutils import Vector
 CHARACTERS = [
     # {"clips_dir": "/path/to/fbx/female_avg",   "body_type": "female_avg",   "gender": "female"},
     # {"clips_dir": "/path/to/fbx/male_muscular", "body_type": "male_muscular", "gender": "male"},
-    {"clips_dir": "/path/to/animated_fbx", "body_type": "default", "gender": "unspecified"},
+    {"clips_dir": "C:/temp/gp/artguide/artref/render_in/female_avg",
+     "body_type": "female_avg", "gender": "female"},
+    {"clips_dir": "C:/temp/gp/artguide/artref/render_in/male_avg",
+     "body_type": "male_avg", "gender": "male"},
 ]
-OUT_DIR = "/path/to/output"               # 렌더 + manifest 출력 위치
+OUT_DIR = "C:/temp/gp/artguide/artref/render_out"               # 렌더 + manifest 출력 위치
 
 FRAME_STEP         = 12                    # 클립당 N프레임마다 포즈 1개 샘플
-MAX_POSES_PER_CLIP = 8                     # 클립당 포즈 상한 (None=무제한)
+MAX_POSES_PER_CLIP = 8                     # 동적 클립의 포즈 상한 (None=무제한)
+MAX_POSES_REST     = 2                     # 저운동(idle/rest) 클립: 8프레임이 거의 같은 포즈라 적게 → 중복 희석 방지
 VIEW_ANGLES        = [0, 45, 90, 135, 180, 225, 270, 315]  # 전신 azimuth(도)
-ELEVATIONS         = [12]                  # 카메라 고도(도). 예: [12, 35]
+ELEVATIONS         = [12]                  # 기본(정적 클립) 카메라 고도(도)
+ELEVATIONS_DYNAMIC = [-15, 12, 35]         # 동적 클립: 고/저 각 포함 → 단축(foreshortening)이 드러남
+DYNAMIC_CATEGORIES = {"locomotion", "action", "expressive"}  # 단축·무게·동세가 보이는 카테고리
+
+def elevations_for(category):
+    """동적 클립만 고/저 고도까지(단축 강조), 정적 클립은 눈높이 하나."""
+    return ELEVATIONS_DYNAMIC if category in DYNAMIC_CATEGORIES else ELEVATIONS
+
+def max_poses_for(category):
+    """저운동 클립은 포즈가 거의 같으니 적게(라이브러리 중복·CLIP 근접중복 방지)."""
+    return MAX_POSES_REST if category == "rest" else MAX_POSES_PER_CLIP
 
 RES        = 1024                          # 정사각 렌더 해상도(px)
 SAMPLES    = 16                            # EEVEE 샘플
@@ -69,11 +83,17 @@ KEY_ENERGY, FILL_ENERGY, RIM_ENERGY = 800.0, 250.0, 400.0
 WORLD_STRENGTH = 0.35
 
 # 클립명 키워드 -> 거친 카테고리. 자유 확장.
+#   reach/point/pick 은 사지가 뻗는 동적 포즈 → action 으로 둬 동적 고도·프레임을 받게 한다(단축 골밭).
 CATEGORY_MAP = {
     "run": "locomotion", "walk": "locomotion", "jump": "locomotion", "sprint": "locomotion",
+    "catwalk": "locomotion", "crouch": "locomotion", "march": "locomotion", "step": "locomotion",
+    "climb": "locomotion",
     "sit": "rest", "idle": "rest", "stand": "rest", "lean": "rest", "lie": "rest",
+    "breath": "rest", "listen": "rest", "music": "rest", "kneel": "rest", "wait": "rest",
     "kick": "action", "punch": "action", "sword": "action", "throw": "action", "fight": "action",
-    "dance": "expressive", "spin": "expressive", "wave": "expressive",
+    "reach": "action", "point": "action", "pick": "action", "aim": "action", "lunge": "action",
+    "swing": "action",
+    "dance": "expressive", "spin": "expressive", "wave": "expressive", "twist": "expressive",
 }
 # =========================================================================
 
@@ -309,8 +329,9 @@ def main():
             scene = bpy.context.scene
             frames = list(range(scene.frame_start, scene.frame_end + 1, FRAME_STEP)) \
                 or [scene.frame_start]
-            if MAX_POSES_PER_CLIP:
-                frames = frames[:MAX_POSES_PER_CLIP]
+            _mx = max_poses_for(category)
+            if _mx:
+                frames = frames[:_mx]
 
             for f in frames:
                 scene.frame_set(f)
@@ -322,11 +343,11 @@ def main():
                 os.makedirs(pose_dir, exist_ok=True)
 
                 # --- 전신 턴테이블 ---
-                for el in ELEVATIONS:
+                for el in elevations_for(category):
                     for az in VIEW_ANGLES:
                         view = f"az{az:03d}_el{el:02d}"
                         out_png = os.path.join(pose_dir, view + ".png")
-                        rel = os.path.relpath(out_png, OUT_DIR)
+                        rel = os.path.relpath(out_png, OUT_DIR).replace("\\", "/")
                         if not (SKIP_EXISTING and os.path.exists(out_png)):
                             place_rig(cam, target, lights, center, radius, az, el)
                             render_view(out_png)
@@ -348,7 +369,7 @@ def main():
                                     el = ELEVATIONS[0]
                                     view = f"{region}_{side}_az{az:03d}"
                                     out_png = os.path.join(pose_dir, view + ".png")
-                                    rel = os.path.relpath(out_png, OUT_DIR)
+                                    rel = os.path.relpath(out_png, OUT_DIR).replace("\\", "/")
                                     if not (SKIP_EXISTING and os.path.exists(out_png)):
                                         place_rig(cam, target, lights, rc, rrad, az, el)
                                         render_view(out_png)

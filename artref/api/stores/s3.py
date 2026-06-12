@@ -8,8 +8,6 @@ s3 = boto3.client("s3", endpoint_url=settings.s3_endpoint,
                   aws_secret_access_key=settings.s3_secret)
 
 # presign 전용 — '브라우저가 닿는' 주소(localhost:9000)로 서명.
-# generate_presigned_url은 네트워크 연결을 안 하므로(순수 서명), 이 주소가
-# 컨테이너에서 실제로 닿지 않아도 무방. 서명 host == 브라우저 요청 host 라서 MinIO 검증 통과.
 _presign = boto3.client("s3", endpoint_url=settings.s3_public_endpoint,
                         aws_access_key_id=settings.s3_key,
                         aws_secret_access_key=settings.s3_secret,
@@ -19,6 +17,19 @@ _presign = boto3.client("s3", endpoint_url=settings.s3_public_endpoint,
 
 def put_image(key: str, data: bytes, content_type: str = "image/png"):
     s3.put_object(Bucket=settings.s3_bucket, Key=key, Body=data, ContentType=content_type)
+
+
+def put_svg(key: str, data):
+    """구축선 SVG 저장(Phase 4). data 는 str 또는 bytes."""
+    if isinstance(data, str):
+        data = data.encode("utf-8")
+    s3.put_object(Bucket=settings.s3_bucket, Key=key, Body=data,
+                  ContentType="image/svg+xml")
+
+
+def get_image(key: str) -> bytes:
+    """S3에서 원본 바이트를 다시 읽음(재임베딩/복구 = S3→벡터DB 재색인용)."""
+    return s3.get_object(Bucket=settings.s3_bucket, Key=key)["Body"].read()
 
 
 def ensure_bucket():

@@ -9,6 +9,13 @@ persona별 검색어로 카테고리를 고르게 채운다. render_batch(자체
 - hand_structure(손 클로즈업 평면)는 미술관 소장품으로 잘 안 잡힌다 →
   render_batch 또는 운영자 수동 보강 필요(런북 참조). 여기선 best-effort.
 - 실제 실행은 사용자 환경(인터넷 + 인프라 기동). Met API 레이트리밋 주의.
+
+사용법:
+    python scripts/seed_museum.py                # 전 persona, 검색어당 5장(기본)
+    python scripts/seed_museum.py all 40         # 전 persona, 검색어당 40장
+    python scripts/seed_museum.py composition 30 # 이미지 축만 골라 보강(권장)
+      ※ self_render가 이미 채운 pose/anatomy는 굳이 다시 늘리지 말 것.
+        이미지 축(composition/light/color/mood)만 키우는 게 깔끔하다.
 """
 import sys, io, time, requests
 sys.path.insert(0, "api")
@@ -27,7 +34,8 @@ PERSONA_QUERIES = {
                     ["color", "mood"]),
     "mood":        (["romantic landscape", "nocturne night scene"],
                     ["mood", "color"]),
-    # 포즈/해부 — render_batch 전까지 미술관 figure study로 임시 보강
+    # 포즈/해부 — render_batch 전까지 미술관 figure study로 임시 보강.
+    #   self_render가 채워진 지금은 굳이 늘리지 말 것(권위 희석). 호환 위해 남겨둠.
     "pose":        (["figure study drawing", "standing figure academic"],
                     ["pose", "anatomy"]),
     "anatomy":     (["academic nude study", "anatomical figure drawing"],
@@ -80,9 +88,10 @@ def seed_all(per_query=5):
 
 if __name__ == "__main__":
     arg = sys.argv[1] if len(sys.argv) > 1 else "all"
+    count = int(sys.argv[2]) if len(sys.argv) > 2 else 5   # 검색어당 장수(선택)
     if arg == "all":
-        seed_all()
+        seed_all(per_query=count)
     elif arg in PERSONA_QUERIES:
-        seed_persona(arg)
+        seed_persona(arg, per_query=count)
     else:                       # 임의 단일 쿼리(레거시 호환)
         _seed_query(arg, ["light", "color", "composition", "mood"], 50)
