@@ -1,39 +1,27 @@
 import os
 import random
-from qdrant_client.models import Filter, FieldCondition, MatchValue
-from stores.vectors import qc
+from stores import vectors as vstore
 from cache import text_vec
-from config import settings
 from pipeline.feedback import adoption_bonus, impressions
+from pipeline._searchlogic import build_filters, boost, SOURCE_PREF  # SOURCE_PREF 재노출(호환)
 
-# persona → 우선 source_type (HARD 필터 아님, 가산 부스트)
-SOURCE_PREF = {"pose": "self_render", "anatomy": "self_render", "hand": "self_render",
-               "light": "museum", "color": "museum", "style": "museum", "mood": "museum"}
-BROAD_K, SRC_BOOST, PERSONA_BOOST = 50, 0.06, 0.05
+BROAD_K = 50
 COLD_IMPR, EXPLORE_BONUS = 3, 0.07   # 노출<COLD_IMPR인 새 ref를 가끔 끌어올림(수렴 방지)
 
-def search_text(query, persona=None, k=8, filters=None, sub_problem=None, explore=0.15):
-    """진단 관찰의 reference_query로 검색. commercial_ok + 선택 filters는 hard,
-    source/persona는 soft boost. filters 예: {"gender":"female","region":"hand"}.
+
+def search_text(query, persona=None, k=8, filters=None, sub_problem=None,
+                explore=0.15, medium=None, track=None):
+    """진단 관찰의 reference_query로 검색. commercial_ok + 선택 filters 는 hard,
+    형태 persona(pose/anatomy/hand)면 ai_example 제외도 hard. source/persona/medium/track 은 soft boost.
+    medium/track = 사용자 맥락(선택) — 같은 매체/스타일을 우선하되 없으면 폴백.
     sub_problem 주면 (sub_problem, ref)별 채택/CTR 리랭크 + 콜드스타트 탐색 적용."""
     qvec = text_vec(query)
-    must = [FieldCondition(key="commercial_ok", match=MatchValue(value=True))]
-    for fkey, fval in (filters or {}).items():
-        if fval is not None and fval != "":
-            must.append(FieldCondition(key=fkey, match=MatchValue(value=fval)))
-    flt = Filter(must=must)
-    # 최신 qdrant-client 호환: 권장 API query_points (.search는 deprecated/제거될 수 있음).
-    res = qc.query_points(settings.qdrant_collection, query=qvec.tolist(),
-                          query_filter=flt, limit=BROAD_K, with_payload=True)
-    hits = res.points
-    pref, scored = SOURCE_PREF.get(persona), []
+    must, must_not = build_filters(persona, filters)
+    hits = vstore.query(qvec.tolist(), BROAD_K, must=must, must_not=must_not)
+    scored = []
     for h in hits:
-        s, pl = h.score, (h.payload or {})
-        if pref and pl.get("source_type") == pref:
-            s += SRC_BOOST
-        if persona and persona in (pl.get("personas") or []):
-            s += PERSONA_BOOST
-        # 1·2단계: (sub_problem, ref)별 채택/CTR 리랭크 (잘 채택 ↑, 자주 떴는데 안 눌림 ↓)
+        s = h.score + boost(h.meta, persona, medium, track)
+        # (sub_problem, ref)별 채택/CTR 리랭크 (잘 채택 ↑, 자주 떴는데 안 눌림 ↓)
         s += adoption_bonus(sub_problem, h.id)
         # 콜드스타트·탐색: 노출 적은 새 ref에 가끔 작은 보너스 → 소수 ref 수렴 방지
         if explore and impressions(h.id) < COLD_IMPR and random.random() < explore:
@@ -50,8 +38,10 @@ def search_text(query, persona=None, k=8, filters=None, sub_problem=None, explor
 MISS_SCORE_MIN = float(os.environ.get("MISS_SCORE_MIN", "0.22"))  # top hit 코사인 하한
 MISS_MIN_HITS  = int(os.environ.get("MISS_MIN_HITS", "1"))        # 최소 결과 수
 
+
 def top_score(hits):
     return hits[0][1] if hits else None
+
 
 def is_miss(hits):
     """결과가 비었거나(또는 너무 적거나) 최고 점수가 낮으면 miss → 렌더로 보강할 대상."""

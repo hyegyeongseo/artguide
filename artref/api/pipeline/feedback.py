@@ -1,7 +1,7 @@
 """pipeline/feedback.py — 채택/노출 로그(adoption_log) 기반 리랭크 신호.
 
 검색 점수에 더할 작은 보너스를 (sub_problem, reference_id)별로 계산한다.
-- 채택(clicked/saved/liked) ↑, 자주 노출됐는데 안 눌린 ref ↓ (단순 인기 편향 방지 → CTR성 신호).
+- 채택(clicked/saved/liked) ↑, 싫어요(disliked) ↓, 자주 노출됐는데 안 눌린 ref ↓ (단순 인기 편향 방지 → CTR성 신호).
 - 라플라스 스무딩으로 표본 적은 ref를 기준점(0.2) 근처로(콜드스타트 완화).
 - TTL 캐시(매 검색마다 DB 안 침). DB 실패/빈 테이블이면 boost=0 (앱 절대 안 깨짐).
 - 노출수(impressions)를 따로 노출해 검색의 탐색(exploration)에 사용.
@@ -18,7 +18,7 @@ _TTL = 60.0  # 초. 집계 캐시 수명.
 _lock = threading.Lock()
 _cache = {"t": -1e9, "boost": {}, "global_impr": {}}
 
-POS_WEIGHT = {"clicked": 1.0, "saved": 2.0, "liked": 1.5}  # 핀(saved)을 더 강한 신호로
+EVENT_WEIGHT = {"clicked": 1.0, "saved": 2.0, "liked": 1.5, "disliked": -2.0}  # 핀(saved) 강조 / 싫어요는 강한 음수(다시 안 뜨게)
 SMOOTH_A, SMOOTH_B = 1.0, 4.0           # 사전분포: 무신호 ref의 기준점 = A/(A+B) = 0.2
 BASELINE = SMOOTH_A / (SMOOTH_A + SMOOTH_B)
 FB_SCALE = 0.10                          # 점수(코사인≈[-1,1])에 더하는 규모
@@ -44,10 +44,10 @@ def _recompute():
                 JOIN (SELECT DISTINCT guide_id, reference_id, sub_problem
                       FROM adoption_log WHERE event='shown' AND sub_problem IS NOT NULL) s
                   ON a.guide_id = s.guide_id AND a.reference_id = s.reference_id
-                WHERE a.event IN ('clicked','saved','liked')
+                WHERE a.event IN ('clicked','saved','liked','disliked')
                 GROUP BY s.sub_problem, a.reference_id, a.event""")):
             if sp:
-                pos[sp][ref] += POS_WEIGHT.get(ev, 1.0) * n
+                pos[sp][ref] += EVENT_WEIGHT.get(ev, 1.0) * n
         for sp in set(impr) | set(pos):
             for ref in set(impr.get(sp, {})) | set(pos.get(sp, {})):
                 p = pos.get(sp, {}).get(ref, 0.0)
