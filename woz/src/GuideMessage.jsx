@@ -12,6 +12,9 @@ import styles from "./GuideMessage.module.css";
  * Props:
  *  - observation, effect, practice, referenceWhy: 카드 본문 텍스트
  *  - references: [{ id, url }] 0~3개
+ *  - subProblem: 이 가이드의 sub_problem id (예: "hand_structure")
+ *      → /construction/<subProblem>.svg 구축 다이어그램을 3번 카드에 표시.
+ *      값이 없거나 파일이 없으면 자동으로 숨김(앱 안 깨짐).
  *  - userMessage: 상단 컨텍스트 띠에 표시
  *  - onPracticeAttempted / onPracticeDeferred: 연습 시도 콜백
  *  - onRefClicked(idx, ref): 레퍼런스 카드 클릭
@@ -24,6 +27,7 @@ const GuideMessage = ({
   practice,
   referenceWhy,
   references = [],
+  subProblem,
   userMessage,
   onPracticeAttempted,
   onPracticeDeferred,
@@ -76,7 +80,7 @@ const GuideMessage = ({
       <div className={styles.card}>
         <div className={styles.stepBadge}>
           <EyeIcon />
-          <span>1. 관찰</span>
+          <span>1. 분석</span>
         </div>
         <p className={styles.cardBody}>
           {observation || "(관찰 내용이 여기 표시됩니다)"}
@@ -102,11 +106,15 @@ const GuideMessage = ({
       <div className={`${styles.card} ${styles.cardEmphasized}`}>
         <div className={`${styles.stepBadge} ${styles.stepBadgeAccent}`}>
           <TargetIcon />
-          <span>3. 이번에 딱 하나</span>
+          <span>3. 한 끗 포인트</span>
         </div>
         <p className={styles.cardBody}>
           {practice || "(다음 연습이 여기 표시됩니다)"}
         </p>
+
+        {/* 구축 다이어그램 — sub_problem 에 맞는 교육 도식 (있을 때만) */}
+        <ConstructionDiagram subProblem={subProblem} />
+
         <div className={styles.practiceActions}>
           <button
             type="button"
@@ -135,7 +143,7 @@ const GuideMessage = ({
       <div className={styles.card}>
         <div className={styles.stepBadge}>
           <PhotoIcon />
-          <span>4. 레퍼런스</span>
+          <span>4. 추천 레퍼런스</span>
         </div>
 
         <div className={styles.whyBox}>
@@ -224,6 +232,41 @@ const Arrow = () => (
     <ChevronDownIcon />
   </div>
 );
+
+/* ===== 구축 다이어그램 ===== */
+/* /construction/<subProblem>.svg 를 표시. 값 없음/404면 자동 숨김.
+   CSS 모듈 수정 없이 동작하도록 인라인 스타일 사용. SVG는 woz/public/construction/ 에 둘 것. */
+const ConstructionDiagram = ({ subProblem }) => {
+  const [failed, setFailed] = useState(false);
+  if (!subProblem || failed) return null;
+  return (
+    <figure style={diagramStyles.box}>
+      <img
+        src={`/construction/${subProblem}.svg`}
+        alt="구축 가이드 다이어그램"
+        style={diagramStyles.img}
+        loading="lazy"
+        onError={() => setFailed(true)}
+      />
+      <figcaption style={diagramStyles.cap}>구축 가이드</figcaption>
+    </figure>
+  );
+};
+
+const diagramStyles = {
+  box: { margin: "12px 0 4px", textAlign: "center" },
+  img: {
+    width: "100%",
+    maxWidth: 320,
+    aspectRatio: "1 / 1",
+    background: "#fff",
+    border: "1px solid #eee",
+    borderRadius: 10,
+    padding: 8,
+    boxSizing: "border-box",
+  },
+  cap: { fontSize: 12, color: "#8a8f98", marginTop: 4 },
+};
 
 /* ===== Icons (inline SVG — 기존 코드 스타일과 일치) ===== */
 

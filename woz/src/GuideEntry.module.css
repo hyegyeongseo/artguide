@@ -284,3 +284,183 @@
 .againBtn:hover {
   background: #f6f7f9;
 }
+
+/* ===== 그림 단계 토글 (작업 중 / 완성작) ===== */
+.intentToggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.intentLabel {
+  font-size: 13px;
+  color: #6b7180;
+  font-weight: 500;
+}
+
+.segmented {
+  display: inline-flex;
+  background: #f1f0ec;
+  border-radius: 9px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.segBtn {
+  padding: 6px 16px;
+  font-size: 13px;
+  font-family: inherit;
+  font-weight: 500;
+  border: none;
+  background: transparent;
+  color: #6b7180;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.segBtn:hover {
+  color: #1a1a1a;
+}
+
+.segBtnActive {
+  background: #ffffff;
+  color: var(--accent-strong);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.segBtnActive:hover {
+  color: var(--accent-strong);
+}
+
+/* ===== 그림 종류(track) 선택 ===== */
+.trackRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.trackSelect {
+  flex: 1;
+  height: 38px;
+  padding: 0 12px;
+  font-size: 13px;
+  font-family: inherit;
+  color: #1a1a1a;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.trackSelect:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+/* 성장 흐름 토글(헤더 우측) */
+.growthToggle {
+  margin-left: auto;
+  align-self: flex-start;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #4863e0;
+  background: #eef1fe;
+  border: none;
+  border-radius: 999px;
+  padding: 6px 13px;
+  cursor: pointer;
+}
+.growthToggle:hover { background: #e2e7fd; }
+@media (prefers-color-scheme: dark) {
+  .growthToggle { background: #232742; color: #aab6ff; }
+}
+
+/* 시도해봤어요 / 나중에 — /practice 로깅(tried|later) */
+.practiceRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 12px 0 4px;
+  padding: 12px 14px;
+  background: #f7f8fb;
+  border-radius: 12px;
+}
+.practiceLabel { font-size: 13px; color: #46474f; }
+.practiceBtns { display: flex; gap: 8px; }
+.tryBtn {
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+  background: #4863e0;
+  border: none;
+  border-radius: 999px;
+  padding: 7px 16px;
+  cursor: pointer;
+}
+.tryBtn:hover { background: #3a52c8; }
+.laterBtn {
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b7280;
+  background: #fff;
+  border: 0.5px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  padding: 7px 14px;
+  cursor: pointer;
+}
+.laterBtn:hover { background: #f0f1f4; }
+.practiceDone { font-size: 13px; color: #2f7d52; }
+@media (prefers-color-scheme: dark) {
+  .practiceRow { background: #202126; }
+  .practiceLabel { color: #c8cbd6; }
+  .laterBtn { background: #1c1d21; color: #9aa0b4; border-color: rgba(255, 255, 255, 0.12); }
+  .laterBtn:hover { background: #2a2b30; }
+  .practiceDone { color: #6cc18d; }
+}
+
+/* 로드맵 앵커 — 가이드 상단에 '지금 어디인지'를 항상 노출(멘토링: 단편 코멘트가 아닌 성장 경로의 한 지점). */
+.roadmapAnchor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  border: 1px solid var(--line, #e6e3dc);
+  border-radius: 12px;
+  background: var(--surface-soft, #f6f4ef);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.roadmapAnchor:hover {
+  background: var(--surface, #fff);
+  border-color: var(--accent, #b8a88a);
+}
+.roadmapAnchorDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent, #b8a88a);
+  flex: 0 0 auto;
+}
+.roadmapAnchorText {
+  flex: 1 1 auto;
+  font-size: 0.86rem;
+  line-height: 1.4;
+  color: var(--text-soft, #5c574e);
+}
+.roadmapAnchorMore {
+  flex: 0 0 auto;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent-strong, #8a7a5c);
+  white-space: nowrap;
+}
