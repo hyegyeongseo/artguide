@@ -1,18 +1,37 @@
-fastapi
-uvicorn[standard]
-pydantic
-pydantic-settings
-pymysql
-sqlalchemy
-boto3
-qdrant-client
-open_clip_torch
-torch
-pillow
-pillow-heif
-pyarrow
-mediapipe
-pyyaml
-numpy
-requests
-redis
+# requirements.txt — 직접 의존성을 모두 == 로 고정(재현 가능 빌드).
+#   버전은 numpy<2 제약 하에서 pip 로 resolve 해 상호 호환을 확인한 집합이다(x86_64/py3.11 검증).
+#   갱신 시: 의도적으로 한 패키지만 올리고 `pip install -r` 로 재검증 → 통과하면 핀을 갱신.
+#   전이(transitive) 의존까지 완전 잠그려면 빌드 컨테이너에서 `pip freeze`(아래 주석 참고).
+fastapi==0.136.3
+uvicorn[standard]==0.49.0
+pydantic==2.13.4
+pydantic-settings==2.14.1
+pymysql==1.2.0
+sqlalchemy==2.0.50
+boto3==1.43.29
+qdrant-client==1.18.0
+open_clip_torch==3.3.0
+torch==2.12.0
+pillow==12.2.0
+pillow-heif==1.4.0
+pyarrow==24.0.0
+# mediapipe 는 아치별로 분기(예전부터 유지). x86_64 는 현재 최신 0.10.35 로 고정.
+mediapipe==0.10.35 ; platform_machine == "x86_64"
+# mediapipe 는 linux/arm64(aarch64) manylinux 휠이 0.10.18 까지만 존재(이후 Google 미배포).
+# arm64 에서는 0.10.18 로 고정 — Tasks API(PoseLandmarker) 동작은 0.10.35 와 동일.
+# 0.10.18 은 numpy<2 · protobuf<5 · jax/jaxlib 를 끌어옴(jaxlib aarch64 휠 존재 확인).
+mediapipe==0.10.18 ; platform_machine == "aarch64"
+pyyaml==6.0.3
+# 0.10.18(arm64)이 numpy<2 를 요구 → 아치 간 동작 동일성(parity) 위해 전 아치 numpy<2 로 통일.
+# torch 2.x · pyarrow · pillow-heif 모두 numpy 1.26 과 호환. numpy2 기능이 필요해지면 재검토.
+# (이전엔 `numpy<2` 범위만 → 빌드마다 1.x 안에서 달라질 수 있었음. 이제 정확히 고정.)
+numpy==1.26.4
+requests==2.34.2
+redis==8.0.0
+python-multipart==0.0.32
+
+# ── 전이 의존까지 완전 재현이 필요하면(권장, 운영 직전) ─────────────────────────
+#   아치별로 transitive 집합이 다르므로(arm64=mediapipe 0.10.18+jax) 빌드 컨테이너 안에서:
+#     docker compose build api
+#     docker compose run --rm api pip freeze > requirements.lock.txt   # 그 아치의 정확한 잠금
+#   그리고 Dockerfile 에서 requirements.lock.txt 로 설치. 이 파일은 사람이 읽는 직접 의존 목록으로 유지.
