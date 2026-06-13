@@ -1,0 +1,58 @@
+name: CI
+
+# 단독 artguide 백엔드 CI — 린트 + 테스트(가벼움) + 도커 빌드 스모크.
+#   배포(CD: build→ECR→ECS)는 팀 repo 의 fastapi-cd.yml 가 담당한다.
+#   → 이 코드를 팀 repo 의 fastapi/ 로 머지하면 그 CD 가 arm64 빌드·배포를 맡는다.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    name: Lint (ruff)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install ruff
+      # 작가의 압축 스타일(세미콜론·한 줄 다중 import)은 의도된 것 → 게이트하지 않는다.
+      # '실질 버그'만 막는다: E9(구문오류) · F63/F7(잘못된 구문) · F82(미정의 이름).
+      # 현재 artref 전체가 이 셋에서 0건. 더 엄격히 하려면 select 를 넓히고(예: F 전체)
+      # 기존 위반은 `ruff check artref --fix` 로 한 번 정리한 뒤 적용.
+      - name: Ruff (real-error subset)
+        run: ruff check artref --select E9,F63,F7,F82 --output-format=github
+
+  test:
+    name: Backend tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: artref/api
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      # artguide 테스트는 의도적으로 가볍게 설계됨(torch/mediapipe 불필요).
+      # 그래서 팀 fastapi-ci(린트만)와 달리 '실제 테스트'를 CI 에서 돌릴 수 있다.
+      # 필요한 가벼운 의존만 설치 → 전체 requirements.txt(torch 등)는 안 깐다.
+      - name: Install light test deps
+        run: pip install pydantic pydantic-settings pyyaml numpy sqlalchemy pillow
+      - name: Run test suite (run_tests.py)
+        run: python run_tests.py
+
+  build:
+    name: Docker build (smoke)
+    # 이미지가 깨지지 않고 빌드되는지만 확인(레지스트리 푸시 X).
+    # amd64 네이티브라 비교적 빠르지만 그래도 수 분 걸린다 → CI 를 더 가볍게 하려면 이 잡은 빼도 됨.
+    # arm64 빌드·ECR 푸시·ECS 배포는 팀 fastapi-cd 가 배포 때 수행.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - name: Build api image
+        run: docker build -t artref-api:ci ./artref/api
