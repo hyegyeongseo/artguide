@@ -29,8 +29,11 @@ class Embedder:
     def __init__(self):
         self.model_id = settings.embedding_model or "open_clip:ViT-L-14:openai"
         arch, pretrained = _parse_model_id(self.model_id)
+        # openai 가중치는 QuickGELU로 학습됨 → 활성함수를 강제로 맞춘다(불일치 시 임베딩 열화로 cos가 붕괴).
+        # Spring(HF clip-vit-large-patch14 = QuickGELU)과 동일 임베딩 공간을 유지하는 데도 필수.
+        force_qg = (pretrained or "").lower() == "openai"
         self.model, _, self.preprocess = open_clip.create_model_and_transforms(
-            arch, pretrained=pretrained)
+            arch, pretrained=pretrained, force_quick_gelu=force_qg)
         self.tokenizer = open_clip.get_tokenizer(arch)
         self.model.eval()
         # 실제 임베딩 차원(모델이 결정). 컬렉션 size·검증에 사용.

@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS reference_images (
-  ref_id          CHAR(36) PRIMARY KEY,
+  ref_id          VARCHAR(96) PRIMARY KEY,
   image_key       VARCHAR(512) NOT NULL,
   thumb_key       VARCHAR(512),
   source_type     ENUM('museum','self_render','stock','ai_example') NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS reference_images (
 CREATE TABLE IF NOT EXISTS adoption_log (
   id BIGINT AUTO_INCREMENT PRIMARY KEY,
   guide_id     CHAR(36) NOT NULL,
-  reference_id CHAR(36) NOT NULL,
+  reference_id VARCHAR(96) NOT NULL,
   persona      VARCHAR(32),
   source_type  VARCHAR(32),
   sub_problem  VARCHAR(48),

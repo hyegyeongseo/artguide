@@ -33,8 +33,10 @@ catalog.json
 thumbs/
 artref/render_in/*
 artref/render_out/*
+artref/datasets/
 artref/gen_out/
 artref/gen_test/
+
 # --- 런타임 생성 산출물 ---
 render_queue.json
 **/render_queue.json

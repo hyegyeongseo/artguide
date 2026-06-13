@@ -52,7 +52,7 @@ MEDIUMS = frozenset({"digital", "pencil", "watercolor", "sketch", "painting"})
 def qc_and_ingest(pil, concept, intended_axes=None, *,
                   license="CC0", attribution="AI-generated example (QC-gated)",
                   commercial_ok=True, extra_tags=None, audit=True,
-                  medium=None, track=None,
+                  medium=None, track=None, ref_id=None,
                   ingest_fn=None, qc_fn=None, **qc_kwargs):
     """QC 통과 시에만 적재. 반환: {accepted, ref_id|None, verdict}.
 
@@ -99,6 +99,7 @@ def qc_and_ingest(pil, concept, intended_axes=None, *,
         attribution=attribution,
         commercial_ok=commercial_ok,
         payload_extra=payload_extra,
+        ref_id=ref_id,
     )
     if audit:
         _audit({"ref_id": ref_id, "accepted": True, "concept": concept,

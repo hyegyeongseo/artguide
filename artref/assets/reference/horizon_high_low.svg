@@ -1,0 +1,20 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="horizon_high_low">
+  <style>
+    .guide { fill:none; stroke:#c7ccd4; stroke-width:2.5; }
+    .gfill { fill:#c7ccd4; opacity:.18; stroke:none; }
+    .cons  { fill:none; stroke:#e0533d; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .consd { fill:none; stroke:#e0533d; stroke-width:2; stroke-dasharray:6 5; }
+    .acc   { fill:none; stroke:#2f6df0;  stroke-width:2.5; stroke-linecap:round; }
+    .accd  { fill:none; stroke:#2f6df0;  stroke-width:2; stroke-dasharray:6 5; }
+    .dot   { fill:#e0533d; stroke:none; }
+    .adot  { fill:#2f6df0; stroke:none; }
+    .lbl   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:14px; }
+    .cap   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:13px; opacity:.8; }
+    .tag   { fill:#e0533d; font-family:sans-serif; font-size:12px; font-weight:600; }
+  </style>
+  <g id="guide"><rect class="guide" x="40" y="90" width="180" height="300"/><rect class="guide" x="260" y="90" width="180" height="300"/></g>
+  <g id="construction"><rect x="40" y="90" width="180" height="60" fill="#cdd1d6"/><rect x="40" y="150" width="180" height="240" fill="#70757f"/><line class="cons" x1="40" y1="150" x2="220" y2="150"/><path d="M130 106 l-16 30 h32 z" fill="#3f444c"/><rect x="126" y="136" width="8" height="14" fill="#3f444c"/><rect class="guide" x="40" y="90" width="180" height="300"/><text class="lbl" x="50" y="84" fill="#3a3f47">높은 지평선 → 땅 강조</text><rect x="260" y="90" width="180" height="240" fill="#cdd1d6"/><rect x="260" y="330" width="180" height="60" fill="#70757f"/><line class="cons" x1="260" y1="330" x2="440" y2="330"/><path d="M350 286 l-16 30 h32 z" fill="#3f444c"/><rect x="346" y="316" width="8" height="14" fill="#3f444c"/><rect class="guide" x="260" y="90" width="180" height="300"/><text class="lbl" x="270" y="84" fill="#3a3f47">낮은 지평선 → 하늘 강조</text></g>
+  <g id="label">
+    <text class="cap" x="20" y="462">지평선 높낮이를 바꾸면 같은 장면도 땅(전경) 또는 하늘이 주인공이 된다.</text>
+  </g>
+</svg>

@@ -1,0 +1,20 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="two_point_perspective">
+  <style>
+    .guide { fill:none; stroke:#c7ccd4; stroke-width:2.5; }
+    .gfill { fill:#c7ccd4; opacity:.18; stroke:none; }
+    .cons  { fill:none; stroke:#e0533d; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .consd { fill:none; stroke:#e0533d; stroke-width:2; stroke-dasharray:6 5; }
+    .acc   { fill:none; stroke:#2f6df0;  stroke-width:2.5; stroke-linecap:round; }
+    .accd  { fill:none; stroke:#2f6df0;  stroke-width:2; stroke-dasharray:6 5; }
+    .dot   { fill:#e0533d; stroke:none; }
+    .adot  { fill:#2f6df0; stroke:none; }
+    .lbl   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:14px; }
+    .cap   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:13px; opacity:.8; }
+    .tag   { fill:#e0533d; font-family:sans-serif; font-size:12px; font-weight:600; }
+  </style>
+  <g id="guide"><line class="guide" x1="20" y1="200" x2="460" y2="200"/></g>
+  <g id="construction"><line class="consd" x1="240" y1="150" x2="40" y2="200"/><line class="consd" x1="240" y1="295" x2="40" y2="200"/><line class="consd" x1="240" y1="150" x2="440" y2="200"/><line class="consd" x1="240" y1="295" x2="440" y2="200"/><line class="cons" x1="240" y1="150" x2="240" y2="295"/><line class="cons" x1="160" y1="170" x2="160" y2="257"/><line class="cons" x1="320" y1="170" x2="320" y2="257"/><line class="cons" x1="240" y1="150" x2="160" y2="170"/><line class="cons" x1="240" y1="295" x2="160" y2="257"/><line class="cons" x1="240" y1="150" x2="320" y2="170"/><line class="cons" x1="240" y1="295" x2="320" y2="257"/><circle class="adot" cx="40" cy="200" r="5"/><circle class="adot" cx="440" cy="200" r="5"/></g>
+  <g id="label"><text class="lbl" x="24" y="190">VP</text><text class="lbl" x="420" y="190">VP</text><text class="lbl" x="300" y="196" fill="#3a3f47">지평선(눈높이)</text>
+    <text class="cap" x="20" y="462">소실점 2개 — 앞 수직모서리에서 양옆 VP로 모서리가 수렴한다.</text>
+  </g>
+</svg>

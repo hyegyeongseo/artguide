@@ -3,7 +3,7 @@
 -- 적재 결정의 추적성(왜 reject 됐나 / 어떤 점수로 통과했나)을 DB 로 남기고 싶을 때만 실행.
 CREATE TABLE IF NOT EXISTS ai_qc_audit (
   id            BIGINT AUTO_INCREMENT PRIMARY KEY,
-  ref_id        CHAR(36) NULL,          -- 통과·적재면 채워짐, 거부면 NULL
+  ref_id        VARCHAR(96) NULL,          -- 통과·적재면 채워짐, 거부면 NULL
   accepted      TINYINT(1) NOT NULL,
   concept       VARCHAR(512),
   intended_axes JSON,

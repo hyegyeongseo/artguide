@@ -1,6 +1,8 @@
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
+    # 선언된 필드만 읽고, HAND_AUTO/AI_QC_* 같은 운영 env(.env에 있어도)는 무시 — extra_forbidden 방지.
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
     db_dsn: str
     qdrant_url: str = ""          # 개발(qdrant) 백엔드에서만 필요. pinecone 운영이면 비워도 됨.
     s3_endpoint: str
@@ -27,8 +29,5 @@ class Settings(BaseSettings):
     # 접근 통제(둘 다 비면 비활성 = 로컬/WoZ/테스트 그대로):
     api_key: str = ""             # API_KEY — 설정 시 보호 경로에 X-API-Key/Bearer 요구(콤마로 다중 키)
     rate_limit: str = ""          # RATE_LIMIT — 예: "60/minute". 비면 레이트리밋 끔
-
-    class Config:
-        env_file = ".env"
 
 settings = Settings()

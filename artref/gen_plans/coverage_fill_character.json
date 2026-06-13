@@ -1,0 +1,211 @@
+[
+  {
+    "concept": "an anime character illustration with bold three-value lighting, simplified light midtone and shadow shapes",
+    "axes": [
+      "value_structure"
+    ],
+    "caption": "애니 캐릭터 — 3단계 명암.",
+    "medium": "digital",
+    "track": "anime",
+    "n": 2,
+    "gen": "imagen"
+  },
+  {
+    "concept": "a fantasy creature in dramatic chiaroscuro with strong value contrast",
+    "axes": [
+      "value_structure"
+    ],
+    "caption": "판타지 생물 — 극적 명암 대비.",
+    "medium": "digital",
+    "track": "anime",
+    "n": 1,
+    "gen": "imagen"
+  },
+  {
+    "concept": "an anthropomorphic animal character with clear value grouping, cel shaded",
+    "axes": [
+      "value_structure"
+    ],
+    "caption": "수인 캐릭터 — 명암 덩어리(셀).",
+    "medium": "digital",
+    "track": "anime",
+    "n": 1,
+    "gen": "imagen"
+  },
+  {
+    "concept": "an anime character illustration in a complementary color scheme",
+    "axes": [
+      "color_harmony"
+    ],
+    "caption": "애니 캐릭터 — 보색.",
+    "medium": "digital",
+    "track": "anime",
+    "n": 2,
+    "gen": "imagen"
+  },
+  {
+    "concept": "a fantasy creature in an analogous color palette of neighboring hues",
+    "axes": [
+      "color_harmony"
+    ],
+    "caption": "판타지 생물 — 유사색.",
+    "medium": "digital",
+    "track": "anime",
+    "n": 1,
+    "gen": "imagen"
+  },
+  {
+    "concept": "an anthropomorphic character in a limited triadic color palette",
+    "axes": [
+      "color_harmony"
+    ],
+    "caption": "수인 — 삼색 제한.",
+    "medium": "digital",
+    "track": "chibi",
+    "n": 1,
+    "gen": "imagen"
+  },
+  {
+    "concept": "a chibi character in a soft pastel analogous palette",
+    "axes": [
+      "color_harmony"
+    ],
+    "caption": "치비 캐릭터 — 파스텔 유사색.",
+    "medium": "digital",
+    "track": "chibi",
+    "n": 1,
+    "gen": "imagen"
+  },
+  {
+    "concept": "an anime character lit from one side with clear rim light separating it from the background",
+    "axes": [
+      "light_direction"
+    ],
+    "caption": "애니 캐릭터 — 측광·림라이트.",
+    "medium": "digital",
+    "track": "anime",
+    "n": 2,
+    "gen": "imagen"
+  },
+  {
+    "concept": "a fantasy creature in dramatic backlight with glowing edges",
+    "axes": [
+      "light_direction"
+    ],
+    "caption": "판타지 생물 — 역광·빛나는 윤곽.",
+    "medium": "digital",
+    "track": "anime",
+    "n": 1,
+    "gen": "imagen"
+  },
+  {
+    "concept": "an anthropomorphic character lit by warm firelight in the dark",
+    "axes": [
+      "light_direction"
+    ],
+    "caption": "수인 — 불빛 조명.",
+    "medium": "digital",
+    "track": "anime",
+    "n": 1,
+    "gen": "imagen"
+  },
+  {
+    "concept": "a dynamic anime action scene with strong diagonal composition, character small in a large environment",
+    "axes": [
+      "composition_balance"
+    ],
+    "caption": "애니 액션 — 대각선 구도(캐릭터 작게).",
+    "medium": "digital",
+    "track": "anime",
+    "n": 1,
+    "gen": "imagen"
+  },
+  {
+    "concept": "a fantasy creature in a balanced composition with strong focal emphasis and negative space",
+    "axes": [
+      "composition_balance"
+    ],
+    "caption": "판타지 생물 — 초점·여백 균형.",
+    "medium": "digital",
+    "track": "anime",
+    "n": 1,
+    "gen": "imagen"
+  },
+  {
+    "concept": "a chibi character scene with off-center placement and rule-of-thirds composition",
+    "axes": [
+      "composition_balance"
+    ],
+    "caption": "치비 — 한쪽·삼분할.",
+    "medium": "digital",
+    "track": "chibi",
+    "n": 1,
+    "gen": "imagen"
+  },
+  {
+    "concept": "a wolf anthro in a dynamic leaping silhouette with strong diagonal composition",
+    "axes": [
+      "composition_balance"
+    ],
+    "caption": "늑대 수인 점프 — 대각선 실루엣.",
+    "medium": "digital",
+    "track": "anime",
+    "n": 1,
+    "gen": "imagen"
+  },
+  {
+    "concept": "a dragon in a dramatic landing pose, dynamic silhouette and composition",
+    "axes": [
+      "composition_balance"
+    ],
+    "caption": "용 착지 — 동적 실루엣.",
+    "medium": "digital",
+    "track": "anime",
+    "n": 1,
+    "gen": "imagen"
+  },
+  {
+    "concept": "a griffin in flight against the sky, dynamic silhouette with strong value contrast",
+    "axes": [
+      "value_structure"
+    ],
+    "caption": "그리핀 비행 — 명암 대비 실루엣.",
+    "medium": "digital",
+    "track": "anime",
+    "n": 1,
+    "gen": "imagen"
+  },
+  {
+    "concept": "a deer leaping with dynamic gesture and strong rim light",
+    "axes": [
+      "light_direction"
+    ],
+    "caption": "사슴 점프 — 동세·림라이트.",
+    "medium": "digital",
+    "track": "anime",
+    "n": 1,
+    "gen": "imagen"
+  },
+  {
+    "concept": "a quadruped animal mid-run with clear dynamic silhouette and motion",
+    "axes": [
+      "composition_balance"
+    ],
+    "caption": "사족 달리기 — 동세 실루엣.",
+    "medium": "digital",
+    "track": "anime",
+    "n": 1,
+    "gen": "imagen"
+  },
+  {
+    "concept": "a cat anthro running in a dynamic diagonal action composition",
+    "axes": [
+      "composition_balance"
+    ],
+    "caption": "고양이 수인 질주 — 대각선 액션.",
+    "medium": "digital",
+    "track": "anime",
+    "n": 1,
+    "gen": "imagen"
+  }
+]

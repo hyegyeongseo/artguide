@@ -33,8 +33,46 @@ import tempfile
 sys.path.insert(0, "api")   # /repo 에서 실행 시 api 패키지 경로(ingest_folder 와 동일)
 from PIL import Image
 from pipeline.ai_ingest import qc_and_ingest
+try:
+    from sqlalchemy import text as _sqltext
+    from stores.db import engine as _engine
+except Exception:
+    _engine = None
 
 EXTS = {".png", ".jpg", ".jpeg", ".webp"}
+
+_counters = None
+
+
+def _seed_counters():
+    """기존 ai_…_NNN ref_id 에서 (prefix→max NNN) 수집. *마지막 _NNN 만* 분리 → 축에 밑줄 있어도 안전."""
+    c = {}
+    if _engine is None:
+        return c
+    try:
+        with _engine.connect() as cx:
+            rows = cx.execute(_sqltext(
+                # '_'는 LIKE 와일드카드 → 리터럴로 이스케이프. 백슬래시는 드라이버마다 깨져서('\' 문법오류) '!' 사용.
+                "SELECT ref_id FROM reference_images WHERE ref_id LIKE 'ai!_%' ESCAPE '!'"
+            )).fetchall()
+        for row in rows:
+            pre, _, nn = str(row[0]).rpartition("_")
+            if nn.isdigit():
+                c[pre] = max(c.get(pre, 0), int(nn))
+    except Exception as e:
+        print(f"[ref_id] 카운터 시드 실패(무시, 1부터): {type(e).__name__}: {e}")
+    return c
+
+
+def _next_ref_id(axis, medium, track):
+    """조직적 핸들 ai_<축>_<medium>_<track>_NNN. NNN 은 (축,medium,track)별로 기존+이번 연속."""
+    global _counters
+    if _counters is None:
+        _counters = _seed_counters()
+    prefix = f"ai_{axis or 'mixed'}_{medium or 'na'}_{track or 'na'}"
+    n = _counters.get(prefix, 0) + 1
+    _counters[prefix] = n
+    return f"{prefix}_{n:03d}"
 
 
 def flatten(path):
@@ -103,14 +141,19 @@ def main():
         concept = entry.get("concept") or args.concept
         axes = entry.get("axes") if entry.get("axes") is not None else args.axes
         caption = entry.get("caption")
+        medium = entry.get("medium")
+        track = entry.get("track")
         if not concept:
             print(f"건너뜀(concept 없음 — manifest 또는 --concept 필요): {fn}")
             continue
+        axis0 = (axes[0] if axes else None)
+        rid = _next_ref_id(axis0, medium, track)
         try:
             pil = flatten(os.path.join(args.folder, fn))
             res = qc_and_ingest(pil, concept, axes, license=args.license,
                                 attribution=args.attribution, caption=caption,
-                                strict_anatomy=args.strict)
+                                strict_anatomy=args.strict,
+                                medium=medium, track=track, ref_id=rid)
             v = res["verdict"]
             if res["accepted"]:
                 n_acc += 1

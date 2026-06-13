@@ -53,8 +53,7 @@
     },
     "perspective_grid": {
       "supports": [
-        "foreshortening",
-        "linear_perspective"
+        "foreshortening"
       ],
       "personas": [
         "perspective"
@@ -156,8 +155,7 @@
     },
     "one_point_perspective": {
       "supports": [
-        "foreshortening",
-        "linear_perspective"
+        "foreshortening"
       ],
       "personas": [
         "perspective"
@@ -166,8 +164,7 @@
     },
     "ellipse_perspective": {
       "supports": [
-        "foreshortening",
-        "linear_perspective"
+        "foreshortening"
       ],
       "personas": [
         "perspective",
@@ -570,8 +567,7 @@
     },
     "overlapping_forms": {
       "supports": [
-        "foreshortening",
-        "depth_layering"
+        "foreshortening"
       ],
       "personas": [
         "perspective",
@@ -587,76 +583,6 @@
         "value"
       ],
       "caption": "하이키·로키 명도 범위."
-    },
-    "two_point_perspective": {
-      "supports": [
-        "linear_perspective"
-      ],
-      "personas": [
-        "perspective",
-        "composition"
-      ],
-      "caption": "소실점 2개 — 양옆으로 수렴."
-    },
-    "vanishing_point_convergence": {
-      "supports": [
-        "linear_perspective"
-      ],
-      "personas": [
-        "perspective",
-        "composition"
-      ],
-      "caption": "평행선은 소실점으로, 같은 크기도 멀수록 작게."
-    },
-    "atmospheric_recession": {
-      "supports": [
-        "atmospheric_perspective"
-      ],
-      "personas": [
-        "perspective",
-        "light"
-      ],
-      "caption": "멀수록 옅고·대비↓·차갑게."
-    },
-    "edge_detail_falloff": {
-      "supports": [
-        "atmospheric_perspective"
-      ],
-      "personas": [
-        "perspective",
-        "light"
-      ],
-      "caption": "가까운 가장자리 또렷, 먼 것은 흐릿·단순."
-    },
-    "depth_planes": {
-      "supports": [
-        "depth_layering"
-      ],
-      "personas": [
-        "composition",
-        "perspective"
-      ],
-      "caption": "전경·중경·원경 — 겹침+크기+명도로 깊이."
-    },
-    "horizon_high_low": {
-      "supports": [
-        "horizon_placement"
-      ],
-      "personas": [
-        "composition"
-      ],
-      "caption": "지평선 높낮이로 땅/하늘 강조 전환."
-    },
-    "eye_level_horizon": {
-      "supports": [
-        "horizon_placement",
-        "linear_perspective"
-      ],
-      "personas": [
-        "composition",
-        "perspective"
-      ],
-      "caption": "눈높이 위는 밑면, 아래는 윗면이 보인다."
     }
   },
   "asset_index": {
@@ -723,38 +649,25 @@
         "type": "svg",
         "ref_id": "reference/joint_cylinder_sphere.svg",
         "label": "도식",
-        "caption": "원통(뼈)+구(관절) 사슬.",
-        "personas": [
-          "anatomy",
-          "pose"
-        ]
+        "caption": "원통(뼈)+구(관절) 사슬."
       },
       {
         "type": "svg",
         "ref_id": "reference/hand_proportion.svg",
         "label": "도식",
-        "caption": "손바닥≈손가락 길이 비율.",
-        "personas": [
-          "anatomy"
-        ]
+        "caption": "손바닥≈손가락 길이 비율."
       },
       {
         "type": "svg",
         "ref_id": "reference/figure_eight_heads.svg",
         "label": "도식",
-        "caption": "8두신 인체 비율.",
-        "personas": [
-          "anatomy"
-        ]
+        "caption": "8두신 인체 비율."
       },
       {
         "type": "svg",
         "ref_id": "reference/comparative_proportion.svg",
         "label": "도식",
-        "caption": "단위(머리·눈)로 비교 측정.",
-        "personas": [
-          "anatomy"
-        ]
+        "caption": "단위(머리·눈)로 비교 측정."
       }
     ],
     "weight_balance": [
@@ -792,47 +705,31 @@
         "type": "svg",
         "ref_id": "reference/contrapposto.svg",
         "label": "도식",
-        "caption": "콘트라포스토(어깨·골반 반대 기울기).",
-        "personas": [
-          "pose",
-          "anatomy"
-        ]
+        "caption": "콘트라포스토(어깨·골반 반대 기울기)."
       },
       {
         "type": "svg",
         "ref_id": "reference/plumb_line.svg",
         "label": "도식",
-        "caption": "무게중심 수직선 ↔ 지지면.",
-        "personas": [
-          "pose"
-        ]
+        "caption": "무게중심 수직선 ↔ 지지면."
       },
       {
         "type": "svg",
         "ref_id": "reference/base_of_support.svg",
         "label": "도식",
-        "caption": "지지면 폭 ↔ 안정성.",
-        "personas": [
-          "pose"
-        ]
+        "caption": "지지면 폭 ↔ 안정성."
       },
       {
         "type": "svg",
         "ref_id": "reference/counterbalance_load.svg",
         "label": "도식",
-        "caption": "짐의 반대 카운터밸런스.",
-        "personas": [
-          "pose"
-        ]
+        "caption": "짐의 반대 카운터밸런스."
       },
       {
         "type": "svg",
         "ref_id": "reference/weight_shift_walk.svg",
         "label": "도식",
-        "caption": "걸음의 무게 이동.",
-        "personas": [
-          "pose"
-        ]
+        "caption": "걸음의 무게 이동."
       }
     ],
     "action_line": [
@@ -859,56 +756,37 @@
         "type": "svg",
         "ref_id": "reference/spine_flexion.svg",
         "label": "도식",
-        "caption": "척추 굴곡·신전 곡선.",
-        "personas": [
-          "anatomy",
-          "pose"
-        ]
+        "caption": "척추 굴곡·신전 곡선."
       },
       {
         "type": "svg",
         "ref_id": "reference/line_of_action.svg",
         "label": "도식",
-        "caption": "단일 동작선(관통선) 우선.",
-        "personas": [
-          "pose"
-        ]
+        "caption": "단일 동작선(관통선) 우선."
       },
       {
         "type": "svg",
         "ref_id": "reference/force_arrows.svg",
         "label": "도식",
-        "caption": "힘의 방향(밀기·당기기·비틀기).",
-        "personas": [
-          "pose"
-        ]
+        "caption": "힘의 방향(밀기·당기기·비틀기)."
       },
       {
         "type": "svg",
         "ref_id": "reference/straight_vs_curve.svg",
         "label": "도식",
-        "caption": "직선 대 곡선 리듬.",
-        "personas": [
-          "pose"
-        ]
+        "caption": "직선 대 곡선 리듬."
       },
       {
         "type": "svg",
         "ref_id": "reference/squash_stretch.svg",
         "label": "도식",
-        "caption": "스쿼시·스트레치(부피 보존).",
-        "personas": [
-          "pose"
-        ]
+        "caption": "스쿼시·스트레치(부피 보존)."
       },
       {
         "type": "svg",
         "ref_id": "reference/weight_shift_walk.svg",
         "label": "도식",
-        "caption": "걸음의 무게 이동.",
-        "personas": [
-          "pose"
-        ]
+        "caption": "걸음의 무게 이동."
       }
     ],
     "joint_articulation": [
@@ -926,60 +804,37 @@
         "type": "svg",
         "ref_id": "reference/joint_hinge.svg",
         "label": "도식",
-        "caption": "경첩 관절(무릎·팔꿈치)은 1축 굽힘.",
-        "personas": [
-          "anatomy",
-          "pose"
-        ]
+        "caption": "경첩 관절(무릎·팔꿈치)은 1축 굽힘."
       },
       {
         "type": "svg",
         "ref_id": "reference/joint_ball_socket.svg",
         "label": "도식",
-        "caption": "볼-소켓(어깨·고관절) 다축 회전.",
-        "personas": [
-          "anatomy",
-          "pose"
-        ]
+        "caption": "볼-소켓(어깨·고관절) 다축 회전."
       },
       {
         "type": "svg",
         "ref_id": "reference/joint_range_arcs.svg",
         "label": "도식",
-        "caption": "관절별 가동범위(ROM) 호.",
-        "personas": [
-          "anatomy",
-          "pose"
-        ]
+        "caption": "관절별 가동범위(ROM) 호."
       },
       {
         "type": "svg",
         "ref_id": "reference/joint_cylinder_sphere.svg",
         "label": "도식",
-        "caption": "원통(뼈)+구(관절) 사슬.",
-        "personas": [
-          "anatomy",
-          "pose"
-        ]
+        "caption": "원통(뼈)+구(관절) 사슬."
       },
       {
         "type": "svg",
         "ref_id": "reference/spine_flexion.svg",
         "label": "도식",
-        "caption": "척추 굴곡·신전 곡선.",
-        "personas": [
-          "anatomy",
-          "pose"
-        ]
+        "caption": "척추 굴곡·신전 곡선."
       },
       {
         "type": "svg",
         "ref_id": "reference/wrist_ankle.svg",
         "label": "도식",
-        "caption": "손목·발목(작은뼈 블록) 관절.",
-        "personas": [
-          "anatomy"
-        ]
+        "caption": "손목·발목(작은뼈 블록) 관절."
       }
     ],
     "foreshortening": [
@@ -1024,71 +879,7 @@
         "type": "svg",
         "ref_id": "reference/overlapping_forms.svg",
         "label": "도식",
-        "caption": "겹침=단축의 깊이 단서.",
-        "personas": [
-          "perspective",
-          "pose"
-        ]
-      }
-    ],
-    "linear_perspective": [
-      {
-        "type": "svg",
-        "ref_id": "reference/perspective_grid.svg",
-        "label": "도식",
-        "caption": "지평선(눈높이)+소실점 2점 투시.",
-        "personas": [
-          "perspective"
-        ]
-      },
-      {
-        "type": "svg",
-        "ref_id": "reference/one_point_perspective.svg",
-        "label": "도식",
-        "caption": "소실점 1개 투시.",
-        "personas": [
-          "perspective"
-        ]
-      },
-      {
-        "type": "svg",
-        "ref_id": "reference/ellipse_perspective.svg",
-        "label": "도식",
-        "caption": "원기둥의 타원 — 단축은 중심축.",
-        "personas": [
-          "perspective",
-          "anatomy"
-        ]
-      },
-      {
-        "type": "svg",
-        "ref_id": "reference/two_point_perspective.svg",
-        "label": "도식",
-        "caption": "소실점 2개 — 양옆으로 수렴.",
-        "personas": [
-          "perspective",
-          "composition"
-        ]
-      },
-      {
-        "type": "svg",
-        "ref_id": "reference/vanishing_point_convergence.svg",
-        "label": "도식",
-        "caption": "평행선은 소실점으로, 같은 크기도 멀수록 작게.",
-        "personas": [
-          "perspective",
-          "composition"
-        ]
-      },
-      {
-        "type": "svg",
-        "ref_id": "reference/eye_level_horizon.svg",
-        "label": "도식",
-        "caption": "눈높이 위는 밑면, 아래는 윗면이 보인다.",
-        "personas": [
-          "composition",
-          "perspective"
-        ]
+        "caption": "겹침=단축의 깊이 단서."
       }
     ],
     "light_direction": [
@@ -1117,59 +908,37 @@
         "type": "svg",
         "ref_id": "reference/light_on_sphere.svg",
         "label": "도식",
-        "caption": "구의 빛 명암 구조(기본).",
-        "personas": [
-          "light"
-        ]
+        "caption": "구의 빛 명암 구조(기본)."
       },
       {
         "type": "svg",
         "ref_id": "reference/light_directions_set.svg",
         "label": "도식",
-        "caption": "빛 방향별 인상(정면/측면/역광/탑).",
-        "personas": [
-          "light"
-        ]
+        "caption": "빛 방향별 인상(정면/측면/역광/탑)."
       },
       {
         "type": "svg",
         "ref_id": "reference/terminator_core.svg",
         "label": "도식",
-        "caption": "명암경계·코어섀도·반사광.",
-        "personas": [
-          "light",
-          "value"
-        ]
+        "caption": "명암경계·코어섀도·반사광."
       },
       {
         "type": "svg",
         "ref_id": "reference/occlusion_shadow.svg",
         "label": "도식",
-        "caption": "폐색(접촉) 그림자가 가장 어둡다.",
-        "personas": [
-          "light",
-          "value"
-        ]
+        "caption": "폐색(접촉) 그림자가 가장 어둡다."
       },
       {
         "type": "svg",
         "ref_id": "reference/head_planes_light.svg",
         "label": "도식",
-        "caption": "머리 평면별 명암.",
-        "personas": [
-          "light",
-          "anatomy"
-        ]
+        "caption": "머리 평면별 명암."
       },
       {
         "type": "svg",
         "ref_id": "reference/color_light_shadow.svg",
         "label": "도식",
-        "caption": "따뜻한 빛·차가운 그림자.",
-        "personas": [
-          "color",
-          "light"
-        ]
+        "caption": "따뜻한 빛·차가운 그림자."
       }
     ],
     "value_structure": [
@@ -1227,49 +996,31 @@
         "type": "svg",
         "ref_id": "reference/light_on_sphere.svg",
         "label": "도식",
-        "caption": "구의 빛 명암 구조(기본).",
-        "personas": [
-          "light"
-        ]
+        "caption": "구의 빛 명암 구조(기본)."
       },
       {
         "type": "svg",
         "ref_id": "reference/terminator_core.svg",
         "label": "도식",
-        "caption": "명암경계·코어섀도·반사광.",
-        "personas": [
-          "light",
-          "value"
-        ]
+        "caption": "명암경계·코어섀도·반사광."
       },
       {
         "type": "svg",
         "ref_id": "reference/occlusion_shadow.svg",
         "label": "도식",
-        "caption": "폐색(접촉) 그림자가 가장 어둡다.",
-        "personas": [
-          "light",
-          "value"
-        ]
+        "caption": "폐색(접촉) 그림자가 가장 어둡다."
       },
       {
         "type": "svg",
         "ref_id": "reference/head_planes_light.svg",
         "label": "도식",
-        "caption": "머리 평면별 명암.",
-        "personas": [
-          "light",
-          "anatomy"
-        ]
+        "caption": "머리 평면별 명암."
       },
       {
         "type": "svg",
         "ref_id": "reference/high_low_key.svg",
         "label": "도식",
-        "caption": "하이키·로키 명도 범위.",
-        "personas": [
-          "value"
-        ]
+        "caption": "하이키·로키 명도 범위."
       }
     ],
     "color_harmony": [
@@ -1296,47 +1047,31 @@
         "type": "svg",
         "ref_id": "reference/complementary_scheme.svg",
         "label": "도식",
-        "caption": "보색·분할보색.",
-        "personas": [
-          "color"
-        ]
+        "caption": "보색·분할보색."
       },
       {
         "type": "svg",
         "ref_id": "reference/analogous_scheme.svg",
         "label": "도식",
-        "caption": "유사색 배색.",
-        "personas": [
-          "color"
-        ]
+        "caption": "유사색 배색."
       },
       {
         "type": "svg",
         "ref_id": "reference/triadic_scheme.svg",
         "label": "도식",
-        "caption": "3색조(트라이어드).",
-        "personas": [
-          "color"
-        ]
+        "caption": "3색조(트라이어드)."
       },
       {
         "type": "svg",
         "ref_id": "reference/warm_cool_balance.svg",
         "label": "도식",
-        "caption": "따뜻·차가움 주조+강조(7:3).",
-        "personas": [
-          "color"
-        ]
+        "caption": "따뜻·차가움 주조+강조(7:3)."
       },
       {
         "type": "svg",
         "ref_id": "reference/color_light_shadow.svg",
         "label": "도식",
-        "caption": "따뜻한 빛·차가운 그림자.",
-        "personas": [
-          "color",
-          "light"
-        ]
+        "caption": "따뜻한 빛·차가운 그림자."
       }
     ],
     "composition_balance": [
@@ -1373,55 +1108,37 @@
         "type": "svg",
         "ref_id": "reference/rule_of_thirds.svg",
         "label": "도식",
-        "caption": "삼분할 교차점(힘점).",
-        "personas": [
-          "composition"
-        ]
+        "caption": "삼분할 교차점(힘점)."
       },
       {
         "type": "svg",
         "ref_id": "reference/golden_spiral.svg",
         "label": "도식",
-        "caption": "황금비 나선·수렴점.",
-        "personas": [
-          "composition"
-        ]
+        "caption": "황금비 나선·수렴점."
       },
       {
         "type": "svg",
         "ref_id": "reference/symmetry_asymmetry.svg",
         "label": "도식",
-        "caption": "대칭 vs 비대칭 균형.",
-        "personas": [
-          "composition"
-        ]
+        "caption": "대칭 vs 비대칭 균형."
       },
       {
         "type": "svg",
         "ref_id": "reference/visual_weight.svg",
         "label": "도식",
-        "caption": "시각적 무게 균형.",
-        "personas": [
-          "composition"
-        ]
+        "caption": "시각적 무게 균형."
       },
       {
         "type": "svg",
         "ref_id": "reference/focal_emphasis.svg",
         "label": "도식",
-        "caption": "초점(대비·고립·수렴).",
-        "personas": [
-          "composition"
-        ]
+        "caption": "초점(대비·고립·수렴)."
       },
       {
         "type": "svg",
         "ref_id": "reference/negative_space.svg",
         "label": "도식",
-        "caption": "음(여백)·양(주제) 디자인.",
-        "personas": [
-          "composition"
-        ]
+        "caption": "음(여백)·양(주제) 디자인."
       }
     ],
     "hand_structure": [
@@ -1439,121 +1156,37 @@
         "type": "svg",
         "ref_id": "reference/wrist_ankle.svg",
         "label": "도식",
-        "caption": "손목·발목(작은뼈 블록) 관절.",
-        "personas": [
-          "anatomy"
-        ]
+        "caption": "손목·발목(작은뼈 블록) 관절."
       },
       {
         "type": "svg",
         "ref_id": "reference/hand_proportion.svg",
         "label": "도식",
-        "caption": "손바닥≈손가락 길이 비율.",
-        "personas": [
-          "anatomy"
-        ]
+        "caption": "손바닥≈손가락 길이 비율."
       },
       {
         "type": "svg",
         "ref_id": "reference/finger_segments.svg",
         "label": "도식",
-        "caption": "손가락 3마디 + 너클 호.",
-        "personas": [
-          "anatomy"
-        ]
+        "caption": "손가락 3마디 + 너클 호."
       },
       {
         "type": "svg",
         "ref_id": "reference/thumb_opposition.svg",
         "label": "도식",
-        "caption": "엄지 대립(다른 평면).",
-        "personas": [
-          "anatomy"
-        ]
+        "caption": "엄지 대립(다른 평면)."
       },
       {
         "type": "svg",
         "ref_id": "reference/hand_gesture_relaxed.svg",
         "label": "도식",
-        "caption": "이완된 손(자연스런 말림).",
-        "personas": [
-          "anatomy",
-          "pose"
-        ]
+        "caption": "이완된 손(자연스런 말림)."
       },
       {
         "type": "svg",
         "ref_id": "reference/hand_back_view.svg",
         "label": "도식",
-        "caption": "손등(너클·힘줄) 구조.",
-        "personas": [
-          "anatomy"
-        ]
-      }
-    ],
-    "depth_layering": [
-      {
-        "type": "svg",
-        "ref_id": "reference/overlapping_forms.svg",
-        "label": "도식",
-        "caption": "겹침=단축의 깊이 단서.",
-        "personas": [
-          "perspective",
-          "pose"
-        ]
-      },
-      {
-        "type": "svg",
-        "ref_id": "reference/depth_planes.svg",
-        "label": "도식",
-        "caption": "전경·중경·원경 — 겹침+크기+명도로 깊이.",
-        "personas": [
-          "composition",
-          "perspective"
-        ]
-      }
-    ],
-    "atmospheric_perspective": [
-      {
-        "type": "svg",
-        "ref_id": "reference/atmospheric_recession.svg",
-        "label": "도식",
-        "caption": "멀수록 옅고·대비↓·차갑게.",
-        "personas": [
-          "perspective",
-          "light"
-        ]
-      },
-      {
-        "type": "svg",
-        "ref_id": "reference/edge_detail_falloff.svg",
-        "label": "도식",
-        "caption": "가까운 가장자리 또렷, 먼 것은 흐릿·단순.",
-        "personas": [
-          "perspective",
-          "light"
-        ]
-      }
-    ],
-    "horizon_placement": [
-      {
-        "type": "svg",
-        "ref_id": "reference/horizon_high_low.svg",
-        "label": "도식",
-        "caption": "지평선 높낮이로 땅/하늘 강조 전환.",
-        "personas": [
-          "composition"
-        ]
-      },
-      {
-        "type": "svg",
-        "ref_id": "reference/eye_level_horizon.svg",
-        "label": "도식",
-        "caption": "눈높이 위는 밑면, 아래는 윗면이 보인다.",
-        "personas": [
-          "composition",
-          "perspective"
-        ]
+        "caption": "손등(너클·힘줄) 구조."
       }
     ]
   }

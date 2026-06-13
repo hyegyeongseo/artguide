@@ -9,14 +9,14 @@ from config import settings
 
 def ingest(pil, *, source_type, license, personas, tags,
            attribution=None, commercial_ok=True, render_params=None,
-           payload_extra=None, svg_bytes=None):
+           payload_extra=None, svg_bytes=None, ref_id=None):
     """레퍼런스 1장 적재: S3(PNG[+SVG]) + Qdrant(이미지벡터+payload) + MySQL(메타).
 
     payload_extra 의 region/category/body_type/gender 는 Qdrant 필터 + MySQL 컬럼 양쪽에
     저장한다(MySQL에도 있어야 S3→재임베딩 재구축이 무손실 — 002 마이그레이션 필요).
     svg_bytes 가 주어지면 svg/{ref_id}.svg 로 저장하고 svg_key 를 채운다(Phase 4 구축선).
     """
-    ref_id = str(uuid.uuid4())
+    ref_id = ref_id or str(uuid.uuid4())
     buf = io.BytesIO(); pil.save(buf, "PNG")
     image_key = f"images/{ref_id}.png"
     put_image(image_key, buf.getvalue())

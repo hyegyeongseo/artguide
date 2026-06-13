@@ -7,6 +7,12 @@ ingest/search/관리스크립트는 여기 upsert()/query()/delete_by()/iter_all
 """
 from config import settings
 from stores._vecfilter import pinecone_filter
+import uuid as _uuid
+
+# Qdrant 포인트 ID는 uint/UUID만 허용(Pinecone는 문자열 OK). 문자열 ref_id → 결정적 UUID로 변환해
+# 포인트 ID로 쓰고, ref_id 자체는 payload 에 보존한다(검색·조인은 payload.ref_id 로 동작). 같은 ref_id면 같은 UUID(재적재=덮어쓰기).
+def _qid(ref_id):
+    return str(_uuid.uuid5(_uuid.NAMESPACE_URL, str(ref_id)))
 
 _BACKEND = (getattr(settings, "vector_backend", "qdrant") or "qdrant").lower()
 _client = None
@@ -64,8 +70,9 @@ def upsert(id, vec, meta):
         _pc().upsert(vectors=[{"id": str(id), "values": vec, "metadata": meta}], namespace=_ns())
         return
     from qdrant_client.models import PointStruct
+    meta = {**(meta or {}), "ref_id": str(id)}   # 검색/조인이 payload.ref_id 로 동작하도록 보존
     _qc().upsert(settings.qdrant_collection,
-                 points=[PointStruct(id=id, vector=vec, payload=meta)])
+                 points=[PointStruct(id=_qid(id), vector=vec, payload=meta)])
 
 
 def query(vec, k, must=None, must_not=None):
@@ -82,7 +89,7 @@ def query(vec, k, must=None, must_not=None):
     flt = Filter(must=_qdrant_conds(must), must_not=_qdrant_conds(must_not))
     res = _qc().query_points(settings.qdrant_collection, query=vec,
                              query_filter=flt, limit=k, with_payload=True)
-    return [Hit(h.id, h.score, h.payload or {}) for h in res.points]
+    return [Hit((h.payload or {}).get("ref_id", h.id), h.score, h.payload or {}) for h in res.points]
 
 
 def delete_by(must):
@@ -104,6 +111,6 @@ def iter_all(with_vectors=True, batch=10000):
         pts, offset = _qc().scroll(settings.qdrant_collection, with_vectors=with_vectors,
                                    with_payload=True, limit=batch, offset=offset)
         for p in pts:
-            yield (p.id, getattr(p, "vector", None), p.payload or {})
+            yield ((p.payload or {}).get("ref_id", p.id), getattr(p, "vector", None), p.payload or {})
         if not offset:
             break

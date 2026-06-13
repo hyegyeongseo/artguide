@@ -1,7 +1,7 @@
 """pipeline/asset_index.py — self_render(3D 백본) 렌더를 guide_asset 'backbone_3d' 후보로 색인.
 
 레퍼런스 채널(search.py, 의미검색+self_render 부스트)과는 *별개*의 다리다. 여기서 만든 색인은
-ml/guide.py 가 가드레일 뒤에서 블록·집중 축에 붙이는 guide_asset 슬롯의 backbone_3d 후보가 된다.
+pipeline/coach.py 가 가드레일 뒤에서 블록·집중 축에 붙이는 guide_asset 슬롯의 backbone_3d 후보가 된다.
 
 설계:
   • 룰이 소유 : 어떤 렌더가 어느 축(sub_problem)에 쓸모 있는지(클립 키워드 + 뷰 각도 휴리스틱).
@@ -240,7 +240,7 @@ def _load_ai_index():
 def build_asset_index(sub_problems, limit_per_axis=8):
     """요청된 축들의 guide_asset 후보 색인 = backbone_3d(self_render, DB) + svg 도식(reference, 파일) 병합.
 
-    ml/guide.py 가 run_guide(..., asset_index=...) 로 받아 블록·집중 축에 자료를 붙인다. 선택은 assets.AXIS_PREF:
+    pipeline/coach.py 가 run_guide(..., asset_index=...) 로 받아 블록·집중 축에 자료를 붙인다. 선택은 assets.AXIS_PREF:
       - 단축·무게·관절·비율·동세 : backbone_3d 우선 → 없으면 reference svg → 없으면 인라인 도식 바닥.
       - 명암·구도·빛·색·손        : reference svg 우선(backbone 없음) → 없으면 인라인 도식 바닥.
     어느 후보도 없으면 assets 가 floor:<축> 인라인 SVG로 폴백(슬롯은 절대 안 빔).

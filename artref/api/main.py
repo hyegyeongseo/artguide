@@ -13,7 +13,7 @@ from ml.normalize import normalize
 from ml.scene import analyze
 from ml.pose import extract
 from ml.llm import get_llm
-from ml.guide import run_guide
+from pipeline.coach import run_guide
 from pipeline.router import resolve, detect_intent
 from pipeline.diagnose import diagnose, taxonomy
 from pipeline.roadmap import get_roadmap, record_practice, growth_context, _why

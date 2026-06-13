@@ -1,0 +1,20 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="depth_planes">
+  <style>
+    .guide { fill:none; stroke:#c7ccd4; stroke-width:2.5; }
+    .gfill { fill:#c7ccd4; opacity:.18; stroke:none; }
+    .cons  { fill:none; stroke:#e0533d; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .consd { fill:none; stroke:#e0533d; stroke-width:2; stroke-dasharray:6 5; }
+    .acc   { fill:none; stroke:#2f6df0;  stroke-width:2.5; stroke-linecap:round; }
+    .accd  { fill:none; stroke:#2f6df0;  stroke-width:2; stroke-dasharray:6 5; }
+    .dot   { fill:#e0533d; stroke:none; }
+    .adot  { fill:#2f6df0; stroke:none; }
+    .lbl   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:14px; }
+    .cap   { fill:#3a3f47; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; font-size:13px; opacity:.8; }
+    .tag   { fill:#e0533d; font-family:sans-serif; font-size:12px; font-weight:600; }
+  </style>
+  <g id="guide"><path d="M120 200 L200 130 L270 185 L340 120 L430 200 V230 H120 Z" fill="#a1a6ae"/><path d="M40 280 Q170 220 320 270 T470 268 V330 H40 Z" fill="#70757f"/></g>
+  <g id="construction"><path d="M60 440 Q90 300 150 300 Q210 300 230 440 Z" fill="#3f444c"/><rect x="300" y="330" width="120" height="110" rx="8" fill="#3f444c"/></g>
+  <g id="label"><text class="lbl" x="320" y="150" fill="#3a3f47">원경 (작고 옅게)</text><text class="lbl" x="60" y="300" fill="#3a3f47">중경</text><text class="lbl" x="70" y="420" fill="#f0f0f0">전경 (크고 진하게)</text>
+    <text class="cap" x="20" y="462">전경·중경·원경 — 겹침 + 크기 + 명도차가 함께 깊이를 만든다.</text>
+  </g>
+</svg>
