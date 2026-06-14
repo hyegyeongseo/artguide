@@ -33,6 +33,7 @@ class NextSteps(BaseModel):
     next_goal_practice: Optional[str] = None
     recurring: list[str] = []               # 자주 막히는 부분
     why: Optional[str] = None               # 왜 지금 이걸/다음 저걸(구조 먼저 원칙)
+    note: Optional[str] = None              # 이력 반영한 자연스러운 한 줄(LLM 배열; 없으면 구조 필드로 폴백)
     focus_asset: Optional["GuideAsset"] = None   # 지금 집중 축의 설명 자료(코드가 결정적으로 채움)
 
 class GuideResponse(BaseModel):
@@ -45,3 +46,4 @@ class GuideResponse(BaseModel):
     one_thing: Optional[str] = None
     message: Optional[str] = None
     next_steps: Optional[NextSteps] = None   # 코드가 채움(완성작/이력 있을 때) — 가드레일 뒤 결정적 설정
+    next_steps_note: Optional[str] = None    # LLM이 *배열*한 '앞으로 할 것' 자연 문장(가드레일 검증) — 코드가 next_steps.note 로 옮김
