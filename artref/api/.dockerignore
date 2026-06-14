@@ -1,0 +1,6 @@
+# 컨텍스트=artref/api 일 때 적용. 캐시·비밀·예제env 가 이미지에 구워지지 않게.
+**/__pycache__/
+*.py[cod]
+.env
+.env.*
+*.bak
