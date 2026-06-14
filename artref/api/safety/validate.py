@@ -25,7 +25,7 @@ def validate_guide(raw_json, diagnosis, retrieved_ids, taxonomy_ids):
         if diagnosis["degraded"]:
             b.confidence = min(b.confidence, 0.4)
     text = " ".join([b.observation + b.effect + b.direction for b in g.blocks]
-                    + [g.synthesis or "", g.one_thing or ""])
+                    + [g.synthesis or "", g.one_thing or "", g.next_steps_note or ""])
     if FORBIDDEN.search(text):                             # 3) 정책 표현
         raise Policy("forbidden phrasing")
     return g
