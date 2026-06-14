@@ -13,10 +13,27 @@ pose.py 와 같은 degraded-폴백 패턴: 모델/런타임이 없거나 손 미
 """
 import os
 import math
+import tempfile
+import urllib.request
 
-_HAND_TASK = os.environ.get("HAND_TASK", "/models/hand_landmarker.task")
+_HAND_URL = ("https://storage.googleapis.com/mediapipe-models/hand_landmarker/"
+             "hand_landmarker/float16/latest/hand_landmarker.task")
+# pose.py 와 동일 패턴: 모델(.task)을 첫 사용 시 자동 다운로드(약 7MB). HAND_TASK 로 경로 override 가능.
+_HAND_TASK = os.environ.get("HAND_TASK", os.path.join(tempfile.gettempdir(), "hand_landmarker.task"))
 _landmarker = None
 _AVAILABLE = None
+
+
+def _ensure_model():
+    """모델 파일 확보. 없으면 다운로드(pose 와 같은 호스트). 실패하면 False → degraded."""
+    if os.path.exists(_HAND_TASK) and os.path.getsize(_HAND_TASK) > 0:
+        return True
+    try:
+        urllib.request.urlretrieve(_HAND_URL, _HAND_TASK)
+        return os.path.getsize(_HAND_TASK) > 0
+    except Exception as e:
+        print(f"[hands] 모델 다운로드 실패(degraded): {type(e).__name__}: {e}")
+        return False
 
 
 def _ensure():
@@ -28,8 +45,7 @@ def _ensure():
         import mediapipe as mp
         from mediapipe.tasks import python as mp_python
         from mediapipe.tasks.python import vision
-        if not os.path.exists(_HAND_TASK):
-            print(f"[hands] 모델 없음(degraded): {_HAND_TASK}")
+        if not _ensure_model():
             _AVAILABLE = False
             return False
         opts = vision.HandLandmarkerOptions(
