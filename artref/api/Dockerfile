@@ -1,6 +1,5 @@
 # 멀티아치 빌드 가능. python:3.11-slim 은 linux/amd64·linux/arm64 둘 다 제공.
-# 빌드 컨텍스트는 artref/ (compose: build.context=., dockerfile=api/Dockerfile).
-#   api/ 코드 + assets/(reference·construction)를 한 이미지에 굽는다. 대용량은 .dockerignore 로 제외.
+# 빌드 컨텍스트는 ./api (docker-compose 의 build: ./api) → 이 Dockerfile 은 api/ 안에 둔다.
 FROM python:3.11-slim
 WORKDIR /app
 
@@ -11,7 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # requirements 먼저 복사 → 소스만 바뀌면 무거운 pip 레이어 캐시 재사용.
-COPY api/requirements.txt .
+COPY requirements.txt .
 # CPU torch 를 '먼저' 설치 → 아래 -r 설치가 torch 를 이미 충족된 것으로 보고 CUDA(nvidia-*) 휠을 안 끌어옴.
 #   GPU 없는 환경(로컬·ECS Graviton arm64)에서 CUDA 스택은 죽은 무게 → 이미지 ~6GB→~2GB대, 빌드도 단축.
 #   ==2.12.0 은 CPU 채널의 2.12.0+cpu 휠과 매칭되어, requirements.txt 의 torch==2.12.0 도 그대로 충족(재설치 안 함).
@@ -21,12 +20,7 @@ RUN pip install --no-cache-dir torch==2.12.0 torchvision==0.27.0 \
 # arm64 에서 mediapipe(0.10.18+jax) 다운로드가 길 수 있어 타임아웃 여유.
 RUN pip install --no-cache-dir --timeout 120 -r requirements.txt
 
-COPY api/ .
-
-# reference SVG·manifest 를 이미지에 굽는다 → 마운트 없는 배포(ECS)에서도 /guide-asset/reference 가 동작.
-#   /assets/reference 는 asset_index 3순위 후보(/app/pipeline/../../assets/reference)와 일치.
-#   로컬 compose 는 /repo 마운트(2순위)를 우선 쓰므로 SVG 라이브 편집도 그대로.
-COPY assets/ /assets/
+COPY . .
 
 # 컨테이너 헬스체크 — /healthz 는 인증 면제 경로. 배포/오케스트레이터가 기동 판정에 사용.
 HEALTHCHECK --interval=15s --timeout=5s --start-period=40s --retries=5 \

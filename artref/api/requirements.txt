@@ -27,6 +27,9 @@ pyyaml==6.0.3
 # (이전엔 `numpy<2` 범위만 → 빌드마다 1.x 안에서 달라질 수 있었음. 이제 정확히 고정.)
 numpy==1.26.4
 requests==2.34.2
+# Vertex 백엔드(VLM_BACKEND=vertex)에서만 필요 — ADC 액세스 토큰 발급. aistudio 만 쓰면 없어도 됨.
+# 정확한 핀은 빌드 후 pip freeze 로(2.x 호환, numpy/torch 와 무관한 경량 의존).
+google-auth>=2.0,<3
 redis==8.0.0
 python-multipart==0.0.32
 
