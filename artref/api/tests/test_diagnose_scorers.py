@@ -44,11 +44,16 @@ def t_color_scorer_quiet_on_muted():
 
 
 def t_light_direction_scorer():
-    # 평탄(거의 0 ramp) → 발화 / 방향성 그라데이션(ramp 큼) → 비발화
+    # 스코어러 자체: 평탄(거의 0 ramp) → 발화 / 방향성(ramp 큼) → 비발화
     assert D.s_light_direction({"light_ramp": 0.005}) is not None
     assert D.s_light_direction({"light_ramp": 0.05}) is None
-    grad = _grad()
-    sig = D.light_signals(grad, {"status": "skipped"})
+    # 형체 미검출(pose 'ok' 아님): 배경 ramp 오판 방지 위해 광원 방향 미측정 → 빈 dict, scorer 침묵
+    assert D.light_signals(_grad(), {"status": "skipped"}) == {}
+    assert D.s_light_direction({}) is None
+    # 형체가 있으면(전신 bbox) 방향성 그라데이션의 ramp 가 커서 '평면적' 으로 안 잡힌다
+    kp = [(0.2, 0.1, 1.0), (0.8, 0.1, 1.0), (0.2, 0.9, 1.0),
+          (0.8, 0.9, 1.0), (0.5, 0.5, 1.0), (0.5, 0.3, 1.0), (0.5, 0.7, 1.0)]
+    sig = D.light_signals(_grad(), {"status": "ok", "keypoints": kp})
     assert sig["light_ramp"] > 0.015, ("방향성 광원은 '평면적' 으로 안 잡혀야", sig)
     assert D.s_light_direction(sig) is None
 
