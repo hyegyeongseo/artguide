@@ -15,7 +15,7 @@ from ml.pose import extract
 from ml.llm import get_llm
 from pipeline.coach import run_guide
 from pipeline.router import resolve, detect_intent
-from pipeline.diagnose import diagnose, taxonomy
+from pipeline.diagnose import diagnose, taxonomy, instrument_version
 from pipeline.roadmap import get_roadmap, record_practice, growth_context, _why
 from pipeline.growth_stage import apply_cold_start
 from pipeline.profiles import resolve_profile
@@ -112,8 +112,8 @@ def _pipeline(file_bytes, message, user_id="anon", intent="open", track=None, me
     intent = detect_intent(message, explicit=intent)
     # track 프로파일: 명시 track 우선, 없으면 scene(인물 유무)로 자동. 진단 게이팅·norm과 로드맵 커리큘럼에 동시 적용.
     profile = resolve_profile(track, scene)
-    growth = growth_context(user_id, curriculum=profile["curriculum"],
-                            degraded=(pose.get("status") != "ok"))
+    growth = growth_context(user_id, track=track, curriculum=profile["curriculum"],
+                            degraded=(pose.get("status") != "ok"), llm=llm)
     dx = diagnose(scene, pose, pil, personas, user_terms, growth=growth, profile=profile)
     # 콜드스타트(첫 업로드·이력 없음): 로드맵 진입 집중 축을 '그림에서 측정된 약점'으로 교정한다.
     #   업로드 = 진단 + 성장 경로 설정 트리거(멘토링). 이력이 쌓이면 apply_cold_start 는 아무것도 안 바꾼다.
@@ -180,6 +180,22 @@ def _log_impressions(guide_id, refs_by_sp, tax):
         print(f"[guide] 노출 로깅 실패(무시): {type(e).__name__}: {e}")
 
 
+def _log_observable(user_id, measurable, guide_id):
+    """이번 업로드에서 *측정 가능*했던 축(주제 등장)을 'observable'로 누적 — flagged('seen')과 분리 기록.
+    roadmap 이 '부재(안 그림) → steady'를 '개선(그렸는데 덜 걸림)'과 구분하게 하는 관측층 신호.
+    실패해도 /guide 는 정상 응답."""
+    rows = [dict(u=user_id or "anon", sp=sp, g=guide_id, iv=instrument_version())
+            for sp in (measurable or ())]
+    if not rows:
+        return
+    try:
+        with engine.begin() as cx:
+            cx.execute(text("INSERT INTO practice_log (user_id, sub_problem, action, guide_id, instrument_version) "
+                            "VALUES (:u, :sp, 'observable', :g, :iv)"), rows)
+    except Exception as e:
+        print(f"[guide] observable 로깅 실패(무시): {type(e).__name__}: {e}")
+
+
 @app.post("/guide")
 async def guide_ep(file: UploadFile, message: str = Form(""),
                    user_id: str = Form("anon"), intent: str = Form("open"),
@@ -208,6 +224,7 @@ async def guide_ep(file: UploadFile, message: str = Form(""),
         for b in resp.blocks:
             record_practice(user_id, b.sub_problem, "seen",
                             confidence=b.confidence, guide_id=resp.guide_id)
+        _log_observable(user_id, dx.get("measurable", ()), resp.guide_id)
     return resp.model_dump()
 
 @app.post("/guide/stream")
@@ -237,6 +254,7 @@ async def guide_stream_ep(file: UploadFile, message: str = Form(""),
         for b in resp.blocks:
             record_practice(user_id, b.sub_problem, "seen",
                             confidence=b.confidence, guide_id=resp.guide_id)
+        _log_observable(user_id, dx.get("measurable", ()), resp.guide_id)
 
     def gen():
         payload = resp.model_dump()

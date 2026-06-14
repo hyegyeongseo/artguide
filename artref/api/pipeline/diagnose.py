@@ -1,6 +1,6 @@
 import os, yaml, numpy as np
 from functools import lru_cache
-from pipeline.profiles import POSE_DEPENDENT
+from pipeline.profiles import POSE_DEPENDENT, ALL_AXES
 
 # 파일 위치 기준 → repo 루트/CWD 어디서 실행해도 동작(eval 포함). 환경변수로 override 가능.
 TAXONOMY_PATH = os.environ.get(
@@ -52,12 +52,33 @@ def pose_signals(kp):
       "knee_angle_min": min(_angle(kp, L_HIP, L_KN, L_AN), _angle(kp, R_HIP, R_KN, R_AN)),
     }
 
+def _subject_value_range(g):
+    """배경(종이)을 빼고 '그림 자국'의 명도 폭(강건). figure 마스크 없이(degraded)도 동작하되,
+    *밝은 배경(종이) 위에서만* 신뢰한다 — 어두운 배경이면 피사체 그림자가 배경과 같은 밝기라
+    배경을 빼면 그림자까지 날아가 폭을 과소측정한다(그 경우 None → 값 주장 보류).
+      예) 흰 종이+평평한 스케치: 종이보다 어두운 자국만 남겨 폭 측정 → 평면성 잡음.
+          어두운 배경+저키 인물: 마스크 없이는 인물 그림자=배경 → 측정 불가(None)."""
+    h, _ = np.histogram(g.ravel(), bins=32, range=(0.0, 1.0))
+    mode = int(h.argmax())
+    if h[mode] / g.size < 0.30:                   # 지배적 배경 없음(피사체가 꽉 참) → 마스크 없이 신뢰 불가
+        return None
+    c = (mode + 0.5) / 32.0                        # 배경 밝기 중심
+    if c < 0.60:                                   # 어두운 배경: 그림자=배경 → 측정 보류
+        return None
+    fg = g[g < c - 0.06]                           # 종이(밝은 배경)보다 어두운 부분 = 그림 자국(그림자 포함)
+    if fg.size < 50:
+        return None
+    p5, p95 = np.percentile(fg, [5, 95])           # 강건한 명도 폭(이상치 면역)
+    return float(p95 - p5)
+
+
 def image_signals(pil):
     g = np.asarray(pil.convert("L"), float) / 255
     ys, xs = np.mgrid[0:g.shape[0], 0:g.shape[1]]
     w = g.sum() + 1e-9
     cx, cy = (xs * g).sum() / w / g.shape[1], (ys * g).sum() / w / g.shape[0]
     return {"value_std": float(g.std()),
+            "value_range_robust": _subject_value_range(g),  # 배경-강건(degraded 폴백용)
             "focus_centeredness": float(1 - 2 * max(abs(cx - 0.5), abs(cy - 0.5)))}
 
 
@@ -86,10 +107,13 @@ def light_signals(pil, pose):
     if float(g.std()) < 1e-3:
         return {}
     mask = _figure_bbox(pose, g.shape) if pose.get("status") == "ok" else None
-    if mask is not None:
-        ys, xs = np.where(mask)
-        if ys.size and xs.size:
-            g = g[ys.min():ys.max() + 1, xs.min():xs.max() + 1]
+    if mask is None:
+        # 형체 미검출(흉상/얼굴): 피사체를 못 가려내면 배경이 ramp 를 왜곡 → '평면 조명'을 잘못 단정하느니
+        #   광원 방향은 측정하지 않는다(없는 신호 = scorer 미발화). 명도 폭은 value_range_robust 가 따로 잡는다.
+        return {}
+    ys, xs = np.where(mask)
+    if ys.size and xs.size:
+        g = g[ys.min():ys.max() + 1, xs.min():xs.max() + 1]
     if g.shape[0] < 4 or g.shape[1] < 4:
         return {}
     from PIL import Image as _Img
@@ -142,6 +166,41 @@ def hand_signals(pil):
         print(f"[diagnose] 손 신호 실패(무시): {type(e).__name__}: {e}")
     return {}
 
+
+def _vlm_hand_signal(pil):
+    """Gemini VLM 손 *관찰*을 (conf, 관찰문장)으로. 검출(MediaPipe)이 그림에 장님이라 그 대체 지각.
+
+    중요: 이건 측정이 아니라 *관찰(가설)*이다. 그래서 SCORERS(→measured_ids) 경로가 아니라
+    placeholder 블록에서 주입돼 measured=False 로 surface된다(측정=사실 원칙 보호).
+    게이트(HAND_VLM)·키·일관성(2회) 판단은 ml.vision.observe_hand 내부에서. 꺼졌으면 None → 기존 빈 관찰로 폴백.
+    """
+    try:
+        from ml.vision import observe_hand
+        o = observe_hand(pil)
+    except Exception as e:
+        print(f"[diagnose] VLM 손 관찰 실패(무시): {type(e).__name__}: {e}")
+        return None
+    if not o or o.get("confidence") != "관찰":   # 2회 불일치(낮음)면 구체관찰 보류
+        return None
+    parts = []
+    if o.get("view") and o["view"] != "불확실":
+        parts.append(f"{o['view']}이 보임")
+    if o.get("plane_facing"):
+        parts.append(f"손 평면은 {o['plane_facing']} 방향")
+    fs = o.get("foreshortening") or []
+    if fs:
+        parts.append(f"{'·'.join(fs)}가 보는 쪽으로 단축돼 보임")
+    st = o.get("structure")
+    if st == "입체":
+        parts.append("덩어리(상자+원통)로 읽힘")
+    elif st == "평면":
+        parts.append("외곽선 위주로 읽힘")
+    elif st == "혼합":
+        parts.append("덩어리·외곽선 혼합으로 읽힘")
+    sig = ", ".join(parts)
+    return (0.4, sig) if sig else None
+
+
 VIS_KP = 0.3  # 개별 키포인트 가시성 하한(bbox 계산용; 파일 평균 VIS와 별개)
 
 def _figure_bbox(pose, shape):
@@ -165,22 +224,56 @@ def _figure_bbox(pose, shape):
     mask[int(y0 * H):int(y1 * H), int(x0 * W):int(x1 * W)] = True
     return mask
 
-def region_signals(pil, pose):
-    """Tier-2: 인물 영역 vs 배경의 국소 명도 분석. 포즈 없으면/모호하면 빈 dict(전역으로 폴백).
-    - figure_value_range: 인물 '안'의 명도 폭(어두운 배경에 속지 않아 전역 value_std보다 정확).
-    - figure_bg_contrast: 인물과 배경의 평균 명도차(작으면 실루엣이 배경과 섞임)."""
-    if pose.get("status") != "ok":
-        return {}
-    g = np.asarray(pil.convert("L"), float) / 255
-    mask = _figure_bbox(pose, g.shape)
+# ── 계측기 버전(성장 비교 연속성) ────────────────────────────────────────────────────────
+# SUBJECT_MASK 처럼 '측정 가능 영역'을 바꾸는 변경은 정확도 개선이 아니라 *계측 장치 변경*이다.
+# 그러면 학생의 "명도 폭이 늘었다"가 실력 변화인지 계측 변화인지 섞인다. practice_log 행에 이 버전을
+# 박아, 성장 비교가 변경 경계를 넘지 않게 한다(읽는 쪽은 추후 버전 경계에서 비교를 끊으면 됨).
+INSTRUMENT_VERSION = "dx-2026.06"
+
+
+def _subject_mask_on():
+    return os.environ.get("SUBJECT_MASK", "0").lower() in ("1", "true", "yes")
+
+
+def instrument_version():
+    """현재 측정 장치 식별 문자열. 마스크가 켜졌으면 접미사로 표시."""
+    return INSTRUMENT_VERSION + ("+mask" if _subject_mask_on() else "")
+
+
+def _figure_value_signals(g, mask, with_bg=True):
+    """figure 마스크(pose bbox 또는 subject_mask)로 인물 명도 신호. 계산식은 한 곳에만 둔다.
+    with_bg=False: figure_bg_contrast 제외. subject_mask 의 편차기반 폴백은 mode 양쪽 픽셀을
+    대칭으로 골라 figure.mean≈배경mean → bg_contrast≈0 이 *구조적으로* 나와 '실루엣 섞임'을
+    오발화한다(깨끗한 흉상 8/8 확인). 게다가 하니스가 검증한 건 value_range 뿐이라, 마스크 경로는
+    검증된 신호만 낸다. tight 마스크(rembg) + bg_contrast eval 이 생기면 그때 켠다."""
     if mask is None:
         return {}
     fig, bg = g[mask], g[~mask]
     if fig.size < 50 or bg.size < 50:
         return {}
     lo, hi = np.percentile(fig, [10, 90])
-    return {"figure_value_range": float(hi - lo),
-            "figure_bg_contrast": float(abs(fig.mean() - bg.mean()))}
+    out = {"figure_value_range": float(hi - lo)}
+    if with_bg:
+        out["figure_bg_contrast"] = float(abs(fig.mean() - bg.mean()))
+    return out
+
+
+def region_signals(pil, pose):
+    """Tier-2: 인물 영역 vs 배경의 국소 명도 분석.
+    - 포즈 ok → pose 키포인트 bbox(기존 동작, 불변; value_range + bg_contrast).
+    - 포즈 실패(흉상/얼굴) + SUBJECT_MASK=1 → subject_mask 폴백(value_range *만* — bg_contrast 는
+      편차마스크에서 구조적 오발화라 제외). eval_harness 검증: 흉상 coverage 8/32→32/32, recall 0.17→0.42.
+    - 둘 다 없으면 {} — 값 주장 보류(degraded 정직성 유지)."""
+    g = np.asarray(pil.convert("L"), float) / 255
+    if pose.get("status") == "ok":
+        return _figure_value_signals(g, _figure_bbox(pose, g.shape))
+    if _subject_mask_on():
+        try:
+            from pipeline.mask import subject_mask
+            return _figure_value_signals(g, subject_mask(pil), with_bg=False)
+        except Exception as e:                       # 마스크 실패해도 진단은 degraded 로 정상 진행
+            print(f"[diagnose] subject_mask 폴백 실패(무시): {type(e).__name__}: {e}")
+    return {}
 
 # ── 진단 스코어러 임계값(중앙 집중 — eval/튜닝으로 재조정 가능) ─────────────────────────────
 # 기본값은 기존 동작과 *정확히 동일*. scripts/tune_thresholds.py 가 이 dict 를 override 해 sweep 한다.
@@ -192,7 +285,8 @@ _DEFAULT_THRESHOLDS = {
     "action_line.torso_lean": 0.03,               # < 이면 발화(거의 직립)
     "joint_articulation.angle_max": 177.0,        # > 이면 발화(과신전)
     "value_structure.figure_value_range": 0.35,   # < 이면 발화(국소 명도폭)
-    "value_structure.value_std": 0.16,            # < 이면 발화(전역 폴백)
+    "value_structure.subject_value_range": 0.35,   # < 이면 발화(degraded 폴백, 배경 제거 후 명도폭)
+    "value_structure.value_std": 0.16,            # < 이면 발화(전역 최후 폴백)
     "value_structure.figure_bg_contrast": 0.08,   # < 이면 발화(실루엣-배경 섞임)
     "composition_balance.focus_centeredness": 0.9,  # > 이면 발화(정중앙)
     "color_harmony.sat_mean": 0.6,                # AND
@@ -260,11 +354,13 @@ def s_value_structure(s):
         if fr < t:
             conf = max(conf, min(0.55, 0.3 + 0.4 * (t - fr)))
             parts.append(f"인물 영역의 밝은 곳과 어두운 곳 차이가 좁음(명도 폭 ≈ {fr:.2f})")
-    else:                                    # 포즈 없을 때만 전역으로
-        v = s.get("value_std")
-        if v is not None and v < _T("value_structure.value_std"):
-            conf = max(conf, 0.4)
-            parts.append(f"화면 전체 명도 표준편차 ≈ {v:.2f} (대비 좁음)")
+    else:                                    # 포즈 없을 때(degraded): 종이(밝은 배경) 위에서만 신뢰하는 강건 폭
+        rr = s.get("value_range_robust")
+        if rr is not None and rr < _T("value_structure.subject_value_range"):
+            t = _T("value_structure.subject_value_range")
+            conf = max(conf, min(0.5, 0.3 + 0.4 * (t - rr)))
+            parts.append(f"배경(종이)을 뺀 그림의 밝은 곳·어두운 곳 차이가 좁음(명도 폭 ≈ {rr:.2f})")
+        # rr 이 None(어두운 배경/마스크 불가)이면 값 주장 안 함 — 전역 std 폴백 제거(배경에 속으므로 신뢰 불가)
     bg = s.get("figure_bg_contrast"); tb = _T("value_structure.figure_bg_contrast")
     if bg is not None and bg < tb:           # 인물-배경 명도차 작음 → 실루엣이 배경과 섞임(보수적 임계)
         conf = max(conf, min(0.5, 0.3 + 0.5 * (tb - bg)))
@@ -339,14 +435,26 @@ def diagnose(scene, pose, pil, personas, user_terms=(), growth=None, profile=Non
     measured_ids = set(hits)                 # 자동 측정으로 잡힌 것 = 근거 있음
     for sid, e in tax.items():
         if sid in hits: continue
+        # 흉상/얼굴(degraded=형체 미검출): 포즈 의존 축은 측정 불가 → persona 만으로 빈 관찰을 채우지 않는다.
+        #   포즈축 빈 관찰이 새면 "무게중심/단축" 같은 걸 측정한 척 흘려 신뢰를 깎는다. feel 축(명도·구도·빛)만
+        #   남겨 정직한 진단으로. 단 사용자가 칩으로 직접 고른 경우(user_terms)는 가설형으로 surface(의도 존중).
+        if degraded and sid in POSE_DEPENDENT and sid not in user_terms:
+            continue
         if any(p in personas for p in e["personas"]) or sid in user_terms:
             # 측정 근거 없음 → signal 비움(내부 라벨이 사용자 문구로 새지 않게). 프롬프트가 measured=False를 보고
             # 결핍을 단정하지 않고 '함께 어디를 볼지'로만, 가설형으로 안내한다.
-            hits[sid] = (0.25 if e.get("auto") else 0.15, "")
+            if sid == "hand_structure":
+                # 손은 검출이 그림에 장님 → VLM 관찰을 여기서 주입(measured_ids 밖이라 measured=False=관찰).
+                vh = _vlm_hand_signal(pil)       # HAND_VLM off/키없음/2회불일치면 None → 빈 관찰 폴백
+                hits[sid] = vh if vh else (0.25 if e.get("auto") else 0.15, "")
+            else:
+                hits[sid] = (0.25 if e.get("auto") else 0.15, "")
 
     # track 게이팅: 이 track에서 다루지 않는 항목은 제외(풍경에 포즈 항목이 새어 나오지 않게).
+    # 단 사용자가 *직접 물은* 축(user_terms)은 자동 노이즈가 아니라 의도이므로 track 추측을 덮어쓰고 통과.
+    # (예: 손 클로즈업이 '인물 없음'→landscape track으로 잡혀도, "손 봐주세요"면 hand_structure 유지)
     if eligible:
-        hits = {sid: v for sid, v in hits.items() if sid in eligible}
+        hits = {sid: v for sid, v in hits.items() if sid in eligible or sid in user_terms}
 
     ranked = sorted(hits.items(), key=lambda kv: -kv[1][0])
     # 이력 연속성 보정: steady는 뒤로, 재발/현재집중은 앞으로 — 정렬 키에만(표시 confidence 불변).
@@ -382,5 +490,9 @@ def diagnose(scene, pose, pil, personas, user_terms=(), growth=None, profile=Non
                     "what_to_observe": e["what_to_observe"],
                     "reference_query": e["reference_query"],
                     "practice_prompt": e["practice_prompt"]})
+    # measurable: 이번 그림에서 '측정 가능'했던 축(주제 등장). flagged 여부와 무관 — '부재(안 그림)'와
+    #   '개선(그렸는데 덜 걸림)'을 roadmap 이 구분하게 하는 관측층 신호. eligible(track) − (degraded면 포즈축).
+    measurable = sorted((eligible or set(ALL_AXES)) - (POSE_DEPENDENT if degraded else set()))
     return {"primary_focus": obs[0]["sub_problem"] if obs else None,
-            "observations": obs, "degraded": degraded, "persona": personas}
+            "observations": obs, "degraded": degraded, "persona": personas,
+            "measurable": measurable, "instrument_version": instrument_version()}
