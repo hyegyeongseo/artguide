@@ -36,6 +36,9 @@ artref/render_out/*
 artref/datasets/
 artref/gen_out/
 artref/gen_test/
+artref/samples/
+artref/secrets/
+artref/assets/reference/manifest.json.bak
 
 # --- 런타임 생성 산출물 ---
 render_queue.json
