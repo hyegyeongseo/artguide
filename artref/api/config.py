@@ -5,6 +5,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
     db_dsn: str
     qdrant_url: str = ""          # 개발(qdrant) 백엔드에서만 필요. pinecone 운영이면 비워도 됨.
+    qdrant_api_key: str = ""      # QDRANT_API_KEY — Qdrant Cloud 인증용. 로컬(키 불필요)이면 비움.
     s3_endpoint: str
     s3_key: str
     s3_secret: str
