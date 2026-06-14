@@ -30,7 +30,8 @@ def _qc():
     global _client
     if _client is None:
         from qdrant_client import QdrantClient
-        _client = QdrantClient(url=settings.qdrant_url)
+        # api_key 는 Qdrant Cloud 에서만 필요. 비어 있으면 None → 로컬 qdrant(인증 없음) 그대로.
+        _client = QdrantClient(url=settings.qdrant_url, api_key=settings.qdrant_api_key or None)
     return _client
 
 

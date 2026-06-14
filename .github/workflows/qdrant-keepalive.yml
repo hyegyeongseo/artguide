@@ -1,0 +1,30 @@
+name: Qdrant keep-alive
+
+# Qdrant Cloud 무료 티어는 1주 미사용 시 휴면, 4주 후 삭제된다.
+#   → 주기적으로 가볍게 핑(컬렉션 목록 조회)해서 dev 클러스터가 살아 있게 유지.
+#   필요 시크릿(Settings > Secrets and variables > Actions):
+#     QDRANT_URL      예) https://<클러스터ID>.<region>.cloud.qdrant.io:6333
+#     QDRANT_API_KEY  Qdrant Cloud 콘솔에서 발급한 키
+on:
+  schedule:
+    - cron: "0 6 * * 1,4"   # 매주 월·목 06:00 UTC (최대 간격 4일 < 7일 휴면)
+  workflow_dispatch: {}      # 수동 실행도 가능
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Touch Qdrant cluster
+        env:
+          QDRANT_URL: ${{ secrets.QDRANT_URL }}
+          QDRANT_API_KEY: ${{ secrets.QDRANT_API_KEY }}
+        run: |
+          if [ -z "$QDRANT_URL" ] || [ -z "$QDRANT_API_KEY" ]; then
+            echo "QDRANT_URL / QDRANT_API_KEY 시크릿이 없습니다 — 리포 Secrets 에 등록하세요." >&2
+            exit 1
+          fi
+          code=$(curl -s -o /dev/null -w "%{http_code}" \
+                   -H "api-key: $QDRANT_API_KEY" "$QDRANT_URL/collections")
+          echo "Qdrant /collections -> HTTP $code"
+          # 200 이 아니면 실패시켜 알림(휴면/삭제·키만료 등 조기 감지).
+          test "$code" = "200"
