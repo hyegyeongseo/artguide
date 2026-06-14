@@ -176,3 +176,75 @@ def order_refs(refs_by_sp, decision):
         if lst and rid:
             out[sp] = sorted(lst, key=lambda pair: pair[0] != rid)  # 선택 ref를 앞으로(안정 정렬)
     return out
+
+
+# ── Layer 3: 다음-단계 계획자(constrained decision agent) ───────────────────────
+# '앞으로 할 것'의 *축 선택*을 룰 → 에이전트로 옮긴다. 단 불변식은 decide 와 동일:
+#   룰이 후보(아직 자리잡지 않은 축들)와 상태(성장 판정)를 소유 → 에이전트는 후보 *안에서만* 고른다.
+#   새 축 생성·상태 재해석·성장 재정의 금지. AGENT_PLAN 환경변수로 옵트인(기본 OFF=결정적, 비용 0).
+PLAN_REASONS = {"recent_recurring", "curriculum_order", "consolidate_before_advance",
+                "revisit_regressed", "next_in_sequence"}
+PLAN_LEN = 3  # 경로 길이 상한(즉시 집중 + 그 다음 1~2단계)
+
+
+def _plan_deterministic(state, candidates):
+    """결정적 폴백: 후보는 이미 룰 우선순위(재발빈도↓→커리큘럼순) 정렬 → 앞에서부터 경로로."""
+    plan = candidates[:PLAN_LEN]
+    reason = "recent_recurring" if plan[0] in set(state.get("recurring", [])) else "curriculum_order"
+    return plan, reason
+
+
+def _plan_llm(state, candidates, llm):
+    """LLM이 후보들로 '다음 단계 경로'를 짠다(순서 = 행동공간; 새 축 생성·상태 재판정 금지)."""
+    prompt = (
+        "너는 그림 코칭의 '다음 단계 계획자'다. 아래 후보(룰이 낸, 아직 자리잡지 않은 축들)만으로 *경로*를 짠다.\n"
+        "할 수 있는 것: 후보의 *순서를 정하기* — 필요하면 토대가 되는 축을 앞에 둬 디테일 전에 다지게 재배치.\n"
+        "금지: 후보 밖 축 생성·새 연습 발명·성장/완성도 재판정(상태는 룰이 이미 계산). 후보 id만 사용.\n"
+        "참고 신호: recurring(최근 자주 막힘)·trend(추세)·improved(최근 나아진 축)·stage(단계).\n"
+        f"상태(JSON): {json.dumps(state, ensure_ascii=False)}\n"
+        f"후보(룰 우선순위순): {json.dumps(candidates, ensure_ascii=False)}\n"
+        "아래 STRICT JSON만 출력(설명 금지):\n"
+        '{"plan": [id,...(후보 중에서, 최대 ' + str(PLAN_LEN) + '개, 순서가 곧 계획)], "reason_code": '
+        '"recent_recurring|curriculum_order|consolidate_before_advance|revisit_regressed|next_in_sequence"}\n'
+        "plan[0]=이번에 집중할 축. 토대를 앞에 둘 때 사유는 consolidate_before_advance/revisit_regressed."
+    )
+    return json.loads(_strip(llm.complete_json(prompt)))
+
+
+def _plan_validate(decision, candidates):
+    """grounding 강제: 경로는 후보의 *순서있는 부분집합*(중복 제거)만. 비면 None(→폴백)."""
+    cand = list(candidates)
+    seen, plan = set(), []
+    for x in (decision.get("plan") or []):
+        if x in cand and x not in seen:
+            plan.append(x)
+            seen.add(x)
+        if len(plan) >= PLAN_LEN:
+            break
+    if not plan:
+        return None
+    reason = decision.get("reason_code")
+    if reason not in PLAN_REASONS:
+        reason = "curriculum_order"
+    return plan, reason
+
+
+def plan_next(state, candidates, llm=None):
+    """다음 단계 *경로*(후보의 순서있는 부분집합)를 만든다(Layer 3). 항상 grounded.
+
+    행동공간 = 후보의 *선택 + 순서*(토대→디테일 재배치 포함). 새 축 생성·상태 재해석 금지.
+    AGENT_PLAN 으로 옵트인(기본 OFF=결정적). LLM 결과는 검증 후, 실패/꺼짐이면 결정적 폴백.
+    반환: (plan, reason_code). plan[0]=즉시 집중. 후보 없으면 ([], 'no_candidates').
+    """
+    if not candidates:
+        return [], "no_candidates"
+    base = _plan_deterministic(state, candidates)
+    use_llm = llm is not None and os.environ.get("AGENT_PLAN", "0").lower() in ("1", "true", "yes")
+    if use_llm:
+        try:
+            v = _plan_validate(_plan_llm(state, candidates, llm), candidates)
+            if v:
+                return v
+        except Exception as e:
+            print(f"[agent] plan_next LLM 실패(결정적 폴백): {type(e).__name__}: {e}")
+    return base
