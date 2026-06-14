@@ -26,7 +26,8 @@ def run_guide(diagnosis, refs_by_sp, retrieved_ids, taxonomy, llm,
               growth=None, intent="open", asset_index=None):
     if diagnosis.get("primary_focus") is None:
         return GuideResponse(mode="clarify", message="무엇을 봐주면 좋을지 알려주세요.")
-    prompt = build_coach_prompt(diagnosis, refs_by_sp, intent=intent)
+    ns = _next_steps(growth, taxonomy)   # 결정적(무엇을 할지) — 먼저 계산해 프롬프트에 '사실'로 넣는다
+    prompt = build_coach_prompt(diagnosis, refs_by_sp, intent=intent, growth=growth, next_steps=ns)
     g = coach_with_guardrails(prompt, diagnosis, refs_by_sp,
                               retrieved_ids, taxonomy, llm)
     # next_steps · guide_asset 는 가드레일 '뒤'에서 코드가 결정적으로 채운다(LLM이 못 지어내게; _set_refs와 같은 패턴).
@@ -37,7 +38,10 @@ def run_guide(diagnosis, refs_by_sp, retrieved_ids, taxonomy, llm,
         for b in g.blocks:
             b.guide_asset = GuideAsset(**assets.pick(
                 b.sub_problem, loaded=idx.get(b.sub_problem), degraded=degraded))
-        g.next_steps = _next_steps(growth, taxonomy)
+        # LLM 이 *배열*한 자연 문장이 가드레일을 통과했으면 note 로 옮긴다(없으면 구조 필드로 폴백).
+        if ns and g.next_steps_note:
+            ns.note = g.next_steps_note
+        g.next_steps = ns
         # '앞으로 키울 것'의 집중 축에도 같은 자료 슬롯을 결정적으로 붙인다(완성작/연속성 패널의 설명).
         if g.next_steps and g.next_steps.focus:
             g.next_steps.focus_asset = GuideAsset(**assets.pick(
